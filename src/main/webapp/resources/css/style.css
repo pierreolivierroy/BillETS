@@ -1,0 +1,109 @@
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  border-bottom: 1px solid #e5e5e5;
+  background-image: url(../img/varekai_bg.jpg);
+}
+.white {
+  color :white !important;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.prix {
+  text-align:left;
+  font-weight: bold;
+  width:250px;
+}
+.table-panier {
+  margin-top:30px;
+}
+.table-infos tr td {
+  border-top:0 !important;
+}
+.table tbody>tr>td.vert-align
+{
+    vertical-align: middle;
+}
+.foot_buttons {
+  text-align: right;
+  margin-bottom:40px;
+}
+
+/*spacer utility*/
+.spacer-bottom {
+  margin-bottom: 15px !important;
+}
+
+/*Remove the a style on the logo*/
+#logo {
+  text-decoration: none;
+
+}
