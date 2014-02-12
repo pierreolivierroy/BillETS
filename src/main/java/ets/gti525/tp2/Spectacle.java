@@ -8,6 +8,7 @@ public class Spectacle {
 	private String nom;
 	private ArrayList<String> artistes;
 	private String description;
+	private String imagePath;
 	
 	public int getId() {
 		return id;
@@ -34,6 +35,11 @@ public class Spectacle {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+	public String getImagePath() {
+		return this.imagePath;
+	}
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
 	
 }
