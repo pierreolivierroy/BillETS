@@ -17,6 +17,7 @@ public class SpectaclesFacade {
 		liste1.add("Louis-José Houde");
 		spectacle1.setArtistes(liste1);
 		spectacle1.setDescription("Les heures verticales. Pour l’humoriste, Les heures verticales, c’est le temps où l’être humain est debout, à partir du jour où il a appris à marcher, mais aussi dans les moments où il doit se tenir droit devant ou dans l’adversité.");
+		spectacle1.setImagePath("ljh.jpg");
 		listeSpectacles.add(spectacle1);
 		
 		Spectacle spectacle2 = new Spectacle();
@@ -26,6 +27,7 @@ public class SpectaclesFacade {
 		liste2.add("Louis-José Houde");
 		spectacle2.setDescription("Les heures verticales. Pour l’humoriste, Les heures verticales, c’est le temps où l’être humain est debout, à partir du jour où il a appris à marcher, mais aussi dans les moments où il doit se tenir droit devant ou dans l’adversité.");
 		spectacle2.setArtistes(liste2);
+		spectacle1.setImagePath("ljh.jpg");
 		listeSpectacles.add(spectacle2);
 	}
 	
