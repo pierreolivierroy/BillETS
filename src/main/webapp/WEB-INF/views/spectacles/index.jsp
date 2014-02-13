@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+   
 <jsp:include page="../layout/header.jsp" />
-
+				
     			<div class="page-header">
 	      			<h2>Liste des spectacles</h2>
 					<p>Voici une liste de tous les spectacles offerts par Billets</p>
 				</div>	
 				
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Rechercher">
+						<input name="spectacle_nom" type="text" class="form-control" placeholder="Rechercher">
 					</div>
 
 
@@ -44,6 +44,7 @@
 					</div>
 	
 
+<script src="${pageContext.request.contextPath}/resources/js/spectacles.js"></script>
 
 <jsp:include page="../layout/footer.jsp" />      
 	      
