@@ -40,13 +40,25 @@ public class SpectaclesController {
 	 * 
 	 * http://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl/1.9.13
 	 */
-	@RequestMapping(value = "/test", method = RequestMethod.GET) 
-	public @ResponseBody ArrayList<Spectacle> test(@RequestParam String spectacle_nom, Model model) {			
+	@RequestMapping(value = "/chercherSpectacle", method = RequestMethod.GET) 
+	public @ResponseBody ArrayList<Spectacle> test(@RequestParam String spectacle_nom) {			
 		
 		//String spectacle_nom = request.getParameter("spectacle_nom");
 		
 		System.out.println(spectacle_nom);
 		
-		return this.facade.getListeSpectacles();
+		ArrayList<Spectacle> liste_tmp = new ArrayList<Spectacle>();
+
+		for (int i = 0; i < this.facade.getListeSpectacles().size(); i++) {
+			
+			Spectacle s = this.facade.getListeSpectacles().get(i);
+			
+			if(spectacle_nom.toLowerCase().contains(s.getNom().toLowerCase())){
+				liste_tmp.add(s);
+			}
+			
+		}
+		
+		return liste_tmp;
 	}
 }
