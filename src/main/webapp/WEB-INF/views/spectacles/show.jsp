@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <jsp:include page="../layout/header.jsp" />
-
 			<div class="page-header">
 				<h2>Louis-Josée Houde - Les heures Verticales</h2>
 				<p>Les heures verticales. Pour l’humoriste, Les heures verticales, c’est le temps où l’être humain est debout, à partir du jour où il a appris à marcher, mais aussi dans les moments où il doit se tenir droit devant ou dans l’adversité.</p>
@@ -40,10 +38,6 @@
 	      				</tr>
 	      			</tbody>	
 	      		</table>
-	      		<a href="spectacles.html" class="spacer-bottom btn btn-default " role="button"><span class="glyphicon glyphicon-arrow-left"></span> Choisir un autre spectacle</a>
-
-	
-
-
+	      		<a href="${pageContext.request.contextPath}/spectacles" class="spacer-bottom btn btn-default " role="button"><span class="glyphicon glyphicon-arrow-left"></span> Choisir un autre spectacle</a>
 <jsp:include page="../layout/footer.jsp" />      
 	      

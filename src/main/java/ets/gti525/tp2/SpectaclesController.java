@@ -3,10 +3,6 @@ package ets.gti525.tp2;
 import java.util.ArrayList;
 import java.util.Locale;
 
-
-
-
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,11 +15,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class SpectaclesController {
-
-	private SpectaclesFacade facade = new SpectaclesFacade();
 	
 	@RequestMapping(value = "/spectacles", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
+		
+		ArrayList<Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacles();
+		model.addAttribute("spectacles", spectacles);
 		
 		return "spectacles/index";
 	}
@@ -31,34 +28,28 @@ public class SpectaclesController {
 	//Exemple : http://codetutr.com/2013/04/09/spring-mvc-easy-rest-based-json-services-with-responsebody/
 	@RequestMapping(value = "/spectacles/{spectacle_id}", method = RequestMethod.GET)
 	public String show(Locale locale, Model model) {
-		
+
+		try {
+			ArrayList<Spectacle> spectacle = SpectaclesFacade.getInstance().getSpectacles();
+			model.addAttribute("spectacle", spectacle);			
+		}
+		catch (Exception e) {
+			// Spectacle inexistant.
+		}
+
 		return "spectacles/show";
 	}
 	
 	/*
-	 * À AJOUTER POUR RETOURNER DU JSON : 
+	 * Ã€ AJOUTER POUR RETOURNER DU JSON : 
 	 * 
 	 * http://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl/1.9.13
 	 */
 	@RequestMapping(value = "/chercherSpectacle", method = RequestMethod.GET) 
 	public @ResponseBody ArrayList<Spectacle> test(@RequestParam String spectacle_nom) {			
 		
-		//String spectacle_nom = request.getParameter("spectacle_nom");
+		ArrayList<Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacleNom(spectacle_nom);
 		
-		//System.out.println(spectacle_nom);
-		
-		ArrayList<Spectacle> liste_tmp = this.facade.getSpectacleDAO().getSpectacleNom(spectacle_nom);
-
-		/*for (int i = 0; i < this.facade.getSpectacleDAO().getListeSpectacles().size(); i++) {
-			
-			Spectacle s = this.facade.getSpectacleDAO().getListeSpectacles().get(i);
-			
-			if(spectacle_nom.toLowerCase().contains(s.getNom().toLowerCase())){
-				liste_tmp.add(s);
-			}
-			
-		}*/
-		
-		return liste_tmp;
+		return spectacles;
 	}
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class SpectacleDAOStub implements ISpectacleDAO {
 	
-	private ArrayList<Spectacle> listeSpectacles = new ArrayList<Spectacle>();
+	private ArrayList<Spectacle> spectacles = new ArrayList<Spectacle>();
 	
 	public SpectacleDAOStub(){
 		Spectacle spectacle1 = new Spectacle();
@@ -15,7 +15,7 @@ public class SpectacleDAOStub implements ISpectacleDAO {
 		spectacle1.setArtistes(liste1);
 		spectacle1.setDescription("Les heures verticales. Pour l’humoriste, Les heures verticales, c’est le temps où l’être humain est debout, à partir du jour où il a appris à marcher, mais aussi dans les moments où il doit se tenir droit devant ou dans l’adversité.");
 		spectacle1.setImagePath("ljh.jpg");
-		listeSpectacles.add(spectacle1);
+		spectacles.add(spectacle1);
 		
 		Spectacle spectacle2 = new Spectacle();
 		spectacle2.setId(2);
@@ -25,7 +25,7 @@ public class SpectacleDAOStub implements ISpectacleDAO {
 		spectacle2.setDescription("Les heures verticales. Pour l’humoriste, Les heures verticales, c’est le temps où l’être humain est debout, à partir du jour où il a appris à marcher, mais aussi dans les moments où il doit se tenir droit devant ou dans l’adversité.");
 		spectacle2.setArtistes(liste2);
 		spectacle2.setImagePath("sugar.png");
-		listeSpectacles.add(spectacle2);
+		spectacles.add(spectacle2);
 		
 		Spectacle spectacle3 = new Spectacle();
 		spectacle3.setId(2);
@@ -35,19 +35,19 @@ public class SpectacleDAOStub implements ISpectacleDAO {
 		spectacle3.setDescription("Les heures verticales. Pour l’humoriste, Les heures verticales, c’est le temps où l’être humain est debout, à partir du jour où il a appris à marcher, mais aussi dans les moments où il doit se tenir droit devant ou dans l’adversité.");
 		spectacle3.setArtistes(liste3);
 		spectacle3.setImagePath("54589463.jpg");
-		listeSpectacles.add(spectacle3);
+		spectacles.add(spectacle3);
 	}
 	
 	/**
 	 * Obtenir la liste de tous les spectacles
 	 */
-	public ArrayList<Spectacle> getListeSpectacles(){
-		return this.listeSpectacles;
+	public ArrayList<Spectacle> getSpectacles(){
+		return this.spectacles;
 	}
 	/**
-	 * Obtenir un spectacle selon un ID donn�
+	 * Obtenir un spectacle selon un ID donn�
 	 */
-	public Spectacle getSpectacleID(int id){
+	public Spectacle getSpectacle(int id){
 		return null;
 	}
 	/**
@@ -57,9 +57,9 @@ public class SpectacleDAOStub implements ISpectacleDAO {
 		
 		ArrayList<Spectacle> liste = new ArrayList<Spectacle>();
 		
-		for (int i = 0; i < this.listeSpectacles.size(); i++) {
+		for (int i = 0; i < this.spectacles.size(); i++) {
 			
-			Spectacle s = this.listeSpectacles.get(i);
+			Spectacle s = this.spectacles.get(i);
 			
 			if(spectacleNom.toLowerCase().contains(s.getNom().toLowerCase())){
 				liste.add(s);
@@ -67,13 +67,13 @@ public class SpectacleDAOStub implements ISpectacleDAO {
 		}
 		
 		/**
-		 * Si on trouve aucun spectacle pour ce nom, on retourne la liste compl�te
+		 * Si on trouve aucun spectacle pour ce nom, on retourne la liste compl�te
 		 */
 		if(liste.size() > 0) {
 			return liste;
 		}
 		else {
-			return this.getListeSpectacles();
+			return this.getSpectacles();
 		}
 		
 	}
