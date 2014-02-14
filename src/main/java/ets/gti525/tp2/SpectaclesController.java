@@ -45,19 +45,19 @@ public class SpectaclesController {
 		
 		//String spectacle_nom = request.getParameter("spectacle_nom");
 		
-		System.out.println(spectacle_nom);
+		//System.out.println(spectacle_nom);
 		
-		ArrayList<Spectacle> liste_tmp = new ArrayList<Spectacle>();
+		ArrayList<Spectacle> liste_tmp = this.facade.getSpectacleDAO().getSpectacleNom(spectacle_nom);
 
-		for (int i = 0; i < this.facade.getListeSpectacles().size(); i++) {
+		/*for (int i = 0; i < this.facade.getSpectacleDAO().getListeSpectacles().size(); i++) {
 			
-			Spectacle s = this.facade.getListeSpectacles().get(i);
+			Spectacle s = this.facade.getSpectacleDAO().getListeSpectacles().get(i);
 			
 			if(spectacle_nom.toLowerCase().contains(s.getNom().toLowerCase())){
 				liste_tmp.add(s);
 			}
 			
-		}
+		}*/
 		
 		return liste_tmp;
 	}

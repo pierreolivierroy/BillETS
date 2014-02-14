@@ -6,11 +6,13 @@ package ets.gti525.tp2;
 import java.util.ArrayList;
 
 public class SpectaclesFacade {
-	private ArrayList<Spectacle> listeSpectacles = new ArrayList<Spectacle>();
+	//private ArrayList<Spectacle> listeSpectacles = new ArrayList<Spectacle>();
+	private ISpectacleDAO spectacleDAO;
 	
 	public SpectaclesFacade(){
 		
-		Spectacle spectacle1 = new Spectacle();
+		this.spectacleDAO = new SpectacleDAOStub();
+		/*Spectacle spectacle1 = new Spectacle();
 		spectacle1.setId(1);
 		spectacle1.setNom("Les Heures Verticales");
 		ArrayList<String> liste1 = new ArrayList<String>();
@@ -28,22 +30,26 @@ public class SpectaclesFacade {
 		spectacle2.setDescription("Les heures verticales. Pour l’humoriste, Les heures verticales, c’est le temps où l’être humain est debout, à partir du jour où il a appris à marcher, mais aussi dans les moments où il doit se tenir droit devant ou dans l’adversité.");
 		spectacle2.setArtistes(liste2);
 		spectacle1.setImagePath("ljh.jpg");
-		listeSpectacles.add(spectacle2);
+		listeSpectacles.add(spectacle2);*/
+	}
+	
+	public ISpectacleDAO getSpectacleDAO(){
+		return this.spectacleDAO;
 	}
 	
 	/**
 	 * Obtenir la liste de spectacles
 	 */
-	public ArrayList<Spectacle> getListeSpectacles(){
+	/*public ArrayList<Spectacle> getListeSpectacles(){
 		return listeSpectacles;
-	}
+	}*/
 	
 	/**
 	 * Obtenir le spectacle selon son id
 	 */
-	public Spectacle getSpectacle(int id){
+	/*public Spectacle getSpectacle(int id){
 		return listeSpectacles.get(id+1);
-	}
+	}*/
 	
 	
 }
