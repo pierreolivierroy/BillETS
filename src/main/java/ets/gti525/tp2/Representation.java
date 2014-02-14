@@ -4,36 +4,18 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Representation {
-	private int id;
-	private Salle salle;
-	private Date date;
-	private ArrayList<Billets> billets;
-	
-	public int getId() {
-		return id;
+	private RepresentationBean representation;
+
+	public Representation(int id, String salle, Date date, ArrayList<Integer>billets) {
+		representation.setBillets(billets);
+		representation.setDate(date);
+		representation.setId(id);
+		representation.setSalle(salle);
 	}
-	public void setId(int id) {
-		this.id = id;
+
+	public RepresentationBean getRepresentation() {
+		return representation;
 	}
-	public Salle getSalle() {
-		return salle;
-	}
-	public void setSalle(Salle salle) {
-		this.salle = salle;
-	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
-	public ArrayList<Billets> getBillets() {
-		return billets;
-	}
-	public void setBillets(ArrayList<Billets> billets) {
-		this.billets = billets;
-	}
-	
 	
 	
 }
