@@ -44,7 +44,7 @@
 					</div>
 	
 <script type="text/javascript">var contextPath = '${pageContext.request.contextPath}';</script>
-<script src="${pageContext.request.contextPath}/resources/js/spectacles.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/spectacles.js" charset="utf-8"></script>
 
 <jsp:include page="../layout/footer.jsp" />      
 	      
