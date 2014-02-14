@@ -25,8 +25,7 @@
 						</div>			
 					</c:forEach>
 	
-
+<script type="text/javascript">var contextPath = "${pageContext.request.contextPath}";</script>
 <script src="${pageContext.request.contextPath}/resources/js/spectacles.js"></script>
 
 <jsp:include page="../layout/footer.jsp" />      
-	      

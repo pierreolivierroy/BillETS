@@ -12,7 +12,7 @@ public class SpectaclesFacade {
     // mais pas encore "réellement" instancié.
     // De Java version 1.2 à 1.4, il est possible d'utiliser la classe ThreadLocal.
     private static volatile SpectaclesFacade instance = null;
-    private ArrayList<Spectacle> spectacles = new ArrayList<Spectacle>();
+    private ISpectacleDAO spectacleDAO = new SpectacleDAOStub();
     
     
     private SpectaclesFacade() {
@@ -39,33 +39,14 @@ public class SpectaclesFacade {
     }
 
 	public ArrayList<Spectacle> getSpectacles(){
-		
-		spectacles.clear();
+		return spectacleDAO.getSpectacles();
+	}
 
-		Spectacle spectacle1 = new Spectacle();
-		spectacle1.setId(1);
-		spectacle1.setNom("Les Heures Verticales");
-		ArrayList<String> liste1 = new ArrayList<String>();
-		liste1.add("Louis-José Houde");
-		spectacle1.setArtistes(liste1);
-		spectacle1.setDescription("Les heures verticales. Pour l’humoriste, Les heures verticales, c’est le temps où l’être humain est debout, à partir du jour où il a appris à marcher, mais aussi dans les moments où il doit se tenir droit devant ou dans l’adversité.");
-		spectacle1.setImagePath("ljh.jpg");
-		spectacles.add(spectacle1);
-		
-		Spectacle spectacle2 = new Spectacle();
-		spectacle2.setId(2);
-		spectacle2.setNom("Les Heures Verticales");
-		ArrayList<String> liste2 = new ArrayList<String>();
-		liste2.add("Louis-José Houde");
-		spectacle2.setDescription("Les heures verticales. Pour l’humoriste, Les heures verticales, c’est le temps où l’être humain est debout, à partir du jour où il a appris à marcher, mais aussi dans les moments où il doit se tenir droit devant ou dans l’adversité.");
-		spectacle2.setArtistes(liste2);
-		spectacle2.setImagePath("ljh.jpg");
-		spectacles.add(spectacle2);
-		
-		return spectacles;
+	public ArrayList<Spectacle> getSpectacleNom(String nom){
+		return spectacleDAO.getSpectacleNom(nom);
 	}
 
 	public Spectacle getSpectacle(int id){
-		return spectacles.get(id+1);
+		return spectacleDAO.getSpectacle(id);
 	}
 }

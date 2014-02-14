@@ -3,11 +3,6 @@ package ets.gti525.tp2;
 import java.util.ArrayList;
 import java.util.Locale;
 
-
-
-
-
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,19 +48,8 @@ public class SpectaclesController {
 	@RequestMapping(value = "/chercherSpectacle", method = RequestMethod.GET) 
 	public @ResponseBody ArrayList<Spectacle> test(@RequestParam String spectacle_nom) {			
 		
-		ArrayList<Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacles();
-		ArrayList<Spectacle> liste_tmp = new ArrayList<Spectacle>();
+		ArrayList<Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacleNom(spectacle_nom);
 		
-		for (int i = 0; i < spectacles.size(); i++) {
-			
-			Spectacle s = spectacles.get(i);
-			
-			if(spectacle_nom.toLowerCase().contains(s.getNom().toLowerCase())){
-				liste_tmp.add(s);
-			}
-			
-		}
-		
-		return liste_tmp;
+		return spectacles;
 	}
 }
