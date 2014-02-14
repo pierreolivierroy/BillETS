@@ -34,9 +34,9 @@
 	    <div class="container">
 	      <div class="header">
 	        <ul class="nav nav-pills pull-right">
-	          <li class="active"><a href="#">Accueil</a></li>
-	          <li><a href="spectacles">Spectacles</a></li>
-	          <li><a href="panier">Panier<span class="badge pull-right">3</span></a></li>
+	          <li class="active"><a href="${pageContext.request.contextPath}">Accueil</a></li>
+	          <li><a href="${pageContext.request.contextPath}/spectacles">Spectacles</a></li>
+	          <li><a href="${pageContext.request.contextPath}/panier">Panier<span class="badge pull-right">3</span></a></li>
 	        </ul>
 	        <h1 class="text-muted">BillETS</h1>
 	      </div>
