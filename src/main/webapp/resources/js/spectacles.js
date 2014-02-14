@@ -20,10 +20,10 @@ function filter(nomSpectacle){
 	console.log(data);
 	});*/			
 
-	$.getJSON(contextPath+"/chercherSpectacle", { spectacle_nom: nomSpectacle }).done(function(json) {
+	$.getJSON(contextPath + "/chercherSpectacle", { spectacle_nom: nomSpectacle }).done(function(json) {
 	
 		console.log(json.length);
-		//Checker le length du json pour éviter les doublons
+		//Checker le length du json pour ï¿½viter les doublons
 		
 		$('.media').hide();
 		

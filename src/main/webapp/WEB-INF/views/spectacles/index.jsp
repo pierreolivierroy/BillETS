@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    
@@ -47,4 +48,3 @@
 <script src="${pageContext.request.contextPath}/resources/js/spectacles.js" charset="utf-8"></script>
 
 <jsp:include page="../layout/footer.jsp" />      
-	      
