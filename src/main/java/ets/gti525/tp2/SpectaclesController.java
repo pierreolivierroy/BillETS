@@ -21,6 +21,8 @@ public class SpectaclesController {
 		
 		ArrayList<SpectacleBean> spectacles = SpectaclesFacade.getInstance().getSpectacles();
 		model.addAttribute("spectacles", spectacles);
+		model.addAttribute("section", "Spectacles");
+		
 		
 		return "spectacles/index";
 	}
@@ -31,7 +33,8 @@ public class SpectaclesController {
 
 		try {
 			ArrayList<SpectacleBean> spectacle = SpectaclesFacade.getInstance().getSpectacles();
-			model.addAttribute("spectacle", spectacle);			
+			model.addAttribute("spectacle", spectacle);
+			model.addAttribute("section", "None");
 		}
 		catch (Exception e) {
 			// Spectacle inexistant.

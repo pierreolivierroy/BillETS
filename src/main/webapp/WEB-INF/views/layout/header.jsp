@@ -1,6 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+String section = (String)request.getAttribute("section");
+%>
     
 <!DOCTYPE html>
 <html>
@@ -34,9 +37,9 @@
 	    <div class="container">
 	      <div class="header">
 	        <ul class="nav nav-pills pull-right">
-	          <li class="active"><a href="${pageContext.request.contextPath}">Accueil</a></li>
-	          <li><a href="${pageContext.request.contextPath}/spectacles">Spectacles</a></li>
-	          <li><a href="${pageContext.request.contextPath}/panier">Panier<span class="badge pull-right">3</span></a></li>
+	           	<li <% if (section.equals("Accueil")) {out.print("class=\"active\"");}%>><a href="${pageContext.request.contextPath}">Accueil</a></li>
+	           	<li <% if (section.equals("Spectacles")) {out.print("class=\"active\"");}%>><a href="${pageContext.request.contextPath}/spectacles">Spectacles</a></li> 
+	           	<li <% if (section.equals("Panier")) {out.print("class=\"active\"");}%>><a href="${pageContext.request.contextPath}/panier">Panier<span class="badge pull-right">3</span></a></li>
 	        </ul>
 	        <h1 class="text-muted">BillETS</h1>
 	      </div>
