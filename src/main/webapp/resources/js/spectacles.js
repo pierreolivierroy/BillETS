@@ -13,8 +13,6 @@ $(document).ready(function() {
 });
 
 function recherche(nomSpectacle){
-	
-	console.log("Recherche");
 		
 	$.getJSON(contextPath + "/chercherSpectacle", { spectacle_nom: nomSpectacle }).done(function(json) {
 	
@@ -26,7 +24,7 @@ function recherche(nomSpectacle){
 		if(json.length > 0) {
 			
 			$.each(json, function(i, spectacle) {
-				console.log(spectacle);
+				//console.log(spectacle);
 				
 				var artistes = '';
 				

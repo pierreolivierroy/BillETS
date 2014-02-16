@@ -50,8 +50,6 @@ public class SpectaclesController {
 		
 		ArrayList<SpectacleBean> spectacles = SpectaclesFacade.getInstance().getSpectacleNom(spectacle_nom);
 		
-		System.out.println(spectacles);
-		
 		return spectacles;
 	}
 }
