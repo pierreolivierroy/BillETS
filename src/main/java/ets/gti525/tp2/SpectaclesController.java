@@ -19,7 +19,7 @@ public class SpectaclesController {
 	@RequestMapping(value = "/spectacles", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
 		
-		ArrayList<Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacles();
+		ArrayList<SpectacleBean> spectacles = SpectaclesFacade.getInstance().getSpectacles();
 		model.addAttribute("spectacles", spectacles);
 		
 		return "spectacles/index";
@@ -30,7 +30,7 @@ public class SpectaclesController {
 	public String show(Locale locale, Model model) {
 
 		try {
-			ArrayList<Spectacle> spectacle = SpectaclesFacade.getInstance().getSpectacles();
+			ArrayList<SpectacleBean> spectacle = SpectaclesFacade.getInstance().getSpectacles();
 			model.addAttribute("spectacle", spectacle);			
 		}
 		catch (Exception e) {
@@ -46,9 +46,11 @@ public class SpectaclesController {
 	 * http://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl/1.9.13
 	 */
 	@RequestMapping(value = "/chercherSpectacle", method = RequestMethod.GET) 
-	public @ResponseBody ArrayList<Spectacle> test(@RequestParam String spectacle_nom) {			
+	public @ResponseBody ArrayList<SpectacleBean> rechercher(@RequestParam String spectacle_nom) {			
 		
-		ArrayList<Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacleNom(spectacle_nom);
+		ArrayList<SpectacleBean> spectacles = SpectaclesFacade.getInstance().getSpectacleNom(spectacle_nom);
+		
+		System.out.println(spectacles);
 		
 		return spectacles;
 	}
