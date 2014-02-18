@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Handles requests for the application home page.
  */
 @Controller
-public class HomeController {
+public class AcceuilController {
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -18,7 +18,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		model.addAttribute("section", "Accueil");
-		return "home";
+		return "acceuil";
 	}
 
 }
