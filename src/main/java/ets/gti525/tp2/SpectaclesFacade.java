@@ -51,13 +51,13 @@ public class SpectaclesFacade {
 			
 			SpectacleBean s = this.spectacles.get(i);
 			
-			if(nom.toLowerCase().contains(s.getNom().toLowerCase())){
+			if(s.getNom().toLowerCase().contains(nom.toLowerCase())){
 				liste.add(s);
 			}
 		}
 		
 		/**
-		 * Si on trouve aucun spectacle pour ce nom, on retourne la liste compl�te
+		 * Si on trouve aucun spectacle pour ce nom, on retourne la liste complète
 		 */
 		if(liste.size() > 0) {
 			return liste;

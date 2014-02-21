@@ -1,6 +1,5 @@
 package ets.gti525.tp2;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class SpectacleDAOStub implements ISpectacleDAO {
