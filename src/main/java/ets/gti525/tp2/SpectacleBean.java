@@ -11,7 +11,8 @@ public class SpectacleBean implements Serializable{
 	private ArrayList<String> artistes;
 	private ArrayList<Integer> representations;
 	private String description;
-	private String imagePath;
+	private String thumbnailPath;
+	private String bannerPath;
 	
 	public int getId() {
 		return id;
@@ -43,12 +44,19 @@ public class SpectacleBean implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getImagePath() {
-		return imagePath;
+	public String getThumbnailPath() {
+		return thumbnailPath;
 	}
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setThumbnailPath(String thumbnailPath) {
+		this.thumbnailPath = thumbnailPath;
 	}
+	public String getBannerPath() {
+		return bannerPath;
+	}
+	public void setBannerPath(String bannerPath) {
+		this.bannerPath = bannerPath;
+	}
+	
 	
 	
 }
