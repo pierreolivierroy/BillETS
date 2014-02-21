@@ -22,7 +22,5 @@ public class Salle {
 	}
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
-	}
-	
-	
+	}	
 }

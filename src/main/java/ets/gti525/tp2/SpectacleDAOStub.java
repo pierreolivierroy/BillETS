@@ -2,7 +2,7 @@ package ets.gti525.tp2;
 
 import java.util.ArrayList;
 
-public class SpectacleDAOStub implements ISpectacleDAO {
+public class SpectacleDAOStub implements InterfaceDAO {
 	
 	private ArrayList<SpectacleBean> spectacles = new ArrayList<SpectacleBean>();
 	
@@ -20,11 +20,19 @@ public class SpectacleDAOStub implements ISpectacleDAO {
 		Spectacle spectacle3 = new Spectacle(3, "Le bonhomme carnaval", "Le plus grand citoyen de la vieille capitale.", "Registre Labombe", "54589463.jpg","varekai_bg.jpg", new ArrayList<Integer>());
 		spectacles.add(spectacle3.getSpectacleBean());
 	}
-	
-	/**
-	 * Obtenir la liste de tous les spectacles
-	 */
-	public ArrayList<SpectacleBean> get(){
+
+	@Override
+	public Object find(int id) {
+		for (int i = 0; i < this.spectacles.size(); i++) {
+			if (((SpectacleBean) this.spectacles.get(i)).getId() == id) {
+				return (SpectacleBean) this.spectacles.get(i);
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public ArrayList find() {
 		return this.spectacles;
 	}
 }

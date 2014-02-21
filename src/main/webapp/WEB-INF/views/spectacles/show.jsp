@@ -7,7 +7,7 @@
 				<p>${spectacle.description}</p>
 			</div>
 
-			<img class="img-rounded img-responsive" src="${pageContext.request.contextPath}/resources/img/${spectacle.imagePath}">
+			<img class="img-rounded img-responsive" src="${pageContext.request.contextPath}/resources/img/${spectacle.bannerPath}">
   			
 	      		<h3>Représentations</h3>
 	      		<table class="table table-striped table-hover">

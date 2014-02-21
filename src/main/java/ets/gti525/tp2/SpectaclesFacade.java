@@ -12,14 +12,12 @@ public class SpectaclesFacade {
     // mais pas encore "réellement" instancié.
     // De Java version 1.2 à 1.4, il est possible d'utiliser la classe ThreadLocal.
     private static volatile SpectaclesFacade instance = null;
-    private ISpectacleDAO spectacleDAO = new SpectacleDAOStub();
-    private ArrayList<SpectacleBean> spectacles = new ArrayList<SpectacleBean>();
+    private InterfaceDAO spectacleDAO = new SpectacleDAOStub();
     
     private SpectaclesFacade() {
         // La présence d'un constructeur privé supprime le constructeur public par défaut.
         // De plus, seul le singleton peut s'instancier lui même.
         super();
-        this.spectacles = this.spectacleDAO.get();
     }
 
     public final static SpectaclesFacade getInstance() {
@@ -40,16 +38,16 @@ public class SpectaclesFacade {
     }
 
 	public ArrayList<SpectacleBean> getSpectacles(){
-		return this.spectacles;
+		return this.spectacleDAO.find();
 	}
 
 	public ArrayList<SpectacleBean> getSpectacleNom(String nom){
 		
 		ArrayList<SpectacleBean> liste = new ArrayList<SpectacleBean>();
 		
-		for (int i = 0; i < this.spectacles.size(); i++) {
+		for (int i = 0; i < this.spectacleDAO.find().size(); i++) {
 			
-			SpectacleBean s = this.spectacles.get(i);
+			SpectacleBean s = (SpectacleBean) this.spectacleDAO.find().get(i);
 			
 			if(s.getNom().toLowerCase().contains(nom.toLowerCase())){
 				liste.add(s);
@@ -63,17 +61,12 @@ public class SpectaclesFacade {
 			return liste;
 		}
 		else {
-			return this.spectacles;
+			return this.spectacleDAO.find();
 		}
 		
 	}
 
 	public SpectacleBean getSpectacle(int id){
-		for (int i = 0; i < this.spectacles.size(); i++) {
-			if (this.spectacles.get(i).getId() == id) {
-				return spectacles.get(i);
-			}
-		}
-		return null;
+		return (SpectacleBean) this.spectacleDAO.find(id);
 	}
 }
