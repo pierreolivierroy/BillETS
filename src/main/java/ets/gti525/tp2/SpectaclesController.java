@@ -5,6 +5,7 @@ import java.util.Locale;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,10 +30,10 @@ public class SpectaclesController {
 
 	//Exemple : http://codetutr.com/2013/04/09/spring-mvc-easy-rest-based-json-services-with-responsebody/
 	@RequestMapping(value = "/spectacles/{spectacle_id}", method = RequestMethod.GET)
-	public String show(Locale locale, Model model) {
+	public String show(@PathVariable String spectacle_id, Model model) {
 
 		try {
-			ArrayList<SpectacleBean> spectacle = SpectaclesFacade.getInstance().getSpectacles();
+			SpectacleBean spectacle = SpectaclesFacade.getInstance().getSpectacle(Integer.parseInt(spectacle_id));
 			model.addAttribute("spectacle", spectacle);
 			model.addAttribute("section", "None");
 		}

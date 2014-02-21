@@ -68,7 +68,12 @@ public class SpectaclesFacade {
 		
 	}
 
-	public Spectacle getSpectacle(int id){
+	public SpectacleBean getSpectacle(int id){
+		for (int i = 0; i > this.spectacles.size(); i++) {
+			if (this.spectacles.get(i).getId() == id) {
+				return spectacles.get(i);
+			}
+		}
 		return null;
 	}
 }
