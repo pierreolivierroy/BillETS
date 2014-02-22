@@ -15,12 +15,12 @@
 
 					<c:forEach items="${spectacles}" var="spectacle">     
 					 		<div class="media">
-						  <a class="pull-left" href="#">
-						    <img class="media-object" src="${pageContext.request.contextPath}/resources/img/${spectacle.thumbnailPath}" alt="img_spectacle">
+						  <a class="pull-left" href="${pageContext.request.contextPath}/spectacles/${spectacle.value.id}">
+						    <img class="media-object" src="${pageContext.request.contextPath}/resources/img/${spectacle.value.thumbnailPath}" alt="img_spectacle">
 						  </a>
 						  <div class="media-body">
-						    <h4 class="media-heading"><a href="${pageContext.request.contextPath}/spectacles/${spectacle.id}">${spectacle.nom}</a></h4>
-							<p>${spectacle.description}</p>
+						    <h4 class="media-heading"><a href="${pageContext.request.contextPath}/spectacles/${spectacle.value.id}">${spectacle.value.nom}</a></h4>
+							<p>${spectacle.value.description}</p>
 						  </div>
 						</div>			
 					</c:forEach>

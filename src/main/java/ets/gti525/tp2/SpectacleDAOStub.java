@@ -1,42 +1,38 @@
 package ets.gti525.tp2;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
-public class SpectacleDAOStub implements InterfaceDAO {
+public class SpectacleDAOStub extends abstractDAO{
 	
-	private ArrayList<SpectacleBean> spectacles = new ArrayList<SpectacleBean>();
+//	private ArrayList<SpectacleBean> spectacles = new ArrayList<SpectacleBean>();
+	private HashMap<Integer, Spectacle> listeSpectacles = new HashMap<Integer, Spectacle>();
 	
 	public SpectacleDAOStub(){
 		
+		//populate listeSpectacles map
+		HashMap<Integer, Representation> representationsSpectacle1 = new HashMap<Integer, Representation>();	
+		Salle centreBell = new Salle(1,"Centre Bell", "1909 Avenue des Canadiens-de-Montréal, Montréal, QC H4B 5G0");
+		Representation r1 = new Representation(1,centreBell,"3 mars 2014",100,105);
+		representationsSpectacle1.put(r1.getId(), r1);
+		Spectacle spectacle1 = new Spectacle(1, "Les heures verticales", "Olivier Rivard", representationsSpectacle1, "Les heures verticales. Pour l’humoriste, Les heures verticales, c’est le temps où l’être humain est debout, à partir du jour où il a appris à marcher, mais aussi dans les moments où il doit se tenir droit devant ou dans l’adversité.", "ljh.jpg", "ljh-banner.jpg");
 		
-		//Spectacle bidon 1
-		int[] t1= {1,2,3};
-		Spectacle spectacle1 = new Spectacle(1, "Les Heures Verticales", "Les heures verticales. Pour l’humoriste, Les heures verticales, c’est le temps où l’être humain est debout, à partir du jour où il a appris à marcher, mais aussi dans les moments où il doit se tenir droit devant ou dans l’adversité.", "Louis-José Houde", "ljh.jpg","ljh-banner.jpg", t1);
-		spectacles.add(spectacle1.getSpectacleBean());
-		
-		//Spectacle bidon 2
-		int[] t2= {4,5,6,7,8};
-		Spectacle spectacle2 = new Spectacle(2, "Dan et ses bottes", "Le spectacle avec des gens moins habillés que la normale.", "Danny Boyer", "sugar.png","sugarsammy-banner.jpg", t2);
-		spectacles.add(spectacle2.getSpectacleBean());
-		
-		//Spectacle bidon 3
-		int[] t3= {8,10,11,12};
-		Spectacle spectacle3 = new Spectacle(3, "Le bonhomme carnaval", "Le plus grand citoyen de la vieille capitale.", "Registre Labombe", "54589463.jpg","varekai_bg.jpg", t3);
-		spectacles.add(spectacle3.getSpectacleBean());
+		//put all spectacle in the map
+		listeSpectacles.put(spectacle1.getId(), spectacle1);
 	}
 
-	@Override
-	public Object find(int id) {
-		for (int i = 0; i < this.spectacles.size(); i++) {
-			if (((SpectacleBean) this.spectacles.get(i)).getId() == id) {
-				return (SpectacleBean) this.spectacles.get(i);
-			}
-		}
-		return null;
+	public HashMap<Integer, Spectacle> getSpectacles(){
+		return this.listeSpectacles;
 	}
-
-	@Override
-	public ArrayList find() {
-		return this.spectacles;
+	
+	public Spectacle getSpectacle(int id){
+		return this.listeSpectacles.get(id);
+	}
+	
+	public HashMap<Integer, Representation> getRepresentations(int idSpectacle){
+		return this.listeSpectacles.get(idSpectacle).getRepresentations();
+	}
+	
+	public Representation getRepresentation(int idSpectacle, int idRepresentation){
+		return this.listeSpectacles.get(idSpectacle).getRepresentations().get(idRepresentation);
 	}
 }

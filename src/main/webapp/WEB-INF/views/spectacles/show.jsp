@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../layout/header.jsp" />
 
 			<div class="page-header">
@@ -21,9 +21,9 @@
 	      			<tbody>
 						<c:forEach items="${spectacle.representations}" var="representation">     
 	      					<tr>
-		      					<td class="vert-align">${representation.date}</td>
-		      					<td class="vert-align">${representation.lieu}</td>
-		      					<td class="vert-align"><a href="/spectacles/${spectacle.id}/representations/${representation.id}" class="btn btn-primary pull-right">Voir &rarr;</a></td>
+		      					<td class="vert-align">${representation.value.date}</td>
+		      					<td class="vert-align">${representation.value.salle.nom}</td>
+		      					<td class="vert-align"><a href="/spectacles/${spectacle.id}/representations/${representation.value.id}" class="btn btn-primary pull-right">Voir &rarr;</a></td>
 		      				</tr>
 						</c:forEach>
 					</tbody>

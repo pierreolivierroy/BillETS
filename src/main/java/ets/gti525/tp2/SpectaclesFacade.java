@@ -3,7 +3,7 @@
  */
 package ets.gti525.tp2;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SpectaclesFacade {
 	
@@ -12,7 +12,7 @@ public class SpectaclesFacade {
     // mais pas encore "réellement" instancié.
     // De Java version 1.2 à 1.4, il est possible d'utiliser la classe ThreadLocal.
     private static volatile SpectaclesFacade instance = null;
-    private InterfaceDAO spectacleDAO = new SpectacleDAOStub();
+    private SpectacleDAOStub spectacleDAO = new SpectacleDAOStub();
     
     private SpectaclesFacade() {
         // La présence d'un constructeur privé supprime le constructeur public par défaut.
@@ -37,20 +37,37 @@ public class SpectaclesFacade {
         return SpectaclesFacade.instance;
     }
 
-	public ArrayList<SpectacleBean> getSpectacles(){
-		return this.spectacleDAO.find();
+	public HashMap<Integer, Spectacle> getSpectacles(){
+		return this.spectacleDAO.getSpectacles();
 	}
-
-	public ArrayList<SpectacleBean> getSpectacleNom(String nom){
+	
+	public  Spectacle getSpectacle(int id){
+		return this.spectacleDAO.getSpectacle(id);
+	}
+	
+	public  HashMap<Integer, Representation> getRepresentations(int idSpectacle){
+		return this.spectacleDAO.getRepresentations(idSpectacle);
+	}
+	
+	public  Representation getRepresentation(int idSpectacle, int idRepresentation){
+		return this.spectacleDAO.getRepresentation(idSpectacle, idRepresentation);
+	}
+	
+	/**
+	 * The name of this method is confusing
+	 * @param nom
+	 * @return
+	 */
+	public HashMap<Integer, Spectacle> getSpectacleNom(String nom){
 		
-		ArrayList<SpectacleBean> liste = new ArrayList<SpectacleBean>();
+		HashMap<Integer, Spectacle> liste = new HashMap<Integer, Spectacle>();
 		
-		for (int i = 0; i < this.spectacleDAO.find().size(); i++) {
+		for (int i = 0; i < this.spectacleDAO.getSpectacles().size(); i++) {
 			
-			SpectacleBean s = (SpectacleBean) this.spectacleDAO.find().get(i);
+			Spectacle s = this.spectacleDAO.getSpectacles().get(i);
 			
 			if(s.getNom().toLowerCase().contains(nom.toLowerCase())){
-				liste.add(s);
+				liste.put(s.getId(), s);
 			}
 		}
 		
@@ -61,12 +78,8 @@ public class SpectaclesFacade {
 			return liste;
 		}
 		else {
-			return this.spectacleDAO.find();
+			return this.spectacleDAO.getSpectacles();
 		}
 		
-	}
-
-	public SpectacleBean getSpectacle(int id){
-		return (SpectacleBean) this.spectacleDAO.find(id);
 	}
 }
