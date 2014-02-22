@@ -1,19 +1,19 @@
 package ets.gti525.tp2;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Representation {
 	private RepresentationBean representation;
 
-	public Representation(int id, String salle, Date date, ArrayList<Integer>billets) {
+	public Representation(int id, Salle salle, String date, ArrayList<Integer>billets, float prix) {
 		representation.setBillets(billets);
 		representation.setDate(date);
 		representation.setId(id);
 		representation.setSalle(salle);
+		representation.setPrix(prix);
 	}
 
-	public RepresentationBean getRepresentation() {
+	public RepresentationBean getRepresentationBean() {
 		return representation;
 	}
 	

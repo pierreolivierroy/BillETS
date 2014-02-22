@@ -9,7 +9,7 @@ public class SpectacleBean implements Serializable{
 	private int id;
 	private String nom;
 	private String artistes;
-	private ArrayList<Integer> representations;
+	private int[] representations;
 	private String description;
 	private String thumbnailPath;
 	private String bannerPath;
@@ -32,10 +32,10 @@ public class SpectacleBean implements Serializable{
 	public void setArtistes(String artistes) {
 		this.artistes = artistes;
 	}
-	public ArrayList<Integer> getRepresentations() {
+	public int[] getRepresentations() {
 		return representations;
 	}
-	public void setRepresentations(ArrayList<Integer> representations) {
+	public void setRepresentations(int[] representations) {
 		this.representations = representations;
 	}
 	public String getDescription() {

@@ -2,32 +2,38 @@ package ets.gti525.tp2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class RepresentationBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int id;
-	private String salle;
-	private Date date;
+	private Salle salle;
+	private String date;
 	private ArrayList<Integer> billets;
+	private float prix;
 	
+	public float getPrix() {
+		return prix;
+	}
+	public void setPrix(float prix) {
+		this.prix = prix;
+	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getSalle() {
+	public Salle getSalle() {
 		return salle;
 	}
-	public void setSalle(String salle) {
+	public void setSalle(Salle salle) {
 		this.salle = salle;
 	}
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	public ArrayList<Integer> getBillets() {
