@@ -3,7 +3,9 @@
  */
 package ets.gti525.tp2;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class SpectaclesFacade {
 	
@@ -58,16 +60,17 @@ public class SpectaclesFacade {
 	 * @param nom
 	 * @return
 	 */
-	public HashMap<Integer, Spectacle> getSpectacleNom(String nom){
+	public ArrayList<Spectacle> getSpectacleNom(String nom){
 		
-		HashMap<Integer, Spectacle> liste = new HashMap<Integer, Spectacle>();
+		ArrayList<Spectacle> liste = new ArrayList<Spectacle>();
+		
 		
 		for (int i = 0; i < this.spectacleDAO.getSpectacles().size(); i++) {
 			
 			Spectacle s = this.spectacleDAO.getSpectacles().get(i);
 			
 			if(s.getNom().toLowerCase().contains(nom.toLowerCase())){
-				liste.put(s.getId(), s);
+				liste.add(s);
 			}
 		}
 		
@@ -78,7 +81,8 @@ public class SpectaclesFacade {
 			return liste;
 		}
 		else {
-			return this.spectacleDAO.getSpectacles();
+			List<Spectacle> completeList = new ArrayList<Spectacle>(spectacleDAO.getSpectacles().values());
+			return (ArrayList<Spectacle>) completeList;
 		}
 		
 	}

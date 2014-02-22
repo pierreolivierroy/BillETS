@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 public class SpectacleDAOStub extends abstractDAO{
 	
-//	private ArrayList<SpectacleBean> spectacles = new ArrayList<SpectacleBean>();
 	private HashMap<Integer, Spectacle> listeSpectacles = new HashMap<Integer, Spectacle>();
 	
 	public SpectacleDAOStub(){

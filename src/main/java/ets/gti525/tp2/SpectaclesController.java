@@ -1,7 +1,9 @@
 package ets.gti525.tp2;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,9 +51,9 @@ public class SpectaclesController {
 	 * http://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl/1.9.13
 	 */
 	@RequestMapping(value = "/chercherSpectacle", method = RequestMethod.GET) 
-	public @ResponseBody HashMap<Integer, Spectacle> rechercher(@RequestParam String spectacle_nom) {			
+	public @ResponseBody ArrayList<Spectacle> rechercher(@RequestParam String spectacle_nom) {			
 		
-		HashMap<Integer, Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacleNom(spectacle_nom);
+		ArrayList<Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacleNom(spectacle_nom);
 		
 		return spectacles;
 	}
