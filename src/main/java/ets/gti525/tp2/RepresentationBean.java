@@ -9,7 +9,7 @@ public class RepresentationBean implements Serializable {
 	private int id;
 	private Salle salle;
 	private String date;
-	private ArrayList<Integer> billets;
+	private int[] billets;
 	private float prix;
 	
 	public float getPrix() {
@@ -36,10 +36,10 @@ public class RepresentationBean implements Serializable {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public ArrayList<Integer> getBillets() {
+	public int[] getBillets() {
 		return billets;
 	}
-	public void setBillets(ArrayList<Integer> billets) {
+	public void setBillets(int[] billets) {
 		this.billets = billets;
 	}
 }

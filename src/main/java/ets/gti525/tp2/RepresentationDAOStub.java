@@ -10,11 +10,7 @@ public class RepresentationDAOStub implements InterfaceDAO {
 		
 		Salle centreBell = new Salle(1,"Centre Bell", "1909 Avenue des Canadiens-de-Montréal, Montréal, QC H4B 5G0");
 		Salle metropolis = new Salle(2,"Metropolis", "59 Rue Sainte-Catherine Est, Montréal, QC H2X 1K5");
-		ArrayList<Integer> billets = new ArrayList<Integer>();
-		for(int i=0;i<100;i++)
-		{
-			billets.add(i);
-		}
+		int[] billets = {1,2,3,4,5,6,7,8,9,10}; 
 		//Représentations bidon
 		
 		Representation represention1 = new Representation(1,centreBell,"3 mars 2014",billets,105);
