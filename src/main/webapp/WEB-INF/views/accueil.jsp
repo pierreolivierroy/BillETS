@@ -4,10 +4,10 @@
 
 <jsp:include page="layout/header.jsp" />
 
-	      <div class="jumbotron">
-	        <h2 class="white">Vakerai</h2>
-	        <p class="white lead">Dans une forêt lointaine, au sommet d'un volcan, existe un monde extraordinaire. Un monde où quelque chose d'autre est possible.</p>
-	        <p><a class="btn btn-lg btn-success" href="001.html" role="button">Voir les billets &rarr;</a></p>
+	      <div class="jumbotron" style="background-image:url(${pageContext.request.contextPath}/resources/img/${spectacleJumbotron.bannerPath});">
+	        <h2 class="white">${spectacleJumbotron.nom}</h2>
+	        <p class="white lead">${spectacleJumbotron.description}</p>
+	        <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/spectacles/${spectacleJumbotron.id}" role="button">Voir les billets &rarr;</a></p>
 	      </div>
 
 	      <div class="row">
@@ -30,32 +30,32 @@
 		    <div class="col-lg-12">
 	        	<div class="col-lg-4">
 		          <div class="thumbnail">
-			      <img src="${pageContext.request.contextPath}/resources/img/placeholder.jpg" alt="...">
+			      <img src="${pageContext.request.contextPath}/resources/img/${prochainSpectacle1.bannerPath}" alt="${prochainSpectacle1.nom}">
 			      <div class="caption">
-			        <h3>Sugar Sammy</h3>
-			        <p>Sugar Sammy est le plus important humoriste québécois sur la scène internationale anglophone. Il a donné plus de 1 000 représentations dans 30 pays et fréquente toutes les grandes villes du monde.</p>
-			        <p><a href='001.html' class="btn btn-default" role="button">Voir les billets &rarr;</a></p>
+			        <h3>${prochainSpectacle1.artistes}</h3>
+			        <p>${prochainSpectacle1.description}</p>
+			        <p><a href='${pageContext.request.contextPath}/spectacles/${prochainSpectacle1.id}' class="btn btn-default" role="button">Voir les billets &rarr;</a></p>
 			      </div>
 			    </div>
 		       </div>
 		       <div class="col-lg-4">
 		       	<div class="thumbnail">
-			      <img src="${pageContext.request.contextPath}/resources/img/placeholder.jpg" alt="...">
+			      <img src="${pageContext.request.contextPath}/resources/img/${prochainSpectacle2.bannerPath}" alt="${prochainSpectacle2.nom}">
 			      <div class="caption">
-			        <h3>Sugar Sammy</h3>
-			        <p>Sugar Sammy est le plus important humoriste québécois sur la scène internationale anglophone. Il a donné plus de 1 000 représentations dans 30 pays et fréquente toutes les grandes villes du monde.</p>
-			        <p><a href='001.html' class="btn btn-default" role="button">Voir les billets &rarr;</a></p>
+			        <h3>${prochainSpectacle2.artistes}</h3>
+			        <p>${prochainSpectacle2.description}</p>
+			        <p><a href='${pageContext.request.contextPath}/spectacles/${prochainSpectacle2.id}' class="btn btn-default" role="button">Voir les billets &rarr;</a></p>
 			      </div>
 			    </div>
 
 		       </div>
 		       <div class="col-lg-4">
 		         <div class="thumbnail">
-			      <img src="${pageContext.request.contextPath}/resources/img/placeholder.jpg" alt="...">
+			      <img src="${pageContext.request.contextPath}/resources/img/${prochainSpectacle3.bannerPath}" alt="${prochainSpectacle3.nom}">
 			      <div class="caption">
-			        <h3>Sugar Sammy</h3>
-			        <p>Sugar Sammy est le plus important humoriste québécois sur la scène internationale anglophone. Il a donné plus de 1 000 représentations dans 30 pays et fréquente toutes les grandes villes du monde.</p>
-			        <p><a href='001.html' class="btn btn-default" role="button">Voir les billets &rarr;</a></p>
+			        <h3>${prochainSpectacle3.artistes}</h3>
+			        <p>${prochainSpectacle3.description}</p>
+			        <p><a href='${pageContext.request.contextPath}/spectacles/${prochainSpectacle3.id}' class="btn btn-default" role="button">Voir les billets &rarr;</a></p>
 			      </div>
 			    </div> 
 		       </div>
