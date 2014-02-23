@@ -100,7 +100,7 @@
 	      				<hr />
 						<p class="foot_buttons">
 						  <a href="${pageContext.request.contextPath}" class="btn btn-default">Continuer à magasiner</a>
-						  <a href="paiement.html" class="btn btn-success">Procéder au paiement &rarr;</a>
+						  <a href="${pageContext.request.contextPath}/panier/paiement" class="btn btn-success">Procéder au paiement &rarr;</a>
 						</p>
 
 	      	</div>
