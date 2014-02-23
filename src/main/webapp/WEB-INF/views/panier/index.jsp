@@ -9,10 +9,10 @@
 
 	      	<div class="col-lg-12">
 
-	        	<!-- breadcrumbs -->
 	        	<ol class="breadcrumb">
 				  <li><a href="${pageContext.request.contextPath}">Accueil</a></li>
-				  <li class="active">Panier</li>
+				  <li><a href="${pageContext.request.contextPath}/panier">Panier</a></li>
+				  <li class="active">Paiement</li>
 				</ol>
 				<div class="page-header">
 	      			<h2>Votre panier</h2>
