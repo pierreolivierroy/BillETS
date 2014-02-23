@@ -99,7 +99,7 @@
 	      				</table>
 	      				<hr />
 						<p class="foot_buttons">
-						  <a href="spectacles" class="btn btn-default">Continuer à magasiner</a>
+						  <a href="${pageContext.request.contextPath}" class="btn btn-default">Continuer à magasiner</a>
 						  <a href="paiement.html" class="btn btn-success">Procéder au paiement &rarr;</a>
 						</p>
 
