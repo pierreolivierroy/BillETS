@@ -19,7 +19,7 @@
 		      </div>
 		      <div class="modal-footer">
 		        <p><button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Annuler</button></p>
-		        <a href="panier.html" class="spacer-bottom btn btn-success btn-block" role="button">Procéder au paiement</a>
+		        <a href="${pageContext.request.contextPath}/panier" class="spacer-bottom btn btn-success btn-block" role="button">Procéder au paiement</a>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
@@ -42,7 +42,7 @@
 		       </div>
 
 		       <!-- content -->
-				<h4 class="muted">Louis-Josée Houde - Les heures Verticales</h4>
+				<h4 class="muted">${spectacle.artistes} - ${spectacle.nom}</h4>
 				<div class="row">
 					<div class="col-lg-8">
 						<ul class="list-group">
