@@ -53,7 +53,7 @@
 				  	
 				</div>
 
-		       	<a href="index.html" class="spacer-bottom btn btn-default " role="button"><span class="glyphicon glyphicon-arrow-left"></span> Retour à BILLETS</a>
+		       	<a href="${pageContext.request.contextPath}" class="spacer-bottom btn btn-default " role="button"><span class="glyphicon glyphicon-arrow-left"></span> Retour à BILLETS</a>
 	        </div>
 	   
 	      </div>
