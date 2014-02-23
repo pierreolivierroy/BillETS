@@ -8,8 +8,8 @@
 	        <div class="col-lg-12">
 	        	<!-- breadcrumbs -->
 	        	<ol class="breadcrumb">
-				  <li><a href="index.html">Accueil</a></li>
-				  <li><a href="panier.html">Panier</a></li>
+				  <li><a href="${pageContext.request.contextPath}">Accueil</a></li>
+				  <li><a href="${pageContext.request.contextPath}/panier">Panier</a></li>
 				  <li class="active">Paiement</li>
 				</ol>
 
