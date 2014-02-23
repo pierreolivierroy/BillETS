@@ -2,7 +2,11 @@
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../layout/header.jsp" />
-				
+				<!-- breadcrumbs -->
+	        	<ol class="breadcrumb">
+				  <li><a href="${pageContext.request.contextPath}">Accueil</a></li>
+				  <li class="active">Spectacles</li>
+				</ol>
     			<div class="page-header">
 	      			<h2>Liste des spectacles</h2>
 					<p>Voici une liste de tous les spectacles offerts par Billets</p>

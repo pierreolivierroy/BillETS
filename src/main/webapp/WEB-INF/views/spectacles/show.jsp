@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../layout/header.jsp" />
-
+			<!-- breadcrumbs -->
+	        	<ol class="breadcrumb">
+				  <li><a href="${pageContext.request.contextPath}">Accueil</a></li>
+				  <li><a href="${pageContext.request.contextPath}/spectacles">Spectacles</a></li>
+				  <li class="active">${spectacle.nom}</li>
+				</ol>
 			<div class="page-header">
 				<h2>${spectacle.nom}</h2>
 				<p>${spectacle.description}</p>
