@@ -23,7 +23,7 @@
 	      					<tr>
 		      					<td class="vert-align">${representation.value.date}</td>
 		      					<td class="vert-align">${representation.value.salle.nom}</td>
-		      					<td class="vert-align"><a href="/spectacles/${spectacle.id}/representations/${representation.value.id}" class="btn btn-primary pull-right">Voir &rarr;</a></td>
+		      					<td class="vert-align"><a href="${pageContext.request.contextPath}/spectacles/${spectacle.id}/representations/${representation.value.id}" class="btn btn-primary pull-right">Voir &rarr;</a></td>
 		      				</tr>
 						</c:forEach>
 					</tbody>

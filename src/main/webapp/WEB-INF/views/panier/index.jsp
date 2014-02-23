@@ -11,7 +11,7 @@
 
 	        	<!-- breadcrumbs -->
 	        	<ol class="breadcrumb">
-				  <li><a href="index.html">Accueil</a></li>
+				  <li><a href="${pageContext.request.contextPath}">Accueil</a></li>
 				  <li class="active">Panier</li>
 				</ol>
 				<div class="page-header">
