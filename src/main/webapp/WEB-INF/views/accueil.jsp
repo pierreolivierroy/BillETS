@@ -29,7 +29,7 @@
 		    </div>
 		    <div class="col-lg-12">
 	        	<div class="col-lg-4">
-		          <div class="thumbnail">
+		          <div class="thumbnail" style="min-height : 450px;">
 			      <img src="${pageContext.request.contextPath}/resources/img/${prochainSpectacle1.bannerPath}" alt="${prochainSpectacle1.nom}">
 			      <div class="caption">
 			        <h3>${prochainSpectacle1.artistes}</h3>
@@ -39,7 +39,7 @@
 			    </div>
 		       </div>
 		       <div class="col-lg-4">
-		       	<div class="thumbnail">
+		       	<div class="thumbnail" style="min-height : 450px;">
 			      <img src="${pageContext.request.contextPath}/resources/img/${prochainSpectacle2.bannerPath}" alt="${prochainSpectacle2.nom}">
 			      <div class="caption">
 			        <h3>${prochainSpectacle2.artistes}</h3>
@@ -50,7 +50,7 @@
 
 		       </div>
 		       <div class="col-lg-4">
-		         <div class="thumbnail">
+		         <div class="thumbnail" style="min-height : 450px;">
 			      <img src="${pageContext.request.contextPath}/resources/img/${prochainSpectacle3.bannerPath}" alt="${prochainSpectacle3.nom}">
 			      <div class="caption">
 			        <h3>${prochainSpectacle3.artistes}</h3>
