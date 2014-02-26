@@ -12,7 +12,7 @@ public class SpectaclesFacade {
     // mais pas encore "réellement" instancié.
     // De Java version 1.2 à 1.4, il est possible d'utiliser la classe ThreadLocal.
     private static volatile SpectaclesFacade instance = null;
-    private ISpectacleDAO spectacleDAO = new SpectacleDAOStub();
+    private ISpectacleDAO spectacleDAO = new SpectacleDAOXML();
     private ArrayList<SpectacleBean> spectacles = new ArrayList<SpectacleBean>();
     
     private SpectaclesFacade() {
