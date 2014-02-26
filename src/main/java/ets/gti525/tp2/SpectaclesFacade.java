@@ -4,6 +4,8 @@
 package ets.gti525.tp2;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class SpectaclesFacade {
 	
@@ -11,15 +13,13 @@ public class SpectaclesFacade {
     // permet d'éviter le cas où "Singleton.instance" est non-nul,
     // mais pas encore "réellement" instancié.
     // De Java version 1.2 à 1.4, il est possible d'utiliser la classe ThreadLocal.
-    private static volatile SpectaclesFacade instance = null;
-    private ISpectacleDAO spectacleDAO = new SpectacleDAOXML();
-    private ArrayList<SpectacleBean> spectacles = new ArrayList<SpectacleBean>();
+	private static volatile SpectaclesFacade instance = null;
+    private SpectacleDAOStub spectacleDAO = new SpectacleDAOStub();
     
     private SpectaclesFacade() {
         // La présence d'un constructeur privé supprime le constructeur public par défaut.
         // De plus, seul le singleton peut s'instancier lui même.
         super();
-        this.spectacles = this.spectacleDAO.get();
     }
 
     public final static SpectaclesFacade getInstance() {
@@ -39,17 +39,35 @@ public class SpectaclesFacade {
         return SpectaclesFacade.instance;
     }
 
-	public ArrayList<SpectacleBean> getSpectacles(){
-		return this.spectacles;
+	public HashMap<Integer, Spectacle> getSpectacles(){
+		return this.spectacleDAO.getSpectacles();
 	}
-
-	public ArrayList<SpectacleBean> getSpectacleNom(String nom){
+	
+	public  Spectacle getSpectacle(int id){
+		return this.spectacleDAO.getSpectacle(id);
+	}
+	
+	public  HashMap<Integer, Representation> getRepresentations(int idSpectacle){
+		return this.spectacleDAO.getRepresentations(idSpectacle);
+	}
+	
+	public  Representation getRepresentation(int idSpectacle, int idRepresentation){
+		return this.spectacleDAO.getRepresentation(idSpectacle, idRepresentation);
+	}
+	
+	/**
+	 * The name of this method is confusing
+	 * @param nom
+	 * @return
+	 */
+	public ArrayList<Spectacle> getSpectacleNom(String nom){
 		
-		ArrayList<SpectacleBean> liste = new ArrayList<SpectacleBean>();
+		ArrayList<Spectacle> liste = new ArrayList<Spectacle>();
 		
-		for (int i = 0; i < this.spectacles.size(); i++) {
+		
+		for (int i = 0; i < this.spectacleDAO.getSpectacles().size(); i++) {
 			
-			SpectacleBean s = this.spectacles.get(i);
+			Spectacle s = this.spectacleDAO.getSpectacles().get(i);
 			
 			if(s.getNom().toLowerCase().contains(nom.toLowerCase())){
 				liste.add(s);
@@ -63,17 +81,9 @@ public class SpectaclesFacade {
 			return liste;
 		}
 		else {
-			return this.spectacles;
+			List<Spectacle> completeList = new ArrayList<Spectacle>(spectacleDAO.getSpectacles().values());
+			return (ArrayList<Spectacle>) completeList;
 		}
 		
-	}
-
-	public SpectacleBean getSpectacle(int id){
-		for (int i = 0; i < this.spectacles.size(); i++) {
-			if (this.spectacles.get(i).getId() == id) {
-				return spectacles.get(i);
-			}
-		}
-		return null;
 	}
 }

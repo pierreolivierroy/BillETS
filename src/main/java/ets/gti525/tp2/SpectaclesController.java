@@ -1,6 +1,7 @@
 package ets.gti525.tp2;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
 
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,7 @@ public class SpectaclesController {
 	@RequestMapping(value = "/spectacles", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
 		
-		ArrayList<SpectacleBean> spectacles = SpectaclesFacade.getInstance().getSpectacles();
+		HashMap<Integer, Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacles();
 		model.addAttribute("spectacles", spectacles);
 		model.addAttribute("section", "Spectacles");
 		
@@ -33,7 +34,7 @@ public class SpectaclesController {
 	public String show(@PathVariable String spectacle_id, Model model) {
 
 		try {
-			SpectacleBean spectacle = SpectaclesFacade.getInstance().getSpectacle(Integer.parseInt(spectacle_id));
+			Spectacle spectacle = SpectaclesFacade.getInstance().getSpectacle(Integer.parseInt(spectacle_id));
 			model.addAttribute("spectacle", spectacle);
 			model.addAttribute("section", "None");
 		}
@@ -50,9 +51,9 @@ public class SpectaclesController {
 	 * http://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl/1.9.13
 	 */
 	@RequestMapping(value = "/chercherSpectacle", method = RequestMethod.GET) 
-	public @ResponseBody ArrayList<SpectacleBean> rechercher(@RequestParam String spectacle_nom) {			
+	public @ResponseBody ArrayList<Spectacle> rechercher(@RequestParam String spectacle_nom) {			
 		
-		ArrayList<SpectacleBean> spectacles = SpectaclesFacade.getInstance().getSpectacleNom(spectacle_nom);
+		ArrayList<Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacleNom(spectacle_nom);
 		
 		return spectacles;
 	}

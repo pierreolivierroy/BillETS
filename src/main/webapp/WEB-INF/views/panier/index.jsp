@@ -9,9 +9,8 @@
 
 	      	<div class="col-lg-12">
 
-	        	<!-- breadcrumbs -->
 	        	<ol class="breadcrumb">
-				  <li><a href="index.html">Accueil</a></li>
+				  <li><a href="${pageContext.request.contextPath}">Accueil</a></li>
 				  <li class="active">Panier</li>
 				</ol>
 				<div class="page-header">
@@ -99,8 +98,8 @@
 	      				</table>
 	      				<hr />
 						<p class="foot_buttons">
-						  <a href="index.html" class="btn btn-default">Continuer à magasiner</a>
-						  <a href="paiement.html" class="btn btn-success">Procéder au paiement &rarr;</a>
+						  <a href="${pageContext.request.contextPath}" class="btn btn-default">Continuer à magasiner</a>
+						  <a href="${pageContext.request.contextPath}/panier/paiement" class="btn btn-success">Procéder au paiement &rarr;</a>
 						</p>
 
 	      	</div>

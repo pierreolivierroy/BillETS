@@ -5,6 +5,12 @@ public class Salle {
 	private String nom;
 	private String adresse;
 	
+	public Salle(int id, String nom, String adresse) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.adresse = adresse;
+	}
 	public int getId() {
 		return id;
 	}
@@ -22,7 +28,5 @@ public class Salle {
 	}
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
-	}
-	
-	
+	}	
 }

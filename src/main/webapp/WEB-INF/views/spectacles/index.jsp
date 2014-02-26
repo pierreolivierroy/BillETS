@@ -2,7 +2,11 @@
     pageEncoding="UTF-8"%>
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../layout/header.jsp" />
-				
+				<!-- breadcrumbs -->
+	        	<ol class="breadcrumb">
+				  <li><a href="${pageContext.request.contextPath}">Accueil</a></li>
+				  <li class="active">Spectacles</li>
+				</ol>
     			<div class="page-header">
 	      			<h2>Liste des spectacles</h2>
 					<p>Voici une liste de tous les spectacles offerts par Billets</p>
@@ -14,13 +18,13 @@
 
 
 					<c:forEach items="${spectacles}" var="spectacle">     
-					 		<div class="media">
-						  <a class="pull-left" href="${pageContext.request.contextPath}/spectacles/${spectacle.id}">
-						    <img class="media-object" src="${pageContext.request.contextPath}/resources/img/${spectacle.imagePath}" alt="img_spectacle">
+					 	<div class="media">
+						  <a class="pull-left" href="${pageContext.request.contextPath}/spectacles/${spectacle.value.id}">
+						    <img class="media-object" src="${pageContext.request.contextPath}/resources/img/${spectacle.value.thumbnailPath}" alt="img_spectacle">
 						  </a>
 						  <div class="media-body">
-						    <h4 class="media-heading"><a href="${pageContext.request.contextPath}/spectacles/${spectacle.id}">${spectacle.nom}</a></h4>
-							<p>${spectacle.description}</p>
+						    <h4 class="media-heading"><a href="${pageContext.request.contextPath}/spectacles/${spectacle.value.id}">${spectacle.value.nom}</a></h4>
+							<p>${spectacle.value.description}</p>
 						  </div>
 						</div>			
 					</c:forEach>
