@@ -1,5 +1,6 @@
 package ets.gti525.tp2;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SpectacleDAOStub extends abstractDAO{
@@ -36,6 +37,31 @@ public class SpectacleDAOStub extends abstractDAO{
 
 	public HashMap<Integer, Spectacle> getSpectacles(){
 		return this.listeSpectacles;
+	}
+	
+	public HashMap<Integer, Spectacle> getSpectacles(String nomSpectacle){
+		
+		HashMap<Integer, Spectacle> liste = new HashMap<Integer, Spectacle>();
+		
+		for (int i = 1; i <= this.listeSpectacles.size(); i++) {
+			
+			Spectacle s = this.listeSpectacles.get(i);
+			
+			if(s.getNom().toLowerCase().contains(nomSpectacle.toLowerCase())){
+				liste.put(s.getId(), s);
+			}
+		}
+		
+		/**
+		 * Si on trouve aucun spectacle pour ce nom, on retourne la liste complète
+		 */
+		if(liste.size() > 0) {
+			return liste;
+		}
+		else {
+			return this.listeSpectacles;
+		}
+		
 	}
 	
 	public Spectacle getSpectacle(int id){

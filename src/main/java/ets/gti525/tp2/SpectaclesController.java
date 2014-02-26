@@ -1,6 +1,7 @@
 package ets.gti525.tp2;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -51,10 +52,10 @@ public class SpectaclesController {
 	 * http://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl/1.9.13
 	 */
 	@RequestMapping(value = "/chercherSpectacle", method = RequestMethod.GET) 
-	public @ResponseBody ArrayList<Spectacle> rechercher(@RequestParam String spectacle_nom) {			
+	public @ResponseBody Collection<Spectacle> rechercher(@RequestParam String spectacle_nom) {			
 		
-		ArrayList<Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacleNom(spectacle_nom);
+		HashMap<Integer, Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacles(spectacle_nom);
 		
-		return spectacles;
+		return spectacles.values();
 	}
 }

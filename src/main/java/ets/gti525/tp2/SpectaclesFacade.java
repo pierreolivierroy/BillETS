@@ -43,6 +43,10 @@ public class SpectaclesFacade {
 		return this.spectacleDAO.getSpectacles();
 	}
 	
+	public HashMap<Integer, Spectacle> getSpectacles(String nomSpectacle){
+		return this.spectacleDAO.getSpectacles(nomSpectacle);
+	}
+	
 	public  Spectacle getSpectacle(int id){
 		return this.spectacleDAO.getSpectacle(id);
 	}
@@ -55,35 +59,4 @@ public class SpectaclesFacade {
 		return this.spectacleDAO.getRepresentation(idSpectacle, idRepresentation);
 	}
 	
-	/**
-	 * The name of this method is confusing
-	 * @param nom
-	 * @return
-	 */
-	public ArrayList<Spectacle> getSpectacleNom(String nom){
-		
-		ArrayList<Spectacle> liste = new ArrayList<Spectacle>();
-		
-		
-		for (int i = 0; i < this.spectacleDAO.getSpectacles().size(); i++) {
-			
-			Spectacle s = this.spectacleDAO.getSpectacles().get(i);
-			
-			if(s.getNom().toLowerCase().contains(nom.toLowerCase())){
-				liste.add(s);
-			}
-		}
-		
-		/**
-		 * Si on trouve aucun spectacle pour ce nom, on retourne la liste complète
-		 */
-		if(liste.size() > 0) {
-			return liste;
-		}
-		else {
-			List<Spectacle> completeList = new ArrayList<Spectacle>(spectacleDAO.getSpectacles().values());
-			return (ArrayList<Spectacle>) completeList;
-		}
-		
-	}
 }
