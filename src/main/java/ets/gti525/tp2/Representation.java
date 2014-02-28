@@ -1,13 +1,15 @@
 package ets.gti525.tp2;
 
+import java.math.BigDecimal;
+
 public class Representation {
 	private int id;
 	private Salle salle;
 	private String date;
 	private int billets;
-	private float prix;
+	private BigDecimal prix;
 	
-	public Representation(int id, Salle salle, String date, int billets, float prix) {
+	public Representation(int id, Salle salle, String date, int billets, BigDecimal prix) {
 		super();
 		this.id = id;
 		this.salle = salle;
@@ -40,10 +42,10 @@ public class Representation {
 	public void setBillets(int billets) {
 		this.billets = billets;
 	}
-	public float getPrix() {
+	public BigDecimal getPrix() {
 		return prix;
 	}
-	public void setPrix(float prix) {
+	public void setPrix(BigDecimal prix) {
 		this.prix = prix;
 	}
 	

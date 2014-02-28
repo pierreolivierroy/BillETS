@@ -1,5 +1,6 @@
 package ets.gti525.tp2;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 
 public class SpectacleDAOStub extends abstractDAO{
@@ -12,14 +13,14 @@ public class SpectacleDAOStub extends abstractDAO{
 		HashMap<Integer, Representation> representationsSpectacle1 = new HashMap<Integer, Representation>();
 		Salle centreBell = new Salle(1,"Centre Bell", "1909 Avenue des Canadiens-de-Montréal, Montréal, QC H4B 5G0");
 		Salle condo = new Salle(2,"Condo à Saint-Philippe", "92 chénier St-Philippe, QC H4B 5G0");
-		Representation r1 = new Representation(1,centreBell,"3 mars 2014",100,105);
-		Representation r2 = new Representation(2,condo,"10 mars 2014",25,200);
+		Representation r1 = new Representation(1,centreBell,"3 mars 2014",100,new BigDecimal(105));
+		Representation r2 = new Representation(2,condo,"10 mars 2014",25,new BigDecimal(200));
 		representationsSpectacle1.put(r1.getId(), r1);
 		representationsSpectacle1.put(r2.getId(), r2);
 		
 		HashMap<Integer, Representation> representationsSpectacle2 = new HashMap<Integer, Representation>();
-		Representation r3 = new Representation(1,centreBell,"20 mars 2014",10000,200);
-		Representation r4 = new Representation(2,centreBell,"21 mars 2014",10000,200); 
+		Representation r3 = new Representation(1,centreBell,"20 mars 2014",10000,new BigDecimal(200));
+		Representation r4 = new Representation(2,centreBell,"21 mars 2014",10000,new BigDecimal(200)); 
 		representationsSpectacle2.put(r3.getId(), r3);
 		representationsSpectacle2.put(r4.getId(), r4);  
 		

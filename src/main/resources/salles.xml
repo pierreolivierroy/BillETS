@@ -1,22 +1,37 @@
 <?xml version="1.0"?>
 <salles>
 	<salle id="1">
-		<nom>Centre Bell</nom>
-		<adresse>1909 Avenue des Canadiens-de-Montréal, Montréal, QC H4B 5G0</adresse>
+		<nom>Café Soho</nom>
+		<adresse>6289 St-Hubert, Montréal, Québec</adresse>
 	</salle>
 
 	<salle id="2">
-		<nom>Condo à Saint-Philippe</nom>
-		<adresse>92 chénier St-Philippe, QC H4B 5G0</adresse>
+		<nom>Musée d'art contemporain</nom>
+		<adresse>185 St-Catherine O, Montréal, Québec</adresse>
 	</salle>
 	
 	<salle id="3">
-		<nom>Métropolis</nom>
-		<adresse>59 Rue Sainte-Catherine Est, Montréal, QC H2X 1K5</adresse>
+		<nom>La Place des Arts</nom>
+		<adresse>175 St-Catherine O, Montréal, Québec</adresse>
 	</salle>
 
 	<salle id="4">
 		<nom>Divan Orange</nom>
 		<adresse>4234 Boulevard Saint-Laurent, Montréal, QC H2W 1Z3</adresse>
+	</salle>
+	
+	<salle id="5">
+		<nom>SAT</nom>
+		<adresse>1195 St-Laurent, Montréal, Québec</adresse>
+	</salle>
+
+	<salle id="6">
+		<nom>Utopia Lounge</nom>
+		<adresse>417 St-Pierre, Montréal, Québec</adresse>
+	</salle>
+	
+	<salle id="7">
+		<nom>Café Campus</nom>
+		<adresse>57 Prince Arthur E, Montréal, Québec</adresse>
 	</salle>
 </salles>

@@ -1,6 +1,7 @@
 package ets.gti525.tp2;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.HashMap;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -100,7 +101,7 @@ public class SpectacleDAOXML {
 						this.listeSalles.get(Integer.parseInt(eElement.getElementsByTagName("salle").item(0).getTextContent())),
 						eElement.getElementsByTagName("date").item(0).getTextContent(),
 						Integer.parseInt(eElement.getElementsByTagName("billets").item(0).getTextContent()),
-						Float.valueOf(eElement.getElementsByTagName("prix").item(0).getTextContent()));
+						new BigDecimal(eElement.getElementsByTagName("prix").item(0).getTextContent()));
 				System.out.println(representation);
 				this.listeRepresentations.put(representation.getId(), representation);
 			}
