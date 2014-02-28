@@ -53,18 +53,13 @@ public class SpectacleDAOXML {
 	
 	public void createSalles(Document doc) {
 		
-		System.out.println("SALLES ----------------------------");
-		
 		doc.getDocumentElement().normalize();
 		NodeList nList = doc.getElementsByTagName("salle"); 
 		
-		System.out.println(nList.getLength());
 		for (int i = 0; i < nList.getLength(); i++) {
 	 
 			Node nNode = nList.item(i);  
-	 
-			System.out.println("\nCurrent Element :" + nNode.getNodeName());
-	 
+	 	 
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 	 
 				Element eElement = (Element) nNode; 
@@ -73,24 +68,20 @@ public class SpectacleDAOXML {
 						Integer.parseInt(eElement.getAttribute("id")), 
 						eElement.getElementsByTagName("nom").item(0).getTextContent(),
 						eElement.getElementsByTagName("adresse").item(0).getTextContent());
-				System.out.println(salle);
+
 				this.listeSalles.put(salle.getId(), salle);
 			}
 		}
 	}
 	
 	public void createRepresentations(Document doc) {
-		
-		System.out.println("REPRÉSENTATIONS ----------------------------");
-		
+			
 		doc.getDocumentElement().normalize();
 		NodeList nList = doc.getElementsByTagName("representation");
 		
 		for (int i = 0; i < nList.getLength(); i++) {
 	 
 			Node nNode = nList.item(i);
-	 
-			System.out.println("\nCurrent Element :" + nNode.getNodeName());
 	 
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 	 
@@ -102,17 +93,13 @@ public class SpectacleDAOXML {
 						eElement.getElementsByTagName("date").item(0).getTextContent(),
 						Integer.parseInt(eElement.getElementsByTagName("billets").item(0).getTextContent()),
 						new BigDecimal(eElement.getElementsByTagName("prix").item(0).getTextContent()));
-				System.out.println(representation);
+				
 				this.listeRepresentations.put(representation.getId(), representation);
 			}
 		}
-		
-		System.out.println(this.listeRepresentations);
 	}
 
 	public void createSpectacles(Document doc) {
-
-		System.out.println("SPECTACLES ----------------------------");
 		
 		doc.getDocumentElement().normalize();
 		NodeList nList = doc.getElementsByTagName("spectacle"); 
@@ -120,9 +107,7 @@ public class SpectacleDAOXML {
 		for (int i = 0; i < nList.getLength(); i++) {
 	 
 			Node nNode = nList.item(i);
-	 
-			System.out.println("\nCurrent Element :" + nNode.getNodeName());
-	 
+	 	 
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 	 
 				Element eElement = (Element) nNode;
@@ -136,7 +121,7 @@ public class SpectacleDAOXML {
 						eElement.getElementsByTagName("description").item(0).getTextContent(),
 						eElement.getElementsByTagName("thumbnailPath").item(0).getTextContent(),
 						eElement.getElementsByTagName("bannerPath").item(0).getTextContent());
-				System.out.println(spectacle); 
+				
 				this.listeSpectacles.put(spectacle.getId(), spectacle);		 
 			}
 		}
