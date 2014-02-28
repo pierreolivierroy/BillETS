@@ -4,7 +4,7 @@
 
 <jsp:include page="layout/header.jsp" />
 
-	      <div class="jumbotron" style="background-image:url(${pageContext.request.contextPath}/resources/img/${spectacleJumbotron.bannerPath});">
+	      <div class="jumbotron" style="background-image:url(${pageContext.request.contextPath}/resources/img/spectacles/banner/${spectacleJumbotron.bannerPath});">
 	        <h2 class="white">${spectacleJumbotron.nom}</h2>
 	        <p class="white lead">${spectacleJumbotron.description}</p>
 	        <p><a class="btn btn-lg btn-success" href="${pageContext.request.contextPath}/spectacles/${spectacleJumbotron.id}" role="button">Voir les billets &rarr;</a></p>
@@ -30,7 +30,7 @@
 		    <div class="col-lg-12">
 	        	<div class="col-lg-4">
 		          <div class="thumbnail" style="min-height : 450px;">
-			      <img src="${pageContext.request.contextPath}/resources/img/${prochainSpectacle1.bannerPath}" alt="${prochainSpectacle1.nom}">
+			      <img src="${pageContext.request.contextPath}/resources/img/spectacles/banner/${prochainSpectacle1.bannerPath}" alt="${prochainSpectacle1.nom}">
 			      <div class="caption">
 			        <h3>${prochainSpectacle1.artistes}</h3>
 			        <p>${prochainSpectacle1.description}</p>
@@ -40,7 +40,7 @@
 		       </div>
 		       <div class="col-lg-4">
 		       	<div class="thumbnail" style="min-height : 450px;">
-			      <img src="${pageContext.request.contextPath}/resources/img/${prochainSpectacle2.bannerPath}" alt="${prochainSpectacle2.nom}">
+			      <img src="${pageContext.request.contextPath}/resources/img/spectacles/banner/${prochainSpectacle2.bannerPath}" alt="${prochainSpectacle2.nom}">
 			      <div class="caption">
 			        <h3>${prochainSpectacle2.artistes}</h3>
 			        <p>${prochainSpectacle2.description}</p>
@@ -51,7 +51,7 @@
 		       </div>
 		       <div class="col-lg-4">
 		         <div class="thumbnail" style="min-height : 450px;">
-			      <img src="${pageContext.request.contextPath}/resources/img/${prochainSpectacle3.bannerPath}" alt="${prochainSpectacle3.nom}">
+			      <img src="${pageContext.request.contextPath}/resources/img/spectacles/banner/${prochainSpectacle3.bannerPath}" alt="${prochainSpectacle3.nom}">
 			      <div class="caption">
 			        <h3>${prochainSpectacle3.artistes}</h3>
 			        <p>${prochainSpectacle3.description}</p>
