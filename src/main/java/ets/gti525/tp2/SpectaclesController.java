@@ -37,7 +37,7 @@ public class SpectaclesController {
 		try {
 			Spectacle spectacle = SpectaclesFacade.getInstance().getSpectacle(Integer.parseInt(spectacle_id));
 			model.addAttribute("spectacle", spectacle);
-			model.addAttribute("section", "None");
+			model.addAttribute("section", "Spectacles");
 		}
 		catch (Exception e) {
 			// Spectacle inexistant.

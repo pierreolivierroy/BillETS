@@ -3,14 +3,42 @@
 	<representation id="1">
 		<salle>1</salle>
 		<date>20 mars 2014</date>
-		<billets>10000</billets>
-		<prix>200</prix>
+		<billets>5</billets>
+		<prix>50.00</prix>
 	</representation>
 
 	<representation id="2">
-		<salle>2</salle>
+		<salle>3</salle>
 		<date>21 mars 2014</date>
+		<billets>100</billets>
+		<prix>60.00</prix>
+	</representation>
+	
+	<representation id="3">
+		<salle>2</salle>
+		<date>19 avril 2014</date>
+		<billets>10000</billets>
+		<prix>60.00</prix>
+	</representation>
+
+	<representation id="4">
+		<salle>6</salle>
+		<date>20 avril 2014</date>
 		<billets>1000</billets>
-		<prix>350</prix>
-	</representation>	
+		<prix>30.00</prix>
+	</representation>
+	
+	<representation id="5">
+		<salle>4</salle>
+		<date>10 mai 2014</date>
+		<billets>10000</billets>
+		<prix>20.00</prix>
+	</representation>
+
+	<representation id="6">
+		<salle>2</salle>
+		<date>16 mai 2014</date>
+		<billets>1000</billets>
+		<prix>100.00</prix>
+	</representation>
 </representations>

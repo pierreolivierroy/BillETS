@@ -17,7 +17,7 @@ public class RepresentationsController {
 		
 		Representation rep = SpectaclesFacade.getInstance().getRepresentation(spectacle_id, representation_id);
 		Spectacle spectacle = SpectaclesFacade.getInstance().getSpectacle(spectacle_id);
-		model.addAttribute("section", "None");
+		model.addAttribute("section", "Spectacles");
 		model.addAttribute("representation", rep);
 		model.addAttribute("spectacle", spectacle);
 		
