@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<representations>
+	<representation id="1">
+		<salle>1</salle>
+		<date>20 mars 2014</date>
+		<billets>10000</billets>
+		<prix>200</prix>
+	</representation>
+
+	<representation id="2">
+		<salle>2</salle>
+		<date>21 mars 2014</date>
+		<billets>1000</billets>
+		<prix>350</prix>
+	</representation>	
+</representations>

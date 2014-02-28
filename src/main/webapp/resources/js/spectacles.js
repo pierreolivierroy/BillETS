@@ -19,7 +19,7 @@ function recherche(nomSpectacle){
 		if(json.length > 0) {
 						
 			$.each(json, function(i, spectacle) {
-				
+				console.log(spectacle['artistes']);
 				$('.form-group').after(	'<div class="media"><a class="pull-left" href="'+contextPath+'/spectacles/'+spectacle['id']+'">'+
     			'<img class="media-object" src="'+contextPath+'/resources/img/'+spectacle['thumbnailPath']+'" alt="img_spectacle">'+
 				'</a><div class="media-body"><h4 class="media-heading"><a href="'+contextPath+'/spectacles/'+spectacle['id']+'">'+spectacle['nom']+'</a></h4>'+

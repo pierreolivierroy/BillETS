@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<spectacles>
+	<spectacle id="1">
+		<nom>Les heures verticales</nom>
+		<artistes>Olivier Rivard</artistes>
+		<representations>1</representations>
+		<description>Les heures verticales. Pour l’humoriste, Les heures verticales, c’est le temps où l’être humain est debout, à partir du jour où il a appris à marcher, mais aussi dans les moments où il doit se tenir droit devant ou dans l’adversité.</description>
+		<thumbnailPath>ljh.jpg</thumbnailPath>
+		<bannerPath>ljh-banner.jpg</bannerPath>
+	</spectacle>
+
+	<spectacle id="2">
+		<nom>Dan et ses bottes</nom>
+		<artistes>Danny Boyer</artistes>
+		<representations>1</representations>
+		<description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis malesuada ligula, sit amet tincidunt libero iaculis vitae. Sed at posuere metus. Maecenas turpis arcu, aliquam imperdiet tristique nec, blandit nec mi. Praesent in libero nunc. Nam ac posuere mi. Praesent malesuada quam erat, sed rutrum quam malesuada nec. Donec quis eleifend est. Nullam imperdiet turpis eget sapien suscipit sagittis.</description>
+		<thumbnailPath>ljh.jpg</thumbnailPath>
+		<bannerPath>ljh-banner.jpg</bannerPath>
+	</spectacle>
+
+	<spectacle id="3">
+		<nom>Vakerai</nom>
+		<artistes>Crique du soleil</artistes>
+		<representations>2</representations>
+		<description>Dans une forêt lointaine, au sommet d'un volcan, existe un monde extraordinaire. Un monde où quelque chose d'autre est possible.</description>
+		<thumbnailPath>ljh.jpg</thumbnailPath>
+		<bannerPath>varekai_bg.jpg</bannerPath>
+	</spectacle>
+
+	<spectacle id="4">
+		<nom>Dan et ses bottes II</nom>
+		<artistes>Danny Boyer 2</artistes>
+		<representations>1</representations>
+		<description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis malesuada ligula, sit amet tincidunt libero iaculis vitae. Sed at posuere metus. Maecenas turpis arcu, aliquam imperdiet tristique nec, blandit nec mi. Praesent in libero nunc. Nam ac posuere mi. Praesent malesuada quam erat, sed rutrum quam malesuada nec. Donec quis eleifend est. Nullam imperdiet turpis eget sapien suscipit sagittis.</description>
+		<thumbnailPath>ljh.jpg</thumbnailPath>
+		<bannerPath>ljh-banner.jpg</bannerPath>
+	</spectacle>
+
+	<spectacle id="5">
+		<nom>Dan et ses bottes III</nom>
+		<artistes>Danny Boyer 3</artistes>
+		<representations>1</representations>
+		<description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis malesuada ligula, sit amet tincidunt libero iaculis vitae. Sed at posuere metus. Maecenas turpis arcu, aliquam imperdiet tristique nec, blandit nec mi. Praesent in libero nunc. Nam ac posuere mi. Praesent malesuada quam erat, sed rutrum quam malesuada nec. Donec quis eleifend est. Nullam imperdiet turpis eget sapien suscipit sagittis.</description>
+		<thumbnailPath>ljh.jpg</thumbnailPath>
+		<bannerPath>ljh-banner.jpg</bannerPath>
+	</spectacle>
+
+	<spectacle id="6">
+		<nom>Dan et ses bottes IV</nom>
+		<artistes>Danny Boyer 4</artistes>
+		<representations>1</representations>
+		<description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis malesuada ligula, sit amet tincidunt libero iaculis vitae. Sed at posuere metus. Maecenas turpis arcu, aliquam imperdiet tristique nec, blandit nec mi. Praesent in libero nunc. Nam ac posuere mi. Praesent malesuada quam erat, sed rutrum quam malesuada nec. Donec quis eleifend est. Nullam imperdiet turpis eget sapien suscipit sagittis.</description>
+		<thumbnailPath>ljh.jpg</thumbnailPath>
+		<bannerPath>ljh-banner.jpg</bannerPath>
+	</spectacle>
+
+	<spectacle id="7">
+		<nom>Dan et ses bottes V</nom>
+		<artistes>Danny Boyer 5</artistes>
+		<representations>1</representations>
+		<description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis malesuada ligula, sit amet tincidunt libero iaculis vitae. Sed at posuere metus. Maecenas turpis arcu, aliquam imperdiet tristique nec, blandit nec mi. Praesent in libero nunc. Nam ac posuere mi. Praesent malesuada quam erat, sed rutrum quam malesuada nec. Donec quis eleifend est. Nullam imperdiet turpis eget sapien suscipit sagittis.</description>
+		<thumbnailPath>ljh.jpg</thumbnailPath>
+		<bannerPath>ljh-banner.jpg</bannerPath>
+	</spectacle>
+
+	<spectacle id="8">
+		<nom>Dan et ses bottes VI</nom>
+		<artistes>Danny Boyer 6</artistes>
+		<representations>1</representations>
+		<description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis malesuada ligula, sit amet tincidunt libero iaculis vitae. Sed at posuere metus. Maecenas turpis arcu, aliquam imperdiet tristique nec, blandit nec mi. Praesent in libero nunc. Nam ac posuere mi. Praesent malesuada quam erat, sed rutrum quam malesuada nec. Donec quis eleifend est. Nullam imperdiet turpis eget sapien suscipit sagittis.</description>
+		<thumbnailPath>ljh.jpg</thumbnailPath>
+		<bannerPath>ljh-banner.jpg</bannerPath>
+	</spectacle>
+
+	<spectacle id="9">
+		<nom>Dan et ses bottes VII</nom>
+		<artistes>Danny Boyer 7</artistes>
+		<representations>1</representations>
+		<description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis malesuada ligula, sit amet tincidunt libero iaculis vitae. Sed at posuere metus. Maecenas turpis arcu, aliquam imperdiet tristique nec, blandit nec mi. Praesent in libero nunc. Nam ac posuere mi. Praesent malesuada quam erat, sed rutrum quam malesuada nec. Donec quis eleifend est. Nullam imperdiet turpis eget sapien suscipit sagittis.</description>
+		<thumbnailPath>ljh.jpg</thumbnailPath>
+		<bannerPath>ljh-banner.jpg</bannerPath>
+	</spectacle>
+
+	<spectacle id="10">
+		<nom>Dan et ses bottes VIII</nom>
+		<artistes>Danny Boyer 8</artistes>
+		<representations>1</representations>
+		<description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis malesuada ligula, sit amet tincidunt libero iaculis vitae. Sed at posuere metus. Maecenas turpis arcu, aliquam imperdiet tristique nec, blandit nec mi. Praesent in libero nunc. Nam ac posuere mi. Praesent malesuada quam erat, sed rutrum quam malesuada nec. Donec quis eleifend est. Nullam imperdiet turpis eget sapien suscipit sagittis.</description>
+		<thumbnailPath>ljh.jpg</thumbnailPath>
+		<bannerPath>ljh-banner.jpg</bannerPath>
+	</spectacle>
+
+	<spectacle id="11">
+		<nom>P-O et ses lunettes</nom>
+		<artistes>Pierre-Olivier Bourgeois</artistes>
+		<representations>1</representations>
+		<description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mollis malesuada ligula, sit amet tincidunt libero iaculis vitae. Sed at posuere metus. Maecenas turpis arcu, aliquam imperdiet tristique nec, blandit nec mi. Praesent in libero nunc. Nam ac posuere mi. Praesent malesuada quam erat, sed rutrum quam malesuada nec. Donec quis eleifend est. Nullam imperdiet turpis eget sapien suscipit sagittis.</description>
+		<thumbnailPath>ljh.jpg</thumbnailPath>
+		<bannerPath>ljh-banner.jpg</bannerPath>
+	</spectacle>
+
+	<spectacle id="12">
+		<nom>Extrêmement et sa barbe</nom>
+		<artistes>Pierre-Olivier Roy</artistes>
+		<representations>1</representations>
+		<description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rutrum nisl et mi pellentesque, eget sollicitudin massa lacinia. Praesent consequat purus sem, ut iaculis nunc rutrum a. Morbi dapibus, leo nec commodo pretium, nunc dolor blandit dui, eu bibendum elit risus ac nisi. Etiam malesuada facilisis risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Praesent pulvinar lorem at tortor bibendum consectetur. Ut et auctor metus. Vestibulum at facilisis nulla. Nulla pharetra eros ligula, et fringilla purus congue ut. Cras elementum, lorem eu convallis pharetra, purus mi semper sapien, ut pellentesque dolor erat quis nulla. Maecenas dolor risus, cursus quis vestibulum nec, placerat nec nulla.</description>
+		<thumbnailPath>ljh.jpg</thumbnailPath>
+		<bannerPath>ljh-banner.jpg</bannerPath>
+	</spectacle>
+</spectacles>
