@@ -24,6 +24,7 @@
 						  </a>
 						  <div class="media-body">
 						    <h4 class="media-heading"><a href="${pageContext.request.contextPath}/spectacles/${spectacle.value.id}">${spectacle.value.nom}</a></h4>
+							<h5>${spectacle.value.artistes}</h5>
 							<p>${spectacle.value.description}</p>
 						  </div>
 						</div>			
