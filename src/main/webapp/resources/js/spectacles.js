@@ -14,7 +14,7 @@ function recherche(nomSpectacle){
 		
 	$.getJSON(contextPath + "/chercherSpectacle", { spectacle_nom: nomSpectacle }).done(function(json) {			
 
-		$('.media').hide();
+		$('.media').remove();
 		
 		if(json.length > 0) {
 						
