@@ -15,7 +15,7 @@
 	      		<div class="page-header">
 		          <h2>Des tonnes de spectacles!</h2>
 		       </div>
-		       <p class="lead">BillETS est une entreprise québécoise devenue le plus important diffuseur/producteur et promoteur indépendant au Canada. Produisant annuellement plus de 1 000 événements musicaux, familiaux, sportifs partout au Québec, dans les provinces de l’Atlantique et dans le nord-est des États-Unis</p>
+		       <p class="lead">BillETS est une entreprise québécoise devenue le plus important diffuseur/producteur et promoteur indépendant au Canada. Produisant annuellement plus de 1 000 événements musicaux, familiaux, sportifs partout au Québec et dans les provinces de l’Atlantique.</p>
 		       <p><a href="${pageContext.request.contextPath}/spectacles" class="btn btn-warning btn-lg center-block" role="button">Consulter la liste des spectacles</a></p>
 	      	</div>
 	      </div>
