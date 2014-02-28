@@ -21,7 +21,7 @@ function recherche(nomSpectacle){
 			$.each(json, function(i, spectacle) {
 				console.log(spectacle['artistes']);
 				$('.form-group').after(	'<div class="media"><a class="pull-left" href="'+contextPath+'/spectacles/'+spectacle['id']+'">'+
-    			'<img class="media-object" src="'+contextPath+'/resources/img/'+spectacle['thumbnailPath']+'" alt="img_spectacle">'+
+    			'<img class="media-object img-rounded" src="'+contextPath+'/resources/img/spectacles/thumbnail/'+spectacle['thumbnailPath']+'" alt="img_spectacle">'+
 				'</a><div class="media-body"><h4 class="media-heading"><a href="'+contextPath+'/spectacles/'+spectacle['id']+'">'+spectacle['nom']+'</a></h4>'+
 				'<h5>'+spectacle['artistes']+'</h5>'+
 				'<p>'+spectacle['description']+'</p>'+

@@ -20,7 +20,7 @@
 					<c:forEach items="${spectacles}" var="spectacle">     
 					 	<div class="media">
 						  <a class="pull-left" href="${pageContext.request.contextPath}/spectacles/${spectacle.value.id}">
-						    <img class="media-object" src="${pageContext.request.contextPath}/resources/img/spectacles/thumbnail/${spectacle.value.thumbnailPath}" alt="img_spectacle">
+						    <img class="media-object img-rounded" src="${pageContext.request.contextPath}/resources/img/spectacles/thumbnail/${spectacle.value.thumbnailPath}" alt="img_spectacle">
 						  </a>
 						  <div class="media-body">
 						    <h4 class="media-heading"><a href="${pageContext.request.contextPath}/spectacles/${spectacle.value.id}">${spectacle.value.nom}</a></h4>
