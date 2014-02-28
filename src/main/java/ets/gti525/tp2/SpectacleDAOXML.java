@@ -16,13 +16,13 @@ public class SpectacleDAOXML {
 	private HashMap<Integer, Spectacle> listeSpectacles = new HashMap<Integer, Spectacle>();
 	private HashMap<Integer, Salle> listeSalles = new HashMap<Integer, Salle>();
 	private HashMap<Integer, Representation> listeRepresentations = new HashMap<Integer, Representation>();
-	private static final String XML_SALLES_PATH = "C:\\Users\\Verglas\\Documents\\eclipse-workspace\\gti525-tp2\\salles.xml";
-	private static final String XML_REPRESENTATIONS_PATH = "C:\\Users\\Verglas\\Documents\\eclipse-workspace\\gti525-tp2\\representations.xml";
-	private static final String XML_SPECTACLES_PATH = "C:\\Users\\Verglas\\Documents\\eclipse-workspace\\gti525-tp2\\spectacles.xml";
+	private static final String XML_SALLES_PATH = "salles.xml";
+	private static final String XML_REPRESENTATIONS_PATH = "representations.xml";
+	private static final String XML_SPECTACLES_PATH = "spectacles.xml";
 	
 	public SpectacleDAOXML() {
 		
-		/**
+		/** src/main/resources/
 		 * Source : http://www.mkyong.com/java/how-to-read-xml-file-in-java-dom-parser/
 		 */	 		
 		Document docSalles = buildXMLFile(XML_SALLES_PATH);
@@ -39,7 +39,7 @@ public class SpectacleDAOXML {
 		Document doc = null;   
 		
 		try {
-			File fXmlFile = new File(path);
+			File fXmlFile = new File(this.getClass().getClassLoader().getResource(path).toURI());
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			doc = dBuilder.parse(fXmlFile);
