@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <representations>
 	<representation id="1">
+		<spectacle>1</spectacle>
 		<salle>1</salle>
 		<date>20 mars 2014</date>
 		<billets>5</billets>
@@ -8,6 +9,7 @@
 	</representation>
 
 	<representation id="2">
+		<spectacle>2</spectacle>
 		<salle>3</salle>
 		<date>21 mars 2014</date>
 		<billets>100</billets>
@@ -15,6 +17,7 @@
 	</representation>
 	
 	<representation id="3">
+		<spectacle>3</spectacle>
 		<salle>2</salle>
 		<date>19 avril 2014</date>
 		<billets>10000</billets>
@@ -22,6 +25,7 @@
 	</representation>
 
 	<representation id="4">
+		<spectacle>4</spectacle>
 		<salle>6</salle>
 		<date>20 avril 2014</date>
 		<billets>1000</billets>
@@ -29,6 +33,7 @@
 	</representation>
 	
 	<representation id="5">
+		<spectacle>5</spectacle>
 		<salle>4</salle>
 		<date>10 mai 2014</date>
 		<billets>10000</billets>
@@ -36,8 +41,57 @@
 	</representation>
 
 	<representation id="6">
+		<spectacle>6</spectacle>
 		<salle>2</salle>
 		<date>16 mai 2014</date>
+		<billets>1000</billets>
+		<prix>100.00</prix>
+	</representation>
+	
+	<representation id="7">
+		<spectacle>7</spectacle>
+		<salle>2</salle>
+		<date>16 mai 2014</date>
+		<billets>1000</billets>
+		<prix>100.00</prix>
+	</representation>
+	
+	<representation id="8">
+		<spectacle>8</spectacle>
+		<salle>2</salle>
+		<date>16 mai 2014</date>
+		<billets>1000</billets>
+		<prix>100.00</prix>
+	</representation>
+	
+	<representation id="9">
+		<spectacle>9</spectacle>
+		<salle>2</salle>
+		<date>26 mai 2014</date>
+		<billets>1000</billets>
+		<prix>180.00</prix>
+	</representation>
+	
+	<representation id="10">
+		<spectacle>10</spectacle>
+		<salle>2</salle>
+		<date>15 mai 2014</date>
+		<billets>1000</billets>
+		<prix>100.00</prix>
+	</representation>
+	
+	<representation id="11">
+		<spectacle>10</spectacle>
+		<salle>2</salle>
+		<date>16 mai 2014</date>
+		<billets>1000</billets>
+		<prix>100.00</prix>
+	</representation>
+	
+	<representation id="12">
+		<spectacle>10</spectacle>
+		<salle>2</salle>
+		<date>17 mai 2014</date>
 		<billets>1000</billets>
 		<prix>100.00</prix>
 	</representation>

@@ -3,6 +3,8 @@ package ets.gti525.tp2;
 import java.io.File;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -89,6 +91,7 @@ public class SpectacleDAOXML {
 				
 				Representation representation = new Representation(
 						Integer.parseInt(eElement.getAttribute("id")), 
+						Integer.parseInt(eElement.getElementsByTagName("spectacle").item(0).getTextContent()),
 						this.listeSalles.get(Integer.parseInt(eElement.getElementsByTagName("salle").item(0).getTextContent())),
 						eElement.getElementsByTagName("date").item(0).getTextContent(),
 						Integer.parseInt(eElement.getElementsByTagName("billets").item(0).getTextContent()),
@@ -112,12 +115,17 @@ public class SpectacleDAOXML {
 	 
 				Element eElement = (Element) nNode;
 				
+				HashMap<Integer, Representation> liste = new HashMap<Integer, Representation>();				
+				for(Entry<Integer, Representation> entry : this.listeRepresentations.entrySet()) {					
+					if(entry.getValue().getIdSpectacle() == Integer.parseInt(eElement.getAttribute("id")))
+						liste.put(entry.getKey(), entry.getValue());
+				}
+				
 				Spectacle spectacle = new Spectacle(
 						Integer.parseInt(eElement.getAttribute("id")), 
 						eElement.getElementsByTagName("nom").item(0).getTextContent(),
 						eElement.getElementsByTagName("artistes").item(0).getTextContent(),
-						//this.listeRepresentations.get(Integer.parseInt(eElement.getElementsByTagName("representations").item(0).getTextContent())),
-						this.listeRepresentations,
+						liste,
 						eElement.getElementsByTagName("description").item(0).getTextContent(),
 						eElement.getElementsByTagName("thumbnailPath").item(0).getTextContent(),
 						eElement.getElementsByTagName("bannerPath").item(0).getTextContent());

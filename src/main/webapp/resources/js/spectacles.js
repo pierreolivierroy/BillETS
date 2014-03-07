@@ -10,7 +10,7 @@ $(document).ready(function() {
 	});
 });
 
-function recherche(nomSpectacle){
+function recherche(nomSpectacle) {
 		
 	$.getJSON(contextPath + "/chercherSpectacle", { spectacle_nom: nomSpectacle }).done(function(json) {			
 

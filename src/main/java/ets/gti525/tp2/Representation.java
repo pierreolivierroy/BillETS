@@ -4,14 +4,16 @@ import java.math.BigDecimal;
 
 public class Representation {
 	private int id;
+	private int idSpectacle;
 	private Salle salle;
 	private String date;
 	private int billets;
 	private BigDecimal prix;
 	
-	public Representation(int id, Salle salle, String date, int billets, BigDecimal prix) {
+	public Representation(int id, int idSpectacle, Salle salle, String date, int billets, BigDecimal prix) {
 		super();
 		this.id = id;
+		this.idSpectacle = idSpectacle;
 		this.salle = salle;
 		this.date = date;
 		this.billets = billets;
@@ -23,6 +25,12 @@ public class Representation {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getIdSpectacle() {
+		return idSpectacle;
+	}
+	public void setIdSpectacle(int idSpectacle) {
+		this.idSpectacle = idSpectacle;
 	}
 	public Salle getSalle() {
 		return salle;
