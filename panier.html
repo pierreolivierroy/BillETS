@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+	    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+	    <title>BillETS - Achat de billets en ligne</title>
+
+	    <!-- Bootstrap core CSS -->
+	    
+	    <link rel="stylesheet" href="css/style.css">
+	    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+
+	    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	  	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	  	
+
+	    <!-- Just for debugging purposes. Don't actually copy this line! -->
+	    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	    <![endif]-->
+	  <style>.pkt_added {text-decoration:none !important;}</style><style type="text/css"></style>
+	</head>
+	<body>
+
+	    <div class="container">
+
+	      <div class="header">
+	        <ul class="nav nav-pills pull-right">
+	          <li><a href="index.html">Accueil</a></li>
+	          <li><a href="spectacles.html">Spectacles</a></li>
+	          <li class="active"><a href="panier.html">Panier<span class="badge pull-right">3</span></a></li>
+	        </ul>
+	        <h1 class="text-muted">BillETS</h1>
+	      </div>
+
+	      <div class="row">
+
+	      	<div class="col-lg-12">
+
+	        	<!-- breadcrumbs -->
+	        	<ol class="breadcrumb">
+				  <li><a href="index.html">Accueil</a></li>
+				  <li class="active">Panier</li>
+				</ol>
+				<div class="page-header">
+	      			<h2>Votre panier</h2>
+	      			<p>Voici les billets présents dans votre panier.</p>
+      			</div>
+
+	      			<table class="table-panier table table-striped">
+	      				<thead>
+	      					<tr>
+	      						<th style="width:20px;"><span class="glyphicon glyphicon-trash"></span></th>
+	      						<th>Spectacle</th>
+	      						<th>Siège</th>
+	      						<th>Prix</th>
+	      					</tr>
+	      				</thead>
+	      				<tbody>
+
+
+	      					<tr>
+	      						<td style="text-align:center;"><button type="button"  class="close" aria-hidden="true">&times;</button></td>
+	      						<td><span class="bold">Louis-José Houde - Les heures verticales</span><br />
+	      							<small>
+	      								Le vendredi 31 janvier 2013 à 21h<br />
+	      								Salle Wilfrid-Pelletier - Place des Arts
+	      							</small>
+	      						</td>
+	      						<td class="vert-align">B-35</td>
+	      						<td class="prix vert-align">39,99 $</td>
+	      					</tr>
+	      					<tr>
+								<td style="text-align:center;"><button type="button"  class="close" aria-hidden="true">&times;</button></td>
+								<td><span class="bold">Louis-José Houde - Les heures verticales</span><br />
+	      							<small>
+	      								Le vendredi 31 janvier 2013 à 21h<br />
+	      								Salle Wilfrid-Pelletier - Place des Arts
+	      							</small>
+	      						</td>
+	      						<td class="vert-align">B-37</td>
+	      						<td class="vert-align prix">39,99 $</td>
+	      					</tr>
+	      					<tr>
+								<td style="text-align:center;"><button type="button"  class="close" aria-hidden="true">&times;</button></td>
+								<td><span class="bold">Louis-José Houde - Les heures verticales</span><br />
+	      							<small>
+	      								Le vendredi 31 janvier 2013 à 21h<br />
+	      								Salle Wilfrid-Pelletier - Place des Arts
+	      							</small>
+	      						</td>
+	      						<td class="vert-align">B-39</td>
+	      						<td class="vert-align prix">39,99 $</td>
+	      					</tr>
+	      				</tbody>
+	      			</table>
+
+	      			<hr />
+
+	      			<table class="table-infos table">
+	      				<tbody>
+	      					<tr class="info">
+	      						<td></td>
+	      						<td></td>
+	      						<td style="text-align:right;">Sous-total:</td>
+	      						<td class="prix">79,98 $</td>
+	      					</tr>
+	      					<tr class="info">
+	      						<td></td>
+	      						<td></td>
+	      						<td style="text-align:right;">TPS (5%):</td>
+	      						<td class="prix">4,00 $</td>
+	      					</tr>
+	      					<tr class="info">
+	      						<td></td>
+	      						<td></td>
+	      						<td style="text-align:right;">TVQ (9,975%):</td>
+	      						<td class="prix">7,98 $</td>
+	      					</tr>
+	      					<tr class="info">
+	      						<td></td>
+	      						<td></td>
+	      						<td style="text-align:right;">Grand total:</td>
+	      						<td class="prix">91,96 $</td>
+	      					</tr>
+	      				</tbody>
+	      				</table>
+	      				<hr />
+						<p class="foot_buttons">
+						  <a href="index.html" class="btn btn-default">Continuer à magasiner</a>
+						  <a href="paiement.html" class="btn btn-success">Procéder au paiement &rarr;</a>
+						</p>
+
+	      	</div>
+
+	      </div>
+
+	      <div class="footer">
+			<p>© GTI525 2014, powered by <a target="blank" href="http://getbootstrap.com/">Bootstrap</a></p>
+	      </div>
+
+	    </div> <!-- /container -->
+
+
+	    <!-- Bootstrap core JavaScript
+	    ================================================== -->
+	    <!-- Placed at the end of the document so the pages load faster -->
+
+	</body>
+</html>

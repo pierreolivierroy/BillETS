@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="description" content="">
+	    <meta name="author" content="">
+	    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+	    <title>BillETS - Achat de billets en ligne</title>
+
+	    <!-- Bootstrap core CSS -->
+	    
+	    <link rel="stylesheet" href="css/style.css">
+	    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+
+	    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	  	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	  	
+
+	    <!-- Just for debugging purposes. Don't actually copy this line! -->
+	    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	    <!--[if lt IE 9]>
+	      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	    <![endif]-->
+	  <style>.pkt_added {text-decoration:none !important;}</style><style type="text/css"></style>
+	</head>
+	<body>
+		
+		<!-- confirmation modal -->
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+		        <p>Veuillez confirmer votre choix de billets</p>
+		      </div>
+		      <div class="modal-body">
+		        <p>Quantité de billets : 2</p>
+		        <p>Représentation du 20 janvier à 19h30</p>
+		        <p>Montréal, Centre Bell</p>
+		      </div>
+		      <div class="modal-footer">
+		        <p><button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Annuler</button></p>
+		        <a href="panier.html" class="spacer-bottom btn btn-success btn-block" role="button">Procéder au paiement</a>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+	    <div class="container">
+	      <div class="header">
+	        <ul class="nav nav-pills pull-right">
+	          <li><a href="index.html">Accueil</a></li>
+	          <li><a href="spectacles.html">Spectacles</a></li>
+	          <li><a href="panier.html">Panier<span class="badge pull-right">3</span></a></li>
+	        </ul>
+	        <h1 class="text-muted">BillETS</h1>
+	      </div>
+
+	      <div class="row">
+	        <div class="col-lg-12">
+	        	<!-- breadcrumbs -->
+	        	<ol class="breadcrumb">
+				  <li><a href="index.html">Accueil</a></li>
+				  <li><a href="spectacles.html">Spectacles</a></li>
+				  <li><a href="001.html">Louis-Josée Houde - Les heures Verticales</a></li>
+				  <li><a href="#">Représentations</a></li>
+				  <li class="active">20 janvier à 19h30</li>
+				</ol>
+
+				<!-- page title -->
+	        	<div class="page-header">
+		          <h2>Détails de la représentation</h2>
+		          <p>Voici les détails de la représentation</p>
+		       </div>
+
+		       <!-- content -->
+				<h4 class="muted">Louis-Josée Houde - Les heures Verticales</h4>
+				<div class="row">
+					<div class="col-lg-8">
+						<ul class="list-group">
+							  <li class="list-group-item"><strong>Date &amp; heure</strong> : 20 janvier à 19h30</li>
+							  <li class="list-group-item"><strong>Nombre de places disponibles</strong> : 569</li>
+							  <li class="list-group-item"><strong>Numéro de représentation</strong> : 01</li>
+							  <li class="list-group-item"><strong>Location</strong> : Montréal, Centre Bell</li>
+							  <li class="list-group-item"><strong>Prix unitaire</strong> : 99$</li>
+						</ul>
+					</div>
+					<div class="col-lg-4">
+						<div class="panel panel-default">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">Achat de billet(s)</h3>
+						  </div>
+						  <div class="panel-body">
+						  	<p>Choisissez une quantité</p>
+						  	<select class="form-control spacer-bottom">
+							  <option>1</option>
+							  <option>2</option>
+							  <option>3</option>
+							  <option>4</option>
+							  <option>5</option>
+							  <option>6</option>
+							</select>
+						    <button data-toggle="modal" data-target="#myModal" type="button" class="btn btn-success btn-block"><span class="glyphicon glyphicon glyphicon-shopping-cart"></span> Ajouter au panier</button>
+						  </div>
+						</div>
+					</div>
+				</div>
+		       	<a href="spectacles.html" class="spacer-bottom btn btn-default " role="button"><span class="glyphicon glyphicon-arrow-left"></span> Choisir une autre représentation</a>
+	        </div>
+	   
+	      </div>
+
+	      <div class="footer">
+	        <p>© GTI525 2013, powered by <a target="blank" href="http://getbootstrap.com/">Bootstrap</a></p>
+	      </div>
+
+	    </div> <!-- /container -->
+
+
+	    <!-- Bootstrap core JavaScript
+	    ================================================== -->
+	    <!-- Placed at the end of the document so the pages load faster -->
+
+	</body>
+</html>
