@@ -3,7 +3,6 @@ package ets.gti525.tp2;
 import java.io.File;
 import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Map.Entry;
 
 import javax.xml.parsers.DocumentBuilder;
