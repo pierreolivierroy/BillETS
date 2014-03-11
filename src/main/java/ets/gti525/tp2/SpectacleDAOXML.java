@@ -13,7 +13,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class SpectacleDAOXML {
+public class SpectacleDAOXML implements SpectacleDAOInterface {
 	
 	private HashMap<Integer, Spectacle> listeSpectacles = new HashMap<Integer, Spectacle>();
 	private HashMap<Integer, Salle> listeSalles = new HashMap<Integer, Salle>();
@@ -163,15 +163,15 @@ public class SpectacleDAOXML {
 		
 	}
 	
-	public Spectacle getSpectacle(int id){
+	public Spectacle getSpectacle(int id) {
 		return this.listeSpectacles.get(id);
 	}
 	
-	public HashMap<Integer, Representation> getRepresentations(int idSpectacle){
+	public HashMap<Integer, Representation> getRepresentations(int idSpectacle) {
 		return this.listeSpectacles.get(idSpectacle).getRepresentations();
 	}
 	
-	public Representation getRepresentation(int idSpectacle, int idRepresentation){
+	public Representation getRepresentation(int idSpectacle, int idRepresentation) {
 		return this.listeSpectacles.get(idSpectacle).getRepresentations().get(idRepresentation);
 	}
 
