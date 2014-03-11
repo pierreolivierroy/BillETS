@@ -1,6 +1,6 @@
 package ets.gti525.tp2;
 
-public class Billets {
+public class Billet {
 	private int id;
 	private boolean reserve;
 	
