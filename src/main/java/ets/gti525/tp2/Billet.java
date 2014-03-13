@@ -14,6 +14,10 @@ public class Billet {
 		this.id_representation = id_representation;
 		this.reserve = reserve;
 	}
+	
+	public Billet(){
+		
+	}
 
 	public int getId() {
 		return id;

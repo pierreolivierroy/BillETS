@@ -1,13 +1,13 @@
 package ets.gti525.tp2;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Panier {
-	private HashMap<Integer, LignePanier> lignesPanier;
+	private ArrayList<LignePanier> lignesPanier;
 	
 	public Panier(){
-		lignesPanier = new HashMap<Integer, LignePanier>();
+		lignesPanier = new ArrayList<LignePanier>();
 	}
 	
 	/**
@@ -15,7 +15,7 @@ public class Panier {
 	 * @param ligne
 	 */
 	public void addLine(LignePanier ligne){
-		lignesPanier.put(ligne.getId(), ligne);
+		lignesPanier.add(ligne);
 	}
 	
 	/**
@@ -36,8 +36,9 @@ public class Panier {
 	 */
 	public BigDecimal getTotal(){
 		BigDecimal total = new BigDecimal(0);
-		for (Integer mapKey : lignesPanier.keySet()) {
-			total = total.add(lignesPanier.get(mapKey).getTotal());
+		for (int i=0;i<lignesPanier.size();i++)
+		{
+			total = total.add(lignesPanier.get(i).getTotal());
 		}
 		return total;
 	}

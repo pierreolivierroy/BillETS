@@ -1,12 +1,12 @@
 package ets.gti525.tp2;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Facture {
 	private int id;
-	private HashMap<Integer, LignePanier> lignesPanier;
+	private ArrayList<LignePanier> lignesPanier;
 	
-	public Facture(HashMap<Integer, LignePanier> lignesPanier) {
+	public Facture(ArrayList<LignePanier> lignesPanier) {
 		super();
 		this.lignesPanier = lignesPanier;
 	}
@@ -19,11 +19,11 @@ public class Facture {
 		this.id = id;
 	}
 
-	public HashMap<Integer, LignePanier> getLignesPanier() {
+	public ArrayList<LignePanier> getLignesPanier() {
 		return lignesPanier;
 	}
 
-	public void setLignesPanier(HashMap<Integer, LignePanier> lignesPanier) {
+	public void setLignesPanier(ArrayList<LignePanier> lignesPanier) {
 		this.lignesPanier = lignesPanier;
 	}
 	
