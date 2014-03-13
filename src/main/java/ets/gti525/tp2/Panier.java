@@ -26,14 +26,19 @@ public class Panier {
 		lignesPanier.remove(id);
 	}
 	
-
+	public Facture generateBill(){
+		return new Facture(lignesPanier);
+	}
 	
 	/**
 	 * Obtenir le total du panier
 	 * @return
 	 */
 	public BigDecimal getTotal(){
-
-		return null;
+		BigDecimal total = new BigDecimal(0);
+		for (Integer mapKey : lignesPanier.keySet()) {
+			total = total.add(lignesPanier.get(mapKey).getTotal());
+		}
+		return total;
 	}
 }

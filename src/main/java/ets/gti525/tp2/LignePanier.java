@@ -1,16 +1,16 @@
 package ets.gti525.tp2;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class LignePanier {
 	private int id;
 	private String description;
 	private BigDecimal prixUnitaire;
-	private HashMap<Integer, Billet> billets;
+	private ArrayList<Billet> billets;
 	
 	public LignePanier(int id, String description, BigDecimal prixUnitaire,
-			HashMap<Integer, Billet> billets) {
+			ArrayList<Billet> billets) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -59,15 +59,13 @@ public class LignePanier {
 		this.prixUnitaire = prixUnitaire;
 	}
 
-	public HashMap<Integer, Billet> getBillets() {
+	public ArrayList<Billet> getBillets() {
 		return billets;
 	}
 
-	public void setBillets(HashMap<Integer, Billet> billets) {
+	public void setBillets(ArrayList<Billet> billets) {
 		this.billets = billets;
 	}
-	
-	
-	
+
 	
 }
