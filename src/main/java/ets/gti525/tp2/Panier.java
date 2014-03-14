@@ -4,42 +4,41 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Panier {
-	private ArrayList<LignePanier> lignesPanier;
-	
-	public Panier(){
-		lignesPanier = new ArrayList<LignePanier>();
+	private ArrayList<LignePanier> lignesPanier = new ArrayList<LignePanier>();
+	private BigDecimal sous_total = new BigDecimal(0);
+	private BigDecimal tps  = new BigDecimal(0);
+	private BigDecimal tvq  = new BigDecimal(0);
+	private BigDecimal total  = new BigDecimal(0);
+
+	public ArrayList<LignePanier> getLignesPanier() {
+		return lignesPanier;
 	}
-	
-	/**
-	 * Ajouter une ligne dans le panier
-	 * @param ligne
-	 */
-	public void addLine(LignePanier ligne){
-		lignesPanier.add(ligne);
+	public void setLignesPanier(ArrayList<LignePanier> lignesPanier) {
+		this.lignesPanier = lignesPanier;
 	}
-	
-	/**
-	 * Supprimer une ligne en spécifiant le id de la ligne
-	 * @param id
-	 */
-	public void removeLine(int id){
-		lignesPanier.remove(id);
+	public BigDecimal getSous_total() {
+		return sous_total;
 	}
-	
-	public Facture generateBill(){
-		return new Facture(lignesPanier);
+	public void setSous_total(BigDecimal sous_total) {
+		this.sous_total = sous_total;
 	}
-	
-	/**
-	 * Obtenir le total du panier
-	 * @return
-	 */
-	public BigDecimal getTotal(){
-		BigDecimal total = new BigDecimal(0);
-		for (int i=0;i<lignesPanier.size();i++)
-		{
-			total = total.add(lignesPanier.get(i).getTotal());
-		}
+	public BigDecimal getTps() {
+		return tps;
+	}
+	public void setTps(BigDecimal tps) {
+		this.tps = tps;
+	}
+	public BigDecimal getTvq() {
+		return tvq;
+	}
+	public void setTvq(BigDecimal tvq) {
+		this.tvq = tvq;
+	}
+	public BigDecimal getTotal() {
 		return total;
 	}
+	public void setTotal(BigDecimal total) {
+		this.total = total;
+	}
+
 }

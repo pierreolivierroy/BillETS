@@ -1,71 +1,67 @@
 package ets.gti525.tp2;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 
 public class LignePanier {
 	private int id;
+	private int quantite;
+	private String titre;
 	private String description;
 	private BigDecimal prixUnitaire;
-	private ArrayList<Billet> billets;
+	private BigDecimal prix;
+
+	public LignePanier() {
+		super();
+	}
 	
-	public LignePanier(int id, String description, BigDecimal prixUnitaire,
-			ArrayList<Billet> billets) {
+	public LignePanier(int id, int quantite, String titre, String description,
+			BigDecimal prixUnitaire, BigDecimal prix) {
 		super();
 		this.id = id;
+		this.quantite = quantite;
+		this.titre = titre;
 		this.description = description;
 		this.prixUnitaire = prixUnitaire;
-		this.billets = billets;
-	}
-	
-	/**
-	 * Obtenir le total pour l'achat de cette ligne
-	 * @return total en bigDecimal
-	 */
-	public BigDecimal getTotal(){
-		BigDecimal nombreBillets = new BigDecimal(this.billets.size());
-		return (prixUnitaire.multiply(nombreBillets)); 
-	}
-	
-	/**
-	 * Obtenir le nombre de billets
-	 * @return
-	 */
-	public int getQuantite(){
-		return this.billets.size();
+		this.prix = prix;
 	}
 
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	public int getQuantite() {
+		return quantite;
+	}
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+	public String getTitre() {
+		return titre;
+	}
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 	public BigDecimal getPrixUnitaire() {
 		return prixUnitaire;
 	}
-
 	public void setPrixUnitaire(BigDecimal prixUnitaire) {
 		this.prixUnitaire = prixUnitaire;
 	}
-
-	public ArrayList<Billet> getBillets() {
-		return billets;
+	public BigDecimal getPrix() {
+		return prix;
 	}
-
-	public void setBillets(ArrayList<Billet> billets) {
-		this.billets = billets;
+	public void setPrix(BigDecimal prix) {
+		this.prix = prix;
 	}
-
-	
 }
+	
+	
+	

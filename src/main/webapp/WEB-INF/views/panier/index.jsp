@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="../layout/header.jsp" />
 
@@ -22,47 +23,27 @@
 	      				<thead>
 	      					<tr>
 	      						<th style="width:20px;"><span class="glyphicon glyphicon-trash"></span></th>
+	      						<th>Quantité</th>
 	      						<th>Spectacle</th>
-	      						<th>Siège</th>
+	      						<th>Prix unitaire</th>
 	      						<th>Prix</th>
 	      					</tr>
 	      				</thead>
 	      				<tbody>
-
-
+	      					<c:forEach items="${panier.lignesPanier}" var="ligne_panier">
+	      				
 	      					<tr>
 	      						<td style="text-align:center;"><button type="button"  class="close" aria-hidden="true">&times;</button></td>
-	      						<td><span class="bold">Louis-José Houde - Les heures verticales</span><br />
-	      							<small>
-	      								Le vendredi 31 janvier 2013 à 21h<br />
-	      								Salle Wilfrid-Pelletier - Place des Arts
-	      							</small>
+	      						<td class="text-center"><strong>${ligne_panier.quantite}</strong></td>
+	      						<td><span class="bold">${ligne_panier.titre}</span><br />
+	      							<small>${ligne_panier.description}</small>
 	      						</td>
-	      						<td class="vert-align">B-35</td>
-	      						<td class="prix vert-align">39,99 $</td>
+	      						<td class="vert-align">${ligne_panier.prixUnitaire} $</td>
+	      						<td class="prix vert-align">${ligne_panier.prix} $</td>
 	      					</tr>
-	      					<tr>
-								<td style="text-align:center;"><button type="button"  class="close" aria-hidden="true">&times;</button></td>
-								<td><span class="bold">Louis-José Houde - Les heures verticales</span><br />
-	      							<small>
-	      								Le vendredi 31 janvier 2013 à 21h<br />
-	      								Salle Wilfrid-Pelletier - Place des Arts
-	      							</small>
-	      						</td>
-	      						<td class="vert-align">B-37</td>
-	      						<td class="vert-align prix">39,99 $</td>
-	      					</tr>
-	      					<tr>
-								<td style="text-align:center;"><button type="button"  class="close" aria-hidden="true">&times;</button></td>
-								<td><span class="bold">Louis-José Houde - Les heures verticales</span><br />
-	      							<small>
-	      								Le vendredi 31 janvier 2013 à 21h<br />
-	      								Salle Wilfrid-Pelletier - Place des Arts
-	      							</small>
-	      						</td>
-	      						<td class="vert-align">B-39</td>
-	      						<td class="vert-align prix">39,99 $</td>
-	      					</tr>
+	      					
+	      					</c:forEach>
+	      					
 	      				</tbody>
 	      			</table>
 
@@ -74,25 +55,25 @@
 	      						<td></td>
 	      						<td></td>
 	      						<td style="text-align:right;">Sous-total:</td>
-	      						<td class="prix">79,98 $</td>
+	      						<td class="prix">${panier.sous_total} $</td>
 	      					</tr>
 	      					<tr class="info">
 	      						<td></td>
 	      						<td></td>
 	      						<td style="text-align:right;">TPS (5%):</td>
-	      						<td class="prix">4,00 $</td>
+	      						<td class="prix">${panier.tps} $</td>
 	      					</tr>
 	      					<tr class="info">
 	      						<td></td>
 	      						<td></td>
 	      						<td style="text-align:right;">TVQ (9,975%):</td>
-	      						<td class="prix">7,98 $</td>
+	      						<td class="prix">${panier.tvq} $</td>
 	      					</tr>
 	      					<tr class="info">
 	      						<td></td>
 	      						<td></td>
 	      						<td style="text-align:right;">Grand total:</td>
-	      						<td class="prix">91,96 $</td>
+	      						<td class="prix">${panier.total} $</td>
 	      					</tr>
 	      				</tbody>
 	      				</table>
