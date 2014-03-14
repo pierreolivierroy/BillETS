@@ -14,28 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PanierController {
 	
 	private Panier panier = new Panier();
-	private final BigDecimal TPS = new BigDecimal(0.05);
-	private final BigDecimal TVQ = new BigDecimal(0.09975);
 
 	public PanierController() {
 		super();
 		//this is a test line remove it
 		LignePanier une_ligne = new LignePanier(1, 2, "Un titre", "Le vendredi 31 janvier 2013 à 21h Salle Wilfrid-Pelletier - Place des Arts",
 				new BigDecimal(19.99).setScale(2, BigDecimal.ROUND_HALF_UP), new BigDecimal(39.98).setScale(2, BigDecimal.ROUND_HALF_UP));
-		ajouterLigne(une_ligne);
-	}
-	
-	private void ajouterLigne(LignePanier ligne) {
-		BigDecimal prix_ligne = ligne.getPrix();
-		BigDecimal sous_total = panier.getSous_total().add(prix_ligne);
-		BigDecimal tps = sous_total.multiply(TPS);
-		BigDecimal tvq = sous_total.multiply(TVQ);
-		
-		panier.getLignesPanier().add(ligne);
-		panier.setSous_total(sous_total.setScale(2, BigDecimal.ROUND_HALF_UP));
-		panier.setTps(tps.setScale(2, BigDecimal.ROUND_HALF_UP));
-		panier.setTvq(tvq.setScale(2, BigDecimal.ROUND_HALF_UP));
-		panier.setTotal(sous_total.add(tps.add(tvq)).setScale(2, BigDecimal.ROUND_HALF_UP));
+		panier.ajouterLigne(une_ligne);
 	}
 	
 	//private void enleverLigne()...
