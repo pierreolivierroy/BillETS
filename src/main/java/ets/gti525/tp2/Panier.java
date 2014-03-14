@@ -55,5 +55,13 @@ public class Panier {
 		this.setTvq(tvq.setScale(2, BigDecimal.ROUND_HALF_UP));
 		this.setTotal(sous_total.add(tps.add(tvq)).setScale(2, BigDecimal.ROUND_HALF_UP));
 	}
+	
+	public void enleverLigne(int id_ligne) {
+		for (int i = 0; i < lignesPanier.size(); i++) {
+			if(lignesPanier.get(i).getId() == id_ligne) {
+				lignesPanier.remove(i);
+			}
+	    }
+	}
 
 }

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,6 +40,21 @@ public class PanierController {
 		
 		panier.ajouterLigne(ligne);
 		
+		model.addAttribute("section", "Panier");
+		return "redirect:/panier";
+	}
+	
+	/**
+	 * Remove the specified line
+	 * @param representation_id
+	 * @param model
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping(value = "/panier/lignePanier/{ligne_id}", method = RequestMethod.GET)
+	public String panierRemove(@PathVariable int ligne_id, Model model, HttpSession session) {
+		Panier panier = (Panier) session.getAttribute("panier");
+		panier.enleverLigne(ligne_id);
 		model.addAttribute("section", "Panier");
 		return "redirect:/panier";
 	}

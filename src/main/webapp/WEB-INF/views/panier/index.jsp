@@ -33,7 +33,7 @@
 	      					<c:forEach items="${panier.lignesPanier}" var="ligne_panier">
 	      				
 	      					<tr>
-	      						<td style="text-align:center;"><button type="button"  class="close" aria-hidden="true">&times;</button></td>
+	      						<td style="text-align:center;"><a href="${pageContext.request.contextPath}/panier/lignePanier/${ligne_panier.id}">&times;</a></td>
 	      						<td class="text-center"><strong>${ligne_panier.quantite}</strong></td>
 	      						<td><span class="bold">${ligne_panier.titre}</span><br />
 	      							<small>${ligne_panier.description}</small>
