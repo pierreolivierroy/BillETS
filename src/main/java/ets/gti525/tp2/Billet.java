@@ -1,10 +1,13 @@
 package ets.gti525.tp2;
 
+import org.exolab.castor.types.DateTime;
+
 public class Billet {
 	private int id;
 	private int id_spectacle;
 	private int id_representation;
 	private boolean reserve;
+	private DateTime dateReserve;
 	
 	public Billet(int id, int id_spectacle, int id_representation,
 			boolean reserve) {
@@ -13,8 +16,17 @@ public class Billet {
 		this.id_spectacle = id_spectacle;
 		this.id_representation = id_representation;
 		this.reserve = reserve;
+		this.dateReserve = null;
 	}
 	
+	public DateTime getDateReserve() {
+		return dateReserve;
+	}
+
+	public void setDateReserve(DateTime dateReserve) {
+		this.dateReserve = dateReserve;
+	}
+
 	public Billet(){
 		
 	}

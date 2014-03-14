@@ -21,6 +21,7 @@ public class SpectacleDAOXML implements ISpectacleDAO {
 	private static final String XML_SALLES_PATH = "salles.xml";
 	private static final String XML_REPRESENTATIONS_PATH = "representations.xml";
 	private static final String XML_SPECTACLES_PATH = "spectacles.xml";
+	private static final String XML_BILLETS_PATH = "billets.xml";
 	
 	public SpectacleDAOXML() {
 		
@@ -30,13 +31,15 @@ public class SpectacleDAOXML implements ISpectacleDAO {
 		Document docSalles = buildXMLFile(XML_SALLES_PATH);
 		Document docRepresentations = buildXMLFile(XML_REPRESENTATIONS_PATH);
 		Document docSpectacles = buildXMLFile(XML_SPECTACLES_PATH);
+		Document docBillets = buildXMLFile(XML_BILLETS_PATH);
 		
 		createSalles(docSalles);
 		createRepresentations(docRepresentations); 
 		createSpectacles(docSpectacles); 
+		createBillets(docBillets);
 	}
 	
-	public Document buildXMLFile(String path) {
+	private Document buildXMLFile(String path) {
 		
 		Document doc = null;   
 		
@@ -52,7 +55,7 @@ public class SpectacleDAOXML implements ISpectacleDAO {
 		return doc;		
 	}
 	
-	public void createSalles(Document doc) {
+	private void createSalles(Document doc) {
 		
 		doc.getDocumentElement().normalize();
 		NodeList nList = doc.getElementsByTagName("salle"); 
@@ -75,7 +78,7 @@ public class SpectacleDAOXML implements ISpectacleDAO {
 		}
 	}
 	
-	public void createRepresentations(Document doc) {
+	private void createRepresentations(Document doc) {
 			
 		doc.getDocumentElement().normalize();
 		NodeList nList = doc.getElementsByTagName("representation");
@@ -101,7 +104,7 @@ public class SpectacleDAOXML implements ISpectacleDAO {
 		}
 	}
 
-	public void createSpectacles(Document doc) {
+	private void createSpectacles(Document doc) {
 		
 		doc.getDocumentElement().normalize();
 		NodeList nList = doc.getElementsByTagName("spectacle"); 
@@ -130,6 +133,43 @@ public class SpectacleDAOXML implements ISpectacleDAO {
 						eElement.getElementsByTagName("bannerPath").item(0).getTextContent());
 				
 				this.listeSpectacles.put(spectacle.getId(), spectacle);		 
+			}
+		}
+	}
+	
+	private void createBillets(Document doc) {
+		
+		doc.getDocumentElement().normalize();
+		NodeList nList = doc.getElementsByTagName("billet"); 
+		
+		for (int i = 0; i < nList.getLength(); i++) {
+	 
+			Node nNode = nList.item(i);  
+	 	 
+			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+	 
+				Element eElement = (Element) nNode; 
+				
+				for (int j = 0; j < 10; j++) {
+					
+					StringBuffer _id = new StringBuffer(); 					
+					_id.append(j + 1);
+					_id.append(eElement.getElementsByTagName("id_spectacle").item(0).getTextContent());
+					_id.append(eElement.getElementsByTagName("id_representation").item(0).getTextContent());
+					int id = Integer.parseInt(_id.toString());
+					int id_spectacle = Integer.parseInt(eElement.getElementsByTagName("id_spectacle").item(0).getTextContent());
+					int id_representation = Integer.parseInt(eElement.getElementsByTagName("id_representation").item(0).getTextContent());
+					
+					Billet billet = new Billet(
+							id,
+							id_spectacle,
+							id_representation,
+							false);
+					System.out.println(billet.getId());
+					this.listeSpectacles.get(id_spectacle).getRepresentations().get(id_representation).getBilletsDisponibles().push(billet);
+				}
+				
+				
 			}
 		}
 	}
