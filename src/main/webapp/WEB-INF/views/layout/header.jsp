@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="ets.gti525.tp2.Panier" %>
+<%@ page session="true" %>
+
 <%
 String section = (String)request.getAttribute("section");
 %>
@@ -39,8 +41,12 @@ String section = (String)request.getAttribute("section");
 		
 		// Obtenir le nombre de billets dans le panier
 		Panier panier = (Panier)request.getSession().getAttribute("panier");
-		int nbBillets = panier.getLignesPanier().size();
+		int nbBillets = 0;
 		
+		if (panier != null)
+		{
+			nbBillets = panier.getLignesPanier().size();
+		}
 		%>
 
 	    <div class="container">
