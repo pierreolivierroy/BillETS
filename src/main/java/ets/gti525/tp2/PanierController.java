@@ -15,18 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class PanierController {
-	
-	private Panier panier = new Panier();
-
-	public PanierController() {
-		super();
-		//this is a test line remove it
-		LignePanier une_ligne = new LignePanier(1, 2, "Un titre", "Le vendredi 31 janvier 2013 à 21h Salle Wilfrid-Pelletier - Place des Arts",
-				new BigDecimal(19.99).setScale(2, BigDecimal.ROUND_HALF_UP), new BigDecimal(39.98).setScale(2, BigDecimal.ROUND_HALF_UP));
-		panier.ajouterLigne(une_ligne);
-	}
-	
-	//private void enleverLigne()...
 
 	/**
 	 * Simply selects the panier view to render by returning its name.
