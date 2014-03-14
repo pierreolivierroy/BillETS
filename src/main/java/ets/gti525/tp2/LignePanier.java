@@ -14,6 +14,7 @@ public class LignePanier {
 		super();
 	}
 	
+	
 	public LignePanier(int id, int quantite, String titre, String description,
 			BigDecimal prixUnitaire, BigDecimal prix) {
 		super();
