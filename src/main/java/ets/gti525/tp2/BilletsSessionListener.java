@@ -16,7 +16,7 @@ public class BilletsSessionListener implements HttpSessionListener {
 			session.setAttribute("panier", new Panier());
 		}
 
-		System.out.println("Nouvelle session créée id: " + se.getSession().getId());
+		System.out.println("Nouvelle session créée: # " + se.getSession().getId());
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class BilletsSessionListener implements HttpSessionListener {
 		// Libérer les items
 		//panier.
 		
-		System.out.println("Session id: " + se.getSession().getId() + " a été supprimée et les billets ont été libérés.");
+		System.out.println("Session #" + se.getSession().getId() + " a été supprimée et les billets ont été libérés.");
 		
 	}
 
