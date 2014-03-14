@@ -7,7 +7,7 @@ import java.util.HashMap;
  * @author dannyboyer
  *
  */
-public interface SpectacleDAOInterface {
+public interface ISpectacleDAO {
 	
 	public HashMap<Integer, Spectacle> getSpectacles(String nomSpectacle);
 	
