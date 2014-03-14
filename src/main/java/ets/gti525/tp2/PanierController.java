@@ -2,6 +2,7 @@ package ets.gti525.tp2;
 
 import java.math.BigDecimal;
 
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,15 +21,16 @@ public class PanierController {
 	 * Simply selects the panier view to render by returning its name.
 	 */
 	@RequestMapping(value = "/panier", method = RequestMethod.GET)
-	public String panier(Model model) {		
+	public String panier(Model model, HttpSession session) {
+		Panier panier = (Panier) session.getAttribute("panier");
 		model.addAttribute("section", "Panier");
 		model.addAttribute("panier", panier);
 		return "panier/index";
 	}
 	
 	@RequestMapping(value = "/panier", method = RequestMethod.POST)
-	public String panierAdd(@RequestParam(value="quantite", required=true) int quantite, @RequestParam(value="spectacle_id", required=true) int spectacle_id, @RequestParam(value="representation_id", required=true) int representation_id, Model model) {
-
+	public String panierAdd(@RequestParam(value="quantite", required=true) int quantite, @RequestParam(value="spectacle_id", required=true) int spectacle_id, @RequestParam(value="representation_id", required=true) int representation_id, Model model, HttpSession session) {
+		Panier panier = (Panier) session.getAttribute("panier");
 		Representation representation = SpectaclesFacade.getInstance().getRepresentation(spectacle_id, representation_id);
 		Spectacle spectacle = SpectaclesFacade.getInstance().getSpectacle(spectacle_id);
 		
