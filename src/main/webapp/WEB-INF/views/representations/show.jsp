@@ -68,9 +68,14 @@
 		        <p>Représentation du 20 janvier à 19h30</p>
 		        <p>Montréal, Centre Bell</p>
 		      </div>
+		      <form id="form_panier" method="POST" action="${pageContext.request.contextPath}/panier" style="display:none;">
+		      	<input name="quantite" id="quantite" type="hidden" value="" />
+		      	<input name="representation_id" type="hidden" value="${representation.id}" />
+		      	<input name="spectacle_id" type="hidden" value="${spectacle.id}" />
+		      </form>
 		      <div class="modal-footer">
 		        <p><button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Annuler</button></p>
-		        <a href="${pageContext.request.contextPath}/panier" class="spacer-bottom btn btn-success btn-block" role="button">Procéder au paiement</a>
+		        <a href="#" id="submit_button" class="spacer-bottom btn btn-success btn-block" role="button">Procéder au paiement</a>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->
@@ -81,10 +86,17 @@
 
 <!-- this script changes the value of num_tickets -->
 <script>
+$(document).ready(function() {
 	$('#num_tickets_list').change(function() {
 		$('#num_tickets').text($('#num_tickets_list option:selected').text());
+		$('#quantite').val($('#num_tickets_list option:selected').text());
 	});
-
+	$('#quantite').val($('#num_tickets_list option:selected').text());
+	$('#submit_button').click(function(event) {
+		event.preventDefault();
+		$( "#form_panier" ).submit();
+	});
+});
 </script>
 
 
