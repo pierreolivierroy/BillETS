@@ -13,7 +13,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class SpectacleDAOXML implements SpectacleDAOInterface {
+public class SpectacleDAOXML implements ISpectacleDAO {
 	
 	private HashMap<Integer, Spectacle> listeSpectacles = new HashMap<Integer, Spectacle>();
 	private HashMap<Integer, Salle> listeSalles = new HashMap<Integer, Salle>();
