@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="ets.gti525.tp2.Panier" %>
 <%
 String section = (String)request.getAttribute("section");
 %>
@@ -33,13 +34,21 @@ String section = (String)request.getAttribute("section");
 	  <style>.pkt_added {text-decoration:none !important;}</style><style type="text/css"></style>
 	</head>
 	<body style="">
+	
+		<%
+		
+		// Obtenir le nombre de billets dans le panier
+		Panier panier = (Panier)request.getSession().getAttribute("panier");
+		int nbBillets = panier.getLignesPanier().size();
+		
+		%>
 
 	    <div class="container">
 	      <div class="header">
 	        <ul class="nav nav-pills pull-right">
 	           	<li <% if (section.equals("Accueil")) {out.print("class=\"active\"");}%>><a href="${pageContext.request.contextPath}">Accueil</a></li>
 	           	<li <% if (section.equals("Spectacles")) {out.print("class=\"active\"");}%>><a href="${pageContext.request.contextPath}/spectacles">Spectacles</a></li> 
-	           	<li <% if (section.equals("Panier")) {out.print("class=\"active\"");}%>><a href="${pageContext.request.contextPath}/panier">Panier<span class="badge pull-right">3</span></a></li>
+	           	<li <% if (section.equals("Panier")) {out.print("class=\"active\"");}%>><a href="${pageContext.request.contextPath}/panier">Panier<span class="badge pull-right"><%= nbBillets %></span></a></li>
 	        </ul>
 	        <h1 class="text-muted">BillETS</h1>
 	      </div>
