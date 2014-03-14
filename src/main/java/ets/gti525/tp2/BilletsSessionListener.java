@@ -1,6 +1,5 @@
 package ets.gti525.tp2;
 
-import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
@@ -9,13 +8,8 @@ public class BilletsSessionListener implements HttpSessionListener {
 	@Override
 	public void sessionCreated(HttpSessionEvent se) {
 
-		HttpSession session = se.getSession();
-
-		if (session.getAttribute("panier") == null)
-		{
-			session.setAttribute("panier", new Panier());
-		}
-
+		// Créer un panier vide lors de la création d'une session
+		se.getSession().setAttribute("panier", new Panier());
 		System.out.println("Nouvelle session créée: # " + se.getSession().getId());
 	}
 
