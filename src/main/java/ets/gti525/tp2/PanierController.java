@@ -30,7 +30,7 @@ public class PanierController {
 	}
 	
 	@RequestMapping(value = "/panier", method = RequestMethod.POST)
-	public String panierAdd(@RequestParam(value="quantite", required=true) int quantite, @RequestParam(value="spectacle_id", required=true) int spectacle_id, @RequestParam(value="representation_id", required=true) int representation_id, Model model, HttpSession session) {
+	public synchronized String panierAdd(@RequestParam(value="quantite", required=true) int quantite, @RequestParam(value="spectacle_id", required=true) int spectacle_id, @RequestParam(value="representation_id", required=true) int representation_id, Model model, HttpSession session) {
 		Panier panier = (Panier) session.getAttribute("panier");
 		Representation representation = SpectaclesFacade.getInstance().getRepresentation(spectacle_id, representation_id);
 		Spectacle spectacle = SpectaclesFacade.getInstance().getSpectacle(spectacle_id);
