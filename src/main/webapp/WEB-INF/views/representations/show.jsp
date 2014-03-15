@@ -75,7 +75,7 @@
 		      </form>
 		      <div class="modal-footer">
 		        <p><button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Annuler</button></p>
-		        <a href="#" id="submit_button" class="spacer-bottom btn btn-success btn-block" role="button">Procéder au paiement</a>
+		        <a href="#" id="submit_button" class="spacer-bottom btn btn-success btn-block" role="button">Ajouter les billets au panier</a>
 		      </div>
 		    </div><!-- /.modal-content -->
 		  </div><!-- /.modal-dialog -->

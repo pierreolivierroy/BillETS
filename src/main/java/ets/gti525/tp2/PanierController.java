@@ -59,16 +59,4 @@ public class PanierController {
 		return "redirect:/panier";
 	}
 	
-	@RequestMapping(value = "/panier/paiement")
-	public String paiement(Model model) {
-		model.addAttribute("section", "None");
-		return "panier/paiement";
-	}
-	
-	@RequestMapping(value = "/panier/confirmation_achat")
-	public String confirmation_achat(Model model) {
-		model.addAttribute("section", "None");
-		return "panier/confirmation_achat";
-	}
-	
 }
