@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<billets>
+	<billet>
+		<id_spectacle>1</id_spectacle>
+		<id_representation>1</id_representation>
+		<reserve>false</reserve>
+	</billet>
+	<billet>
+		<id_spectacle>2</id_spectacle>
+		<id_representation>2</id_representation>
+		<reserve>false</reserve>
+	</billet>
+</billets>
