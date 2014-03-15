@@ -1,6 +1,7 @@
 package ets.gti525.tp2;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class Panier {
@@ -23,23 +24,23 @@ public class Panier {
 		for(int i=0; i <  this.lignesPanier.size(); i++) {
 			sous_total = sous_total.add(this.lignesPanier.get(i).getPrix());
 		}
-		return sous_total.setScale(2);
+		return sous_total.setScale(2, RoundingMode.HALF_UP);
 	}
 
 	public BigDecimal getTps() {
-		return getSous_total().multiply(TPS).setScale(2);
+		return getSous_total().multiply(TPS).setScale(2, RoundingMode.HALF_UP);
 	}
 
 
 
 	public BigDecimal getTvq() {
-		return getSous_total().multiply(TVQ).setScale(2);
+		return getSous_total().multiply(TVQ).setScale(2, RoundingMode.HALF_UP);
 	}
 
 
 
 	public BigDecimal getTotal() {
-		return getSous_total().add(this.getTps()).add(this.getTvq()).setScale(2);
+		return getSous_total().add(this.getTps()).add(this.getTvq());
 	}
 
 
