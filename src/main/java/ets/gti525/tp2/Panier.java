@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class Panier {
 	private ArrayList<LignePanier> lignesPanier = new ArrayList<LignePanier>();
-	private BigDecimal sous_total = new BigDecimal(0);
 	private final BigDecimal TPS = new BigDecimal(0.05);
 	private final BigDecimal TVQ = new BigDecimal(0.09975);
 
@@ -18,28 +17,29 @@ public class Panier {
 
 
 	public BigDecimal getSous_total() {
+		
+		BigDecimal sous_total = new BigDecimal(0);
+		
 		for(int i=0; i <  this.lignesPanier.size(); i++) {
-			this.sous_total.add(this.lignesPanier.get(i).getPrix());
+			sous_total = sous_total.add(this.lignesPanier.get(i).getPrix());
 		}
-		return sous_total;
+		return sous_total.setScale(2);
 	}
 
-
-
 	public BigDecimal getTps() {
-		return this.sous_total.multiply(TPS).setScale(2);
+		return getSous_total().multiply(TPS).setScale(2);
 	}
 
 
 
 	public BigDecimal getTvq() {
-		return this.sous_total.multiply(TVQ).setScale(2);
+		return getSous_total().multiply(TVQ).setScale(2);
 	}
 
 
 
 	public BigDecimal getTotal() {
-		return this.sous_total.add(this.getTps()).add(this.getTvq());
+		return getSous_total().add(this.getTps()).add(this.getTvq()).setScale(2);
 	}
 
 
