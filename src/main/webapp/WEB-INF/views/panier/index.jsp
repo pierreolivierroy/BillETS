@@ -55,25 +55,25 @@
 	      						<td></td>
 	      						<td></td>
 	      						<td style="text-align:right;">Sous-total:</td>
-	      						<td class="prix">${panier.sous_total} $</td>
+	      						<td class="prix">${panier.getSous_total()} $</td>
 	      					</tr>
 	      					<tr class="info">
 	      						<td></td>
 	      						<td></td>
 	      						<td style="text-align:right;">TPS (5%):</td>
-	      						<td class="prix">${panier.tps} $</td>
+	      						<td class="prix">${panier.getTps()} $</td>
 	      					</tr>
 	      					<tr class="info">
 	      						<td></td>
 	      						<td></td>
 	      						<td style="text-align:right;">TVQ (9,975%):</td>
-	      						<td class="prix">${panier.tvq} $</td>
+	      						<td class="prix">${panier.getTvq()} $</td>
 	      					</tr>
 	      					<tr class="info">
 	      						<td></td>
 	      						<td></td>
 	      						<td style="text-align:right;">Grand total:</td>
-	      						<td class="prix">${panier.total} $</td>
+	      						<td class="prix">${panier.getTotal()} $</td>
 	      					</tr>
 	      				</tbody>
 	      				</table>
