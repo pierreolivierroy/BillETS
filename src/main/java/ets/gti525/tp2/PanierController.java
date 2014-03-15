@@ -34,9 +34,14 @@ public class PanierController {
 		Panier panier = (Panier) session.getAttribute("panier");
 		Representation representation = SpectaclesFacade.getInstance().getRepresentation(spectacle_id, representation_id);
 		Spectacle spectacle = SpectaclesFacade.getInstance().getSpectacle(spectacle_id);
-		
+
 		LignePanier ligne = new LignePanier(representation.getId(), quantite, spectacle.getNom(), representation.getSalle().getAdresse(),
 				representation.getPrix(), representation.getPrix().multiply(new BigDecimal(quantite)));
+		
+		for (int i = 0 ; i < quantite ; i++)
+		{
+			ligne.ajouterReferenceBillet(representation.reserverBillet());
+		}
 		
 		panier.ajouterLigne(ligne);
 		

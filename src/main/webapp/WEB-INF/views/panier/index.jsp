@@ -36,7 +36,8 @@
 	      						<td style="text-align:center;"><a href="${pageContext.request.contextPath}/panier/lignePanier/${ligne_panier.id}">&times;</a></td>
 	      						<td class="text-center"><strong>${ligne_panier.quantite}</strong></td>
 	      						<td><span class="bold">${ligne_panier.titre}</span><br />
-	      							<small>${ligne_panier.description}</small>
+	      							<small>${ligne_panier.description}</small><br />
+	      							<small><strong>Temps restant avant la libération des billets</strong>: ${ligne_panier.tempsRestantAvantLiberation()} minutes</small>
 	      						</td>
 	      						<td class="vert-align">${ligne_panier.prixUnitaire} $</td>
 	      						<td class="prix vert-align">${ligne_panier.prix} $</td>

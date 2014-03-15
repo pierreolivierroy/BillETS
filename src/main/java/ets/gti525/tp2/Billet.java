@@ -1,13 +1,14 @@
 package ets.gti525.tp2;
 
+import java.util.Date;
+
 import org.exolab.castor.types.DateTime;
 
 public class Billet {
 	private int id;
 	private int id_spectacle;
 	private int id_representation;
-	private boolean reserve;
-	private DateTime dateReserve;
+	private Date dateReserve;
 	
 	public Billet(int id, int id_spectacle, int id_representation,
 			boolean reserve) {
@@ -15,17 +16,17 @@ public class Billet {
 		this.id = id;
 		this.id_spectacle = id_spectacle;
 		this.id_representation = id_representation;
-		this.reserve = reserve;
 		this.dateReserve = null;
 	}
 	
-	public DateTime getDateReserve() {
+	public Date getDateReserve() {
 		return dateReserve;
 	}
 
-	public void setDateReserve(DateTime dateReserve) {
+	public void setDateReserve(Date dateReserve) {
 		this.dateReserve = dateReserve;
 	}
+
 
 	public Billet(){
 		
@@ -40,11 +41,11 @@ public class Billet {
 	}
 
 	public boolean isReserve() {
-		return reserve;
-	}
-
-	public void setReserve(boolean reserve) {
-		this.reserve = reserve;
+		if (dateReserve != null)
+		{
+			return true;
+		}
+		return false;
 	}
 
 	public int getId_spectacle() {

@@ -96,7 +96,6 @@ public class SpectacleDAOXML implements ISpectacleDAO {
 						Integer.parseInt(eElement.getElementsByTagName("spectacle").item(0).getTextContent()),
 						this.listeSalles.get(Integer.parseInt(eElement.getElementsByTagName("salle").item(0).getTextContent())),
 						eElement.getElementsByTagName("date").item(0).getTextContent(),
-						Integer.parseInt(eElement.getElementsByTagName("billets").item(0).getTextContent()),
 						new BigDecimal(eElement.getElementsByTagName("prix").item(0).getTextContent()));
 				
 				this.listeRepresentations.put(representation.getId(), representation);
@@ -166,7 +165,7 @@ public class SpectacleDAOXML implements ISpectacleDAO {
 							id_representation,
 							false);
 					System.out.println(billet.getId());
-					this.listeSpectacles.get(id_spectacle).getRepresentations().get(id_representation).getBilletsDisponibles().push(billet);
+					this.listeSpectacles.get(id_spectacle).getRepresentations().get(id_representation).ajouterBillet(billet);
 				}
 				
 				

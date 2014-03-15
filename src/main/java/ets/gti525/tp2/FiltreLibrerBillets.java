@@ -49,7 +49,10 @@ public class FiltreLibrerBillets implements Filter {
 				// Pour chaque ligne du panier
 				for (LignePanier l : panier.getLignesPanier())
 				{
-					// Vérifier la date d'ajout du billet dans cette ligne
+					if (l.tempsRestantAvantLiberation() == 0) {
+						l.librerBillets();
+						panier.enleverLigne(l.getId());
+					}
 					
 				}
 			}
