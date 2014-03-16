@@ -1,0 +1,9 @@
+language: java
+install: mvn install
+script: mvn test
+deploy:
+  provider: heroku
+  app: billets
+  on: master
+  api_key:
+    secure: KkyPUFBro0mDBLD/NHBRmEZHow2DmWlLxvqK9oRf5bi92bOY/NzK6RFA39K0Hre6mVnmcVV6mzEldXMspFe0od767ZfmCkGC+W697yPqsmLrJDcJsjYSknYcUQHjgjN6in2df2R41Ogw4ChVhH/Ea6fHEP2mpgLaVkYqr8cBbiI=
