@@ -14,12 +14,12 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class FiltreLibrerBillets
  */
-public class FiltreLibrerBillets implements Filter {
+public class FiltreLibererBillets implements Filter {
 
     /**
      * Default constructor. 
      */
-    public FiltreLibrerBillets() {
+    public FiltreLibererBillets() {
         // TODO Auto-generated constructor stub
     }
 
