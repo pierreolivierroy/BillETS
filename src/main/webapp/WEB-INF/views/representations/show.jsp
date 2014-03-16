@@ -24,7 +24,7 @@
 					<div class="col-lg-8">
 						<ul class="list-group">
 							  <li class="list-group-item"><strong>Date &amp; heure</strong> : ${representation.date}</li>
-							  <li class="list-group-item"><strong>Nombre de places disponibles</strong> : ${representation.billets}</li>
+							  <li class="list-group-item"><strong>Nombre de places disponibles</strong> : ${representation.obtenirNombreBilletsDisponibles()}</li>
 							  <li class="list-group-item"><strong>Numéro de représentation</strong> : ${representation.id}</li>
 							  <li class="list-group-item"><strong>Identifiant du spectacle</strong> : ${representation.idSpectacle}</li>
 							  <li class="list-group-item"><strong>Location</strong> : ${representation.salle.nom}</li>
@@ -84,6 +84,8 @@
 	   
 	      </div>
 
+<script>var quantite = ${representation.obtenirNombreBilletsDisponibles()};</script>
+<script src="${pageContext.request.contextPath}/resources/js/nb_billets_validation.js" charset="utf-8"></script>
 <!-- this script changes the value of num_tickets -->
 <script>
 $(document).ready(function() {
@@ -98,7 +100,6 @@ $(document).ready(function() {
 	});
 });
 </script>
-
 
 <jsp:include page="../layout/footer.jsp" />
 

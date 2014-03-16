@@ -1,6 +1,11 @@
 package ets.gti525.tp2;
 
 import java.math.BigDecimal;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.exolab.castor.types.DateTime;
 
 public class LignePanier {
 	private int id;
@@ -8,7 +13,8 @@ public class LignePanier {
 	private String titre;
 	private String description;
 	private BigDecimal prixUnitaire;
-	private BigDecimal prix;
+
+	private HashMap<Integer, Billet> billets;
 
 	public LignePanier() {
 		super();
@@ -22,9 +28,31 @@ public class LignePanier {
 		this.titre = titre;
 		this.description = description;
 		this.prixUnitaire = prixUnitaire;
-		this.prix = prix;
+		this.billets = new HashMap<Integer, Billet>();
 	}
 
+	public void ajouterReferenceBillet(Billet billet)
+	{
+		billets.put(billet.getId(), billet);
+	}
+	
+	public void libererBillets()
+	{
+		for (Billet billet : billets.values()) {
+			billet.setDateReserve(null);
+		}
+		billets.clear();
+	}
+	
+	public long tempsRestantAvantLiberation()
+	{
+		// Nombre de minutes avant la libération d'un billet
+		Billet billet = (Billet) billets.values().iterator().next();
+		
+		// Conversion de milisecondes en minutes
+		return 20 - (new Date().getTime() - billet.getDateReserve().getTime()) / (60 * 1000) % 60;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -56,10 +84,7 @@ public class LignePanier {
 		this.prixUnitaire = prixUnitaire;
 	}
 	public BigDecimal getPrix() {
-		return prix;
-	}
-	public void setPrix(BigDecimal prix) {
-		this.prix = prix;
+		return prixUnitaire.multiply(new BigDecimal(quantite));
 	}
 }
 	

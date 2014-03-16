@@ -1,36 +1,77 @@
 package ets.gti525.tp2;
 
 import java.math.BigDecimal;
-import java.util.Stack;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.exolab.castor.types.DateTime;
 
 public class Representation {
 	private int id;
 	private int idSpectacle;
 	private Salle salle;
 	private String date;
-	private int billets;
 	private BigDecimal prix;
-	private Stack<Billet> billetsReserves;
-	private Stack<Billet> billetsDisponibles;
+	private HashMap<Integer, Billet> billets;
 	
-	public Representation(int id, int idSpectacle, Salle salle, String date, int billets, BigDecimal prix) {
+	public Representation(int id, int idSpectacle, Salle salle, String date, BigDecimal prix) {
 		super();
 		this.id = id;
 		this.idSpectacle = idSpectacle;
 		this.salle = salle;
 		this.date = date;
-		this.billets = billets;
 		this.prix = prix;
-		this.billetsReserves = new Stack<Billet>();
-		this.billetsDisponibles = new Stack<Billet>();
+		this.billets = new HashMap<Integer, Billet>();
 	}
 	
-	public Stack<Billet> getBilletsDisponibles() {
-		return billetsDisponibles;
+	public void ajouterBillet(Billet billet)
+	{
+		billets.put(billet.getId(), billet);
 	}
+	
+	public HashMap<Integer, Billet> obtenirBillets()
+	{
+		return billets;
+	}
+	
+	public Billet obtenirBillet(Integer id_billet)
+	{
+		return billets.get(id_billet);
+	}
+	
+	public Billet reserverBillet()
+	{
+		for (Billet billet : billets.values()) {
+			if (!billet.isReserve())
+			{
+				billet.setDateReserve(new Date());
+				return billet;
+			}
+		}
+		// Dans le cas ou aucun billet n'est dispo.
+		return null;
 
-	public void setBilletsDisponibles(Stack<Billet> billetsDisponibles) {
-		this.billetsDisponibles = billetsDisponibles;
+	}
+	
+	public Integer obtenirNombreBillets() {
+		return billets.size();
+	}
+	
+	public Integer obtenirNombreBilletsDisponibles()
+	{
+		int billets_dispos = 0;
+		
+		// Boucler sur tous les billets pour vérifier le nombre disponible.
+		for (Billet billet : billets.values()) {
+			if (!((Billet) billet).isReserve())
+			{
+				// On incrémente
+				billets_dispos++;
+			}
+		}
+
+		return billets_dispos;
 	}
 
 	public int getId() {
@@ -56,12 +97,6 @@ public class Representation {
 	}
 	public void setDate(String date) {
 		this.date = date;
-	}
-	public int getBillets() {
-		return this.billetsDisponibles.size();
-	}
-	public void setBillets(int billets) {
-		this.billets = billets;
 	}
 	public BigDecimal getPrix() {
 		return prix;
