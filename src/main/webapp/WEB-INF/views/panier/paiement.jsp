@@ -82,13 +82,6 @@
 								  </div>
 
 								  <div class="form-group">
-								    <label for="country">Pays</label>
-								    <select id="country" class="form-control">
-									  <option>Canada</option>
-									  <option>États-Unis</option>
-									</select>    
-								  </div>
-								  <div class="form-group">
 								    <label for="phone">Numéro de téléphone</label>
 								    <input type="password" class="form-control" id="phone" >
 								  </div>
