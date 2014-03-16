@@ -11,7 +11,7 @@
 	      	<div class="col-lg-12">
 
 	        	<ol class="breadcrumb">
-				  <li><a href="${pageContext.request.contextPath}">Accueil</a></li>
+				  <li><a href="${pageContext.request.contextPath}/">Accueil</a></li>
 				  <li class="active">Panier</li>
 				</ol>
 				<div class="page-header">

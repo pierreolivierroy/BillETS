@@ -52,7 +52,7 @@ String section = (String)request.getAttribute("section");
 	    <div class="container">
 	      <div class="header">
 	        <ul class="nav nav-pills pull-right">
-	           	<li <% if (section.equals("Accueil")) {out.print("class=\"active\"");}%>><a href="${pageContext.request.contextPath}">Accueil</a></li>
+	           	<li <% if (section.equals("Accueil")) {out.print("class=\"active\"");}%>><a href="${pageContext.request.contextPath}/">Accueil</a></li>
 	           	<li <% if (section.equals("Spectacles")) {out.print("class=\"active\"");}%>><a href="${pageContext.request.contextPath}/spectacles">Spectacles</a></li> 
 	           	<li <% if (section.equals("Panier")) {out.print("class=\"active\"");}%>><a href="${pageContext.request.contextPath}/panier">Panier<span class="badge pull-right"><%= nbBillets %></span></a></li>
 	        </ul>

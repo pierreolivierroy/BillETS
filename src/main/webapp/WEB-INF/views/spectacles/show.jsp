@@ -3,7 +3,7 @@
 <jsp:include page="../layout/header.jsp" />
 			<!-- breadcrumbs -->
 	        	<ol class="breadcrumb">
-				  <li><a href="${pageContext.request.contextPath}">Accueil</a></li>
+				  <li><a href="${pageContext.request.contextPath}/">Accueil</a></li>
 				  <li><a href="${pageContext.request.contextPath}/spectacles">Spectacles</a></li>
 				  <li class="active">${spectacle.nom}</li>
 				</ol>

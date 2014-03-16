@@ -6,7 +6,7 @@
 	        <div class="col-lg-12">
 	        	<!-- breadcrumbs -->
 	        	<ol class="breadcrumb">
-				  <li><a href="${pageContext.request.contextPath}">Accueil</a></li>
+				  <li><a href="${pageContext.request.contextPath}/">Accueil</a></li>
 				  <li><a href="${pageContext.request.contextPath}/spectacles">Spectacles</a></li>
 				  <li><a href="${pageContext.request.contextPath}/spectacles/${spectacle.id}">${spectacle.nom}</a></li>
 				  <li class="active">${representation.date}</li>
