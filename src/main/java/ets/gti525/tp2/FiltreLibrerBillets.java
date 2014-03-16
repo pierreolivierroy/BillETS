@@ -50,7 +50,7 @@ public class FiltreLibrerBillets implements Filter {
 				for (LignePanier l : panier.getLignesPanier())
 				{
 					if (l.tempsRestantAvantLiberation() <= 0) {
-						l.librerBillets();
+						l.libererBillets();
 						panier.enleverLigne(l.getId());
 					}
 					

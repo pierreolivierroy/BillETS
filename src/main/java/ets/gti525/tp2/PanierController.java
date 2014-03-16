@@ -36,7 +36,7 @@ public class PanierController {
 		Spectacle spectacle = SpectaclesFacade.getInstance().getSpectacle(spectacle_id);
 		
 		/*
-		 * Validation : nombre de billets achetés <= nombre de billets disponibles (en cas de désactivation javascript);
+		 * Validation : nombre de billets achetÃ©s <= nombre de billets disponibles (en cas de dï¿½sactivation javascript);
 		 */
 		if(quantite <= representation.obtenirNombreBilletsDisponibles()) {
 			
