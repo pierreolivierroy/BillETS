@@ -36,7 +36,7 @@ public class LignePanier {
 		billets.put(billet.getId(), billet);
 	}
 	
-	public void librerBillets()
+	public void libererBillets()
 	{
 		for (Billet billet : billets.values()) {
 			billet.setDateReserve(null);
