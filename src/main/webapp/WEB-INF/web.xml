@@ -29,7 +29,7 @@
   <filter>
     <display-name>FiltreLibrerBillets</display-name>
     <filter-name>FiltreLibrerBillets</filter-name>
-    <filter-class>ets.gti525.tp2.FiltreLibrerBillets</filter-class>
+    <filter-class>ets.gti525.tp2.FiltreLibererBillets</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>FiltreLibrerBillets</filter-name>
