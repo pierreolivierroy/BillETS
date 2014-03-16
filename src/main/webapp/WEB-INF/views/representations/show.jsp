@@ -84,6 +84,8 @@
 	   
 	      </div>
 
+<script>var quantite = ${representation.obtenirNombreBilletsDisponibles()};</script>
+<script src="${pageContext.request.contextPath}/resources/js/nb_billets_validation.js" charset="utf-8"></script>
 <!-- this script changes the value of num_tickets -->
 <script>
 $(document).ready(function() {
@@ -98,7 +100,6 @@ $(document).ready(function() {
 	});
 });
 </script>
-
 
 <jsp:include page="../layout/footer.jsp" />
 
