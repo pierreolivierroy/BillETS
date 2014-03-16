@@ -148,11 +148,11 @@
 						  	<p><strong>Résumé de l'achat</strong></p>
 						  	<p>Items (2):	<span class="pull-right">CDN$ 85.66</span></p>
 						  	<hr>
-						  	<p>Sous-total:	<span class="pull-right">CDN$ 79,98</span></p>
-							<p>TPS (5%):	<span class="pull-right">CDN$ 4,00</span></p>
-							<p>TVQ (9,975%):	<span class="pull-right">CDN$ 7,98</span></p>
+						  	<p>Sous-total:	<span class="pull-right">${panier.getSous_total()} $</span></p>
+							<p>TPS (5%):	<span class="pull-right">${panier.getTps()} $</span></p>
+							<p>TVQ (9,975%):	<span class="pull-right">${panier.getTvq()} $</span></p>
 						  	<hr>
-						  	<p class="text-danger"><strong>Grand total:	<span class="pull-right">CDN$ 91,96</span></strong></p>
+						  	<p class="text-danger"><strong>Grand total:	<span class="pull-right">${panier.getTotal()} $</span></strong></p>
 						  	
 						    
 						  </div>
