@@ -49,7 +49,7 @@ public class FiltreLibrerBillets implements Filter {
 				// Pour chaque ligne du panier
 				for (LignePanier l : panier.getLignesPanier())
 				{
-					if (l.tempsRestantAvantLiberation() == 0) {
+					if (l.tempsRestantAvantLiberation() <= 0) {
 						l.librerBillets();
 						panier.enleverLigne(l.getId());
 					}
