@@ -65,8 +65,8 @@
 		      </div>
 		      <div class="modal-body">
 		        <p>Quantité de billets : <span id="num_tickets">1</span></script></p>
-		        <p>Représentation du 20 janvier à 19h30</p>
-		        <p>Montréal, Centre Bell</p>
+		        <p>Représentation du ${representation.date}</p>
+		        <p>${representation.salle.nom}</p>
 		      </div>
 		      <form id="form_panier" method="POST" action="${pageContext.request.contextPath}/panier" style="display:none;">
 		      	<input name="quantite" id="quantite" type="hidden" value="" />
