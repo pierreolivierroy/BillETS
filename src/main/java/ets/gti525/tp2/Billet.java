@@ -7,6 +7,7 @@ public class Billet {
 	private int id_spectacle;
 	private int id_representation;
 	private Date dateReserve;
+	private boolean vendu;
 	
 	public Billet(int id, int id_spectacle, int id_representation,
 			boolean reserve) {
@@ -15,6 +16,7 @@ public class Billet {
 		this.id_spectacle = id_spectacle;
 		this.id_representation = id_representation;
 		this.dateReserve = null;
+		this.vendu = false;
 	}
 	
 	public Date getDateReserve() {
@@ -60,6 +62,14 @@ public class Billet {
 
 	public void setId_representation(int id_representation) {
 		this.id_representation = id_representation;
+	}
+	
+	public boolean isVendu() {
+		return vendu;
+	}
+
+	public void setVendu(boolean vendu) {
+		this.vendu = vendu;
 	}
 	
 }
