@@ -2,8 +2,6 @@ package ets.gti525.tp2;
 
 import java.util.Date;
 
-import org.exolab.castor.types.DateTime;
-
 public class Billet {
 	private int id;
 	private int id_spectacle;

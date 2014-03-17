@@ -81,13 +81,15 @@
 	      				<hr />
 						<p class="foot_buttons">
 						  <a href="${pageContext.request.contextPath}" class="btn btn-default">Continuer à magasiner</a>
-						  <a href="${pageContext.request.contextPath}/panier/paiement" class="btn btn-success">Procéder au paiement &rarr;</a>
+						  <a id="checkout" href="${pageContext.request.contextPath}/panier/paiement" class="btn btn-success">Procéder au paiement &rarr;</a>
 						</p>
 
 	      	</div>
 
 	      </div>
 <!-- end of page content -->
+<script>var line_count = ${panier.get_line_count()};</script>
+<script src="${pageContext.request.contextPath}/resources/js/panier_empty_validation.js" charset="utf-8"></script>
 
 <jsp:include page="../layout/footer.jsp" />
 

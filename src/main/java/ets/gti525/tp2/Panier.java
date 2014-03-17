@@ -6,16 +6,14 @@ import java.util.ArrayList;
 
 public class Panier {
 	private ArrayList<LignePanier> lignesPanier = new ArrayList<LignePanier>();
+	
 	private final BigDecimal TPS = new BigDecimal(0.05);
+	
 	private final BigDecimal TVQ = new BigDecimal(0.09975);
-
-
 	
 	public ArrayList<LignePanier> getLignesPanier() {
 		return lignesPanier;
 	}
-
-
 
 	public BigDecimal getSous_total() {
 		
@@ -31,26 +29,18 @@ public class Panier {
 		return getSous_total().multiply(TPS).setScale(2, RoundingMode.HALF_UP);
 	}
 
-
-
 	public BigDecimal getTvq() {
 		return getSous_total().multiply(TVQ).setScale(2, RoundingMode.HALF_UP);
 	}
-
-
 
 	public BigDecimal getTotal() {
 		return getSous_total().add(this.getTps()).add(this.getTvq());
 	}
 
-
-
 	public void setLignesPanier(ArrayList<LignePanier> lignesPanier) {
 		this.lignesPanier = lignesPanier;
 	}
-	
-	
-	
+
 	public void enleverLigne(int id_ligne) {
 		for (int i = 0; i < lignesPanier.size(); i++) {
 			if(lignesPanier.get(i).getId() == id_ligne) {
@@ -70,6 +60,10 @@ public class Panier {
 			}
 		}
 		return null;
+	}
+	
+	public int get_line_count() {
+		return this.lignesPanier.size();
 	}
 
 }

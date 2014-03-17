@@ -20,7 +20,20 @@ public class BilletsSessionListener implements HttpSessionListener {
 		Panier panier = (Panier)se.getSession().getAttribute("panier");
 		
 		// Libérer les items
-		//panier.
+		// Si le panier existe
+		if (panier != null)
+		{
+			// Si il y a quelque chose dans le panier
+			if (panier.getLignesPanier().size() > 0)
+			{
+				// Pour chaque ligne du panier
+				for (LignePanier l : panier.getLignesPanier())
+				{
+					l.libererBillets();
+					panier.enleverLigne(l.getId());
+				}
+			}
+		}
 		
 		System.out.println("Session #" + se.getSession().getId() + " a été supprimée et les billets ont été libérés.");
 		
