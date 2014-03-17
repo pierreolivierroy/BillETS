@@ -34,7 +34,7 @@
 	      				
 	      					<tr>
 	      						<td style="text-align:center;"><a href="${pageContext.request.contextPath}/panier/lignePanier/${ligne_panier.id}">&times;</a></td>
-	      						<td class="text-center"><strong>${ligne_panier.quantite}</strong></td>
+	      						<td><strong>${ligne_panier.quantite}</strong></td>
 	      						<td><span class="bold">${ligne_panier.titre}</span><br />
 	      							<small>${ligne_panier.description}</small><br />
 	      							<small><strong>Temps restant avant la libération des billets</strong>: ${ligne_panier.tempsRestantAvantLiberation()} minutes</small>
@@ -57,24 +57,6 @@
 	      						<td></td>
 	      						<td style="text-align:right;">Sous-total:</td>
 	      						<td class="prix">${panier.getSous_total()} $</td>
-	      					</tr>
-	      					<tr class="info">
-	      						<td></td>
-	      						<td></td>
-	      						<td style="text-align:right;">TPS (5%):</td>
-	      						<td class="prix">${panier.getTps()} $</td>
-	      					</tr>
-	      					<tr class="info">
-	      						<td></td>
-	      						<td></td>
-	      						<td style="text-align:right;">TVQ (9,975%):</td>
-	      						<td class="prix">${panier.getTvq()} $</td>
-	      					</tr>
-	      					<tr class="info">
-	      						<td></td>
-	      						<td></td>
-	      						<td style="text-align:right;">Grand total:</td>
-	      						<td class="prix">${panier.getTotal()} $</td>
 	      					</tr>
 	      				</tbody>
 	      				</table>
