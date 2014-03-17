@@ -10,4 +10,54 @@
 		<id_representation>2</id_representation>
 		<reserve>false</reserve>
 	</billet>
+	<billet>
+		<id_spectacle>3</id_spectacle>
+		<id_representation>3</id_representation>
+		<reserve>false</reserve>
+	</billet>
+	<billet>
+		<id_spectacle>4</id_spectacle>
+		<id_representation>4</id_representation>
+		<reserve>false</reserve>
+	</billet>
+	<billet>
+		<id_spectacle>5</id_spectacle>
+		<id_representation>5</id_representation>
+		<reserve>false</reserve>
+	</billet>
+	<billet>
+		<id_spectacle>6</id_spectacle>
+		<id_representation>6</id_representation>
+		<reserve>false</reserve>
+	</billet>
+	<billet>
+		<id_spectacle>7</id_spectacle>
+		<id_representation>7</id_representation>
+		<reserve>false</reserve>
+	</billet>
+	<billet>
+		<id_spectacle>8</id_spectacle>
+		<id_representation>8</id_representation>
+		<reserve>false</reserve>
+	</billet>
+	<billet>
+		<id_spectacle>9</id_spectacle>
+		<id_representation>9</id_representation>
+		<reserve>false</reserve>
+	</billet>
+	<billet>
+		<id_spectacle>10</id_spectacle>
+		<id_representation>10</id_representation>
+		<reserve>false</reserve>
+	</billet>
+	<billet>
+		<id_spectacle>10</id_spectacle>
+		<id_representation>11</id_representation>
+		<reserve>false</reserve>
+	</billet>
+	<billet>
+		<id_spectacle>10</id_spectacle>
+		<id_representation>12</id_representation>
+		<reserve>false</reserve>
+	</billet>
 </billets>
