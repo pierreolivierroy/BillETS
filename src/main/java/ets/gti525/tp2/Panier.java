@@ -62,5 +62,14 @@ public class Panier {
 	public void ajouterLigne(LignePanier ligne) {
 		this.lignesPanier.add(ligne);
 	}
+	
+	public LignePanier getLignePanier(int ligne_id) {
+		for(LignePanier ligne : lignesPanier) {
+			if(ligne.getId() == ligne_id) {
+				return ligne;
+			}
+		}
+		return null;
+	}
 
 }

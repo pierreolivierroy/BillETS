@@ -66,6 +66,8 @@ public class PanierController {
 	@RequestMapping(value = "/panier/lignePanier/{ligne_id}", method = RequestMethod.GET)
 	public String panierRemove(@PathVariable int ligne_id, Model model, HttpSession session) {
 		Panier panier = (Panier) session.getAttribute("panier");
+		//free the tickets before removing the line from the cart
+		panier.getLignePanier(ligne_id).libererBillets();
 		panier.enleverLigne(ligne_id);
 		model.addAttribute("section", "Panier");
 		return "redirect:/panier";
