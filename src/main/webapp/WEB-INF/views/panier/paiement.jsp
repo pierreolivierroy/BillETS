@@ -61,77 +61,91 @@
 				<div class="row">
 					<div class="col-lg-8">
 						<div class="panel panel-default">
-							<div class="panel-heading"><h4>Adresse de livraison</h4></div>
+							<div class="panel-heading"><h4>Informations de paiement</h4></div>
 							<div class="panel-body">
-								<form role="form">
-									<div class="form-group">
-								    <label for="address">Adresse</label>
-								    <input type="email" class="form-control" id="address" >
-								  </div>
-								  <div class="form-group">
-								    <label for="zip">Code postal/ZIP</label>
-								    <input type="email" class="form-control" id="zip" >
-								  </div>
-								  <div class="form-group">
-								    <label for="city">Ville</label>
-								    <input type="password" class="form-control" id="city" >
-								  </div>
-								  <div class="form-group">
-								    <label for="state">Province/États/Région</label>
-								    <input type="password" class="form-control" id="state" >
-								  </div>
-
-								  <div class="form-group">
-								    <label for="phone">Numéro de téléphone</label>
-								    <input type="password" class="form-control" id="phone" >
-								  </div>
-								  
-								</form>
-							</div>
-						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading"><h4>Informations de crédit</h4></div>
-							<div class="panel-body">
-								<form role="form">
+								<form>
 								  <div class="form-group">
 								    <label  for="card_name">Nom sur la carte</label>
-								    <input type="email" class="form-control" id="card_name" >
+								    <input type="text" class="form-control" id="card_name" >
 								  </div>
 								  <div class="form-group">
 								    <label  for="card_number">Numéro de la carte</label>
 								    <input type="password" class="form-control" id="card_number" >
 								  </div>
-								  <label  >Date d'expiration</label>
-								</form>
-								<form class="form-inline" role="form">
+								   <!-- Expiry-->
+						          <div class="form-group">
+						            <label  for="expiry_month">Date d'expiration de la carte</label>
+						            <div >
+						              <select name="expiry_month" id="expiry_month">
+						                <option></option>
+						                <option value="01">Jan (01)</option>
+						                <option value="02">Feb (02)</option>
+						                <option value="03">Mar (03)</option>
+						                <option value="04">Apr (04)</option>
+						                <option value="05">May (05)</option>
+						                <option value="06">June (06)</option>
+						                <option value="07">July (07)</option>
+						                <option value="08">Aug (08)</option>
+						                <option value="09">Sep (09)</option>
+						                <option value="10">Oct (10)</option>
+						                <option value="11">Nov (11)</option>
+						                <option value="12">Dec (12)</option>
+						              </select>
+						              <select name="expiry_year">
+						                <option value="14">2014</option>
+						                <option value="15">2015</option>
+						                <option value="16">2016</option>
+						                <option value="17">2017</option>
+						                <option value="18">2018</option>
+						                <option value="19">2019</option>
+						                <option value="20">2020</option>
+						                <option value="21">2021</option>
+						                <option value="22">2022</option>
+						                <option value="23">2023</option>
+						                <option value="23">2024</option>
+						              </select>
+						            </div>
+						          </div>
 									<div class="form-group">
-									    
-										<select  class="form-control">
-										  <option>1</option>
-										  <option>2</option>
-										  <option>3</option>
-										  <option>4</option>
-										  <option>5</option>
-										  <option>6</option>
-										  <option>7</option>
-										  <option>8</option>
-										  <option>9</option>
-										  <option>10</option>
-										  <option>11</option>
-										  <option>12</option>
-										</select>
-										<select class="form-control">
-										  <option>2014</option>
-										  <option>2015</option>
-										  <option>2016</option>
-										  <option>2017</option>
-										  <option>2018</option>
-										</select>    
-									  </div>
-									</form>
+								    	<label  for="card_cvv">Code visuel de la carte</label>
+								    	<input type="text" class="form-control" id="card_cvv" >
+								  	</div>
+								</form>
 
 							</div>
 						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading"><h4>Informations de livraison</h4></div>
+							<div class="panel-body">
+								<form role="form">
+									<div class="form-group">
+								    	<label for="customer_name">Nom complet</label>
+								    	<input type="text" class="form-control" id="customer_name" >
+								  	</div>
+								  	
+								  	<div class="form-group">
+								    	<label for="address">Adresse</label>
+								    	<input type="email" class="form-control" id="address" >
+								  	</div>
+								  	
+								  	<div class="form-group">
+								    	<label for="city">Ville</label>
+								    	<input type="text" class="form-control" id="city" >
+								  	</div>
+								 	
+								 	<div class="form-group">
+								    	<label for="state">Province</label>
+								    	<input type="text" class="form-control" id="state" >
+								  	</div>
+								  	
+								  	<div class="form-group">
+								    	<label for="zip">Code postal/ZIP</label>
+								    	<input type="text" class="form-control" id="zip" >
+								  	</div>						  
+							</form>
+							</div>
+						</div>
+
 
 					</div>
 					<div class="col-lg-4">
