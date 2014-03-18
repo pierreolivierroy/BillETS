@@ -164,7 +164,7 @@ public class SpectacleDAOXML implements ISpectacleDAO {
 							id_spectacle,
 							id_representation,
 							false);
-					System.out.println(billet.getId());
+
 					this.listeSpectacles.get(id_spectacle).getRepresentations().get(id_representation).ajouterBillet(billet);
 				}
 				

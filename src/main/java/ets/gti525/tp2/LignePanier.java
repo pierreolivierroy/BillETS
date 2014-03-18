@@ -17,6 +17,14 @@ public class LignePanier {
 		super();
 	}
 	
+	public HashMap<Integer, Billet> getBillets() {
+		return billets;
+	}
+
+	public void setBillets(HashMap<Integer, Billet> billets) {
+		this.billets = billets;
+	}
+
 	public LignePanier(int id, int quantite, String titre, String description,
 			BigDecimal prixUnitaire, BigDecimal prix) {
 		super();
