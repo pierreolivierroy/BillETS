@@ -156,7 +156,36 @@
             <artifactId>webapp-runner</artifactId>
             <version>7.0.34.1</version>
             <scope>provided</scope>
-        </dependency>      
+        </dependency>
+		<!-- Pour le paiement  -->
+		<dependency>
+			<groupId>gti525.paiement</groupId>
+			<artifactId>InformationPaiementTO</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/GTI525-paiement.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>gti525.paiement</groupId>
+			<artifactId>IPaiementDAO</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/GTI525-paiement.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>gti525.paiement</groupId>
+			<artifactId>ReponseSystemePaiementTO</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/GTI525-paiement.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>gti525.paiement</groupId>
+			<artifactId>RequeteAuthorisationTO</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/src/main/webapp/WEB-INF/lib/GTI525-paiement.jar</systemPath>
+		</dependency>
 	</dependencies>
     <build>
         <plugins>
