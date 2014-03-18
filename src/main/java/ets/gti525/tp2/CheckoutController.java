@@ -46,5 +46,18 @@ public class CheckoutController {
 		model.addAttribute("section", "None");
 		return "panier/confirmation_achat";
 	}
+	
+	@RequestMapping(value = "/panier/pre_autorisation", method = RequestMethod.POST)
+	public String pre_authorise_paiement(Model model) {
+		PreAutorisationPaiement pre_autorisation = new PreAutorisationPaiement();
+		//check pre-autorisation
+			//if ok
+				//redirect with valid flag
+			//else
+				//redirect with wrong flag
+		
+		model.addAttribute("section", "None");
+		return "panier/confirmation_achat";
+	}
 
 }
