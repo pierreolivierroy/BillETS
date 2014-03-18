@@ -157,6 +157,14 @@
             <version>7.0.34.1</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>gti525.paiement</groupId>
+            <artifactId>paiement</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/GTI525-paiement.jar</systemPath>
+		</dependency>
+        
 	</dependencies>
     <build>
         <plugins>
@@ -209,6 +217,7 @@
                     </execution>
                 </executions>
             </plugin>
+            
         </plugins>
     </build>
 </project>
