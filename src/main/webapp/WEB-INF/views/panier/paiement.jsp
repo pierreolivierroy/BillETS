@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="../layout/header.jsp" />
 
 <!-- page content -->
-		<!-- confirmation modal -->
+		
+		<!-- successful confirmation modal -->
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
@@ -59,18 +61,19 @@
 
 		       <!-- content -->
 				<div class="row">
+				<form method="post" action="${pageContext.request.contextPath}/panier/pre_autorisation">
 					<div class="col-lg-8">
 						<div class="panel panel-default">
 							<div class="panel-heading"><h4>Informations de paiement</h4></div>
 							<div class="panel-body">
-								<form>
+								
 								  <div class="form-group">
 								    <label  for="card_name">Nom sur la carte</label>
-								    <input type="text" class="form-control" id="card_name" >
+								    <input type="text" class="form-control" name="card_name" >
 								  </div>
 								  <div class="form-group">
 								    <label  for="card_number">Numéro de la carte</label>
-								    <input type="password" class="form-control" id="card_number" >
+								    <input type="password" class="form-control" name="card_number" >
 								  </div>
 								   <!-- Expiry-->
 						          <div class="form-group">
@@ -108,41 +111,41 @@
 						          </div>
 									<div class="form-group">
 								    	<label  for="card_cvv">Code visuel de la carte</label>
-								    	<input type="text" class="form-control" id="card_cvv" >
+								    	<input type="text" class="form-control" name="card_cvv" >
 								  	</div>
-								</form>
+								
 
 							</div>
 						</div>
 						<div class="panel panel-default">
 							<div class="panel-heading"><h4>Informations de livraison</h4></div>
 							<div class="panel-body">
-								<form role="form">
+								
 									<div class="form-group">
 								    	<label for="customer_name">Nom complet</label>
-								    	<input type="text" class="form-control" id="customer_name" >
+								    	<input type="text" class="form-control" name="customer_name" >
 								  	</div>
 								  	
 								  	<div class="form-group">
 								    	<label for="address">Adresse</label>
-								    	<input type="email" class="form-control" id="address" >
+								    	<input type="email" class="form-control" name="address" >
 								  	</div>
 								  	
 								  	<div class="form-group">
 								    	<label for="city">Ville</label>
-								    	<input type="text" class="form-control" id="city" >
+								    	<input type="text" class="form-control" name="city" >
 								  	</div>
 								 	
 								 	<div class="form-group">
 								    	<label for="state">Province</label>
-								    	<input type="text" class="form-control" id="state" >
+								    	<input type="text" class="form-control" name="state" >
 								  	</div>
 								  	
 								  	<div class="form-group">
 								    	<label for="zip">Code postal/ZIP</label>
-								    	<input type="text" class="form-control" id="zip" >
+								    	<input type="text" class="form-control" name="zip" >
 								  	</div>						  
-							</form>
+							
 							</div>
 						</div>
 
@@ -151,9 +154,12 @@
 					<div class="col-lg-4">
 						<div class="panel panel-default">
 						  <div class="panel-body">
-						  	<button data-toggle="modal" data-target="#myModal" type="button" class="btn btn-warning btn-block spacer-bottom">Soumettre votre achat</button>
+						  	<button  type="submit" class="btn btn-warning btn-block spacer-bottom">Soumettre votre achat</button>
 						  	<p><strong>Résumé de l'achat</strong></p>
-						  	<p>Items (2):	<span class="pull-right">CDN$ 85.66</span></p>
+						  	<c:forEach items="${panier.lignesPanier}" var="ligne">
+						  		<p>(${ligne.quantite}) ${ligne.titre}:	<span class="pull-right">${ligne.getPrix()} $</span></p>
+						  	</c:forEach>
+						  	
 						  	<hr>
 						  	<p>Sous-total:	<span class="pull-right">${panier.getSous_total()} $</span></p>
 							<p>TPS (5%):	<span class="pull-right">${panier.getTps()} $</span></p>
@@ -165,6 +171,7 @@
 						  </div>
 						</div>
 					</div>
+					</form>
 				</div>
 		       	<a href="${pageContext.request.contextPath}/panier" class="spacer-bottom btn btn-default " role="button"><span class="glyphicon glyphicon-arrow-left"></span> Retour au panier</a>		       
 

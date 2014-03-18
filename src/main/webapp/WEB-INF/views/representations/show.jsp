@@ -25,8 +25,6 @@
 						<ul class="list-group">
 							  <li class="list-group-item"><strong>Date &amp; heure</strong> : ${representation.date}</li>
 							  <li class="list-group-item"><strong>Nombre de places disponibles</strong> : ${representation.obtenirNombreBilletsDisponibles()}</li>
-							  <li class="list-group-item"><strong>Numéro de représentation</strong> : ${representation.id}</li>
-							  <li class="list-group-item"><strong>Identifiant du spectacle</strong> : ${representation.idSpectacle}</li>
 							  <li class="list-group-item"><strong>Emplacement</strong> : ${representation.salle.nom}</li>
 							  <li class="list-group-item"><strong>Prix unitaire</strong> : ${representation.prix} $</li>
 						</ul>
