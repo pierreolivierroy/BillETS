@@ -49,11 +49,12 @@ public class PanierController {
 			}
 			
 			panier.ajouterLigne(ligne);	
+			
+			model.addAttribute("section", "Panier");
+			return "redirect:/panier";
 		}
 		
-		model.addAttribute("section", "Panier");
-		return "redirect:/panier";
-			
+		return "";
 	}
 	
 	/**

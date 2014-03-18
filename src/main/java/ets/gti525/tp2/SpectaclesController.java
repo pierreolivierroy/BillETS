@@ -4,6 +4,7 @@ package ets.gti525.tp2;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Locale;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,15 +18,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class SpectaclesController {
-	
+		
 	@RequestMapping(value = "/spectacles", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
 		
 		HashMap<Integer, Spectacle> spectacles = SpectaclesFacade.getInstance().getSpectacles();
 		model.addAttribute("spectacles", spectacles);
 		model.addAttribute("section", "Spectacles");
-		
-		
+				
 		return "spectacles/index";
 	}
 
