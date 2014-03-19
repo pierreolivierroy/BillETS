@@ -61,7 +61,11 @@
 
 		       <!-- content -->
 				<div class="row">
-				<form method="post" action="${pageContext.request.contextPath}/panier/pre_autorisation">
+				
+				<!-- javascript validation -->
+				<script src="${pageContext.request.contextPath}/resources/js/parsley.min.js"></script>
+				
+				<form data-parsley-validate id="user_input_form" method="post" action="${pageContext.request.contextPath}/panier/pre_autorisation">
 					<div class="col-lg-8">
 						<div class="panel panel-default">
 							<div class="panel-heading"><h4>Informations de paiement</h4></div>
@@ -69,18 +73,17 @@
 								
 								  <div class="form-group">
 								    <label  for="card_name">Nom sur la carte</label>
-								    <input type="text" class="form-control" name="card_name" >
+								    <input data-parsley-type="alphanum"  class="form-control" name="card_name" required />
 								  </div>
 								  <div class="form-group">
 								    <label  for="card_number">Numéro de la carte</label>
-								    <input type="password" class="form-control" name="card_number" >
+								    <input data-parsley-type="integer" class="form-control" name="card_number" required />
 								  </div>
 								   <!-- Expiry-->
 						          <div class="form-group">
 						            <label  for="expiry_month">Date d'expiration de la carte</label>
 						            <div >
-						              <select name="expiry_month" id="expiry_month">
-						                <option></option>
+						              <select name="expiry_month" id="expiry_month" required>
 						                <option value="01">Jan (01)</option>
 						                <option value="02">Feb (02)</option>
 						                <option value="03">Mar (03)</option>
@@ -94,7 +97,7 @@
 						                <option value="11">Nov (11)</option>
 						                <option value="12">Dec (12)</option>
 						              </select>
-						              <select name="expiry_year">
+						              <select name="expiry_year" required>
 						                <option value="14">2014</option>
 						                <option value="15">2015</option>
 						                <option value="16">2016</option>
@@ -111,7 +114,7 @@
 						          </div>
 									<div class="form-group">
 								    	<label  for="card_cvv">Code visuel de la carte</label>
-								    	<input type="text" class="form-control" name="card_cvv" >
+								    	<input data-parsley-type="integer" type="text" class="form-control" name="card_cvv" required />
 								  	</div>
 								
 
@@ -123,27 +126,27 @@
 								
 									<div class="form-group">
 								    	<label for="customer_name">Nom complet</label>
-								    	<input type="text" class="form-control" name="customer_name" >
+								    	<input type="text" class="form-control" name="customer_name" required >
 								  	</div>
 								  	
 								  	<div class="form-group">
 								    	<label for="address">Adresse</label>
-								    	<input type="email" class="form-control" name="address" >
+								    	<input type="text" class="form-control" name="address" required>
 								  	</div>
 								  	
 								  	<div class="form-group">
 								    	<label for="city">Ville</label>
-								    	<input type="text" class="form-control" name="city" >
+								    	<input type="text" class="form-control" name="city" required>
 								  	</div>
 								 	
 								 	<div class="form-group">
 								    	<label for="state">Province</label>
-								    	<input type="text" class="form-control" name="state" >
+								    	<input type="text" class="form-control" name="state" required>
 								  	</div>
 								  	
 								  	<div class="form-group">
 								    	<label for="zip">Code postal/ZIP</label>
-								    	<input type="text" class="form-control" name="zip" >
+								    	<input type="text" class="form-control" name="zip" required>
 								  	</div>						  
 							
 							</div>
@@ -172,6 +175,8 @@
 						</div>
 					</div>
 					</form>
+					
+					
 				</div>
 		       	<a href="${pageContext.request.contextPath}/panier" class="spacer-bottom btn btn-default " role="button"><span class="glyphicon glyphicon-arrow-left"></span> Retour au panier</a>		       
 
