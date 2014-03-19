@@ -3,6 +3,8 @@ package ets.gti525.tp2;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
 public class LignePanier {
 	private int id;
@@ -90,6 +92,15 @@ public class LignePanier {
 	}
 	public BigDecimal getPrix() {
 		return prixUnitaire.multiply(new BigDecimal(quantite));
+	}
+
+	public void vendre_billets() {
+		Iterator<Entry<Integer, Billet>> it = billets.entrySet().iterator();
+		while(it.hasNext()) {
+			Billet billet  = it.next().getValue();
+			billet.setVendu(true);	
+		}
+		
 	}
 }
 	

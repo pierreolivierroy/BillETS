@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ page import="ets.gti525.tp2.Facture" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../layout/header.jsp" />
+<%
+Facture facture = (Facture)request.getAttribute("facture");
+%>
 
 <!-- page content -->
 	<div class="row">
@@ -22,33 +26,34 @@
 		       
 				<div class="list-group">
 				  	<a href="#" class="list-group-item"><h4>Numéro de facture</h4>86862133773737774</a>
-				  	<a href="#" class="list-group-item"><h4>Date</h4>2014/01/22</a>
+				  	<a href="#" class="list-group-item"><h4>Date</h4>${facture.getDate()}</a>
 				  	<a href="#" class="list-group-item">
 				  		<h4>Addresse de livraison</h4>
 				        <ul>
-				        	<li>danny boyer</li>
-							<li>549, rue Réjean</li>
-							<li>Saint-Michel, Quebec J0L 2J0</li>
-							<li>Canada</li>
-							<li>Phone: 5147176383</li>
+				        	<li>${facture.getInfo_livraison().getNom()}</li>
+							<li>${facture.getInfo_livraison().getAdresse()}</li>
+							<li>${facture.getInfo_livraison().getVille()}, ${facture.getInfo_livraison().getProvince()}</li>
+							<li>${facture.getInfo_livraison().getCode_postal()}</li>
 				        </ul>
 	        	  	</a>
 					<a href="#" class="list-group-item">
 				  		<h4>Informations de crédit</h4>
-		        		<p>VISA se terminant par 4321</p>
+		        		<p>VISA se terminant par ${facture.getInfo_paiement().getCard_number()}</p>
 				  	</a>
 				  	<a href="#" class="list-group-item">
 					  	<h4>Billets</h4>
-					  	<p>Louis-Josée Houde - Les heures Verticales - Siège C-37<span class="pull-right">CDN$ 39,99</span></p>
-						<p>Louis-Josée Houde - Les heures Verticales - Siège C-38<span class="pull-right">CDN$ 39,99</span></p>
+					  	
+					  	<c:forEach items="${facture.getLignesPanier()}" var="ligne">
+					  		<p>(${ligne.getQuantite()}) ${ligne.getTitre()} : ${ligne.getDescription()}<span class="pull-right">${ligne.getPrix()} $</span></p>	
+					  	</c:forEach>
 				  	</a>
 					<a href="#" class="list-group-item">
 					  	<h4>Résumé de l'achat</h4>
-					  	<p>Sous-total:	<span class="pull-right">CDN$ 79,98</span></p>
-						<p>TPS (5%):	<span class="pull-right">CDN$ 4,00</span></p>
-						<p>TVQ (9,975%):	<span class="pull-right">CDN$ 7,98</span></p>
+					  	<p>Sous-total:	<span class="pull-right">${facture.getSous_total()} $</span></p>
+						<p>TPS (5%):	<span class="pull-right">${facture.getTps()} $</span></p>
+						<p>TVQ (9,975%):	<span class="pull-right">${facture.getTvq()} $</span></p>
 					  	<hr>
-					  	<p><strong>Grand total:	<span class="pull-right">CDN$ 91,96</span></strong></p>
+					  	<p><strong>Grand total:	<span class="pull-right">${facture.getTotal()} $</span></strong></p>
 				  	</a>
 				  	
 				</div>

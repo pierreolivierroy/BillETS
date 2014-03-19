@@ -65,5 +65,9 @@ public class Panier {
 	public int get_line_count() {
 		return this.lignesPanier.size();
 	}
+	
+	public void vider_panier() {
+		lignesPanier.clear();
+	}
 
 }

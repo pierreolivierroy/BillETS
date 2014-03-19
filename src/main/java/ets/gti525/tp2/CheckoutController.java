@@ -1,5 +1,7 @@
 package ets.gti525.tp2;
 
+import java.util.ArrayList;
+
 import gti525.paiement.InformationsPaiementTO;
 import gti525.paiement.ReponseSystemePaiementTO;
 
@@ -74,7 +76,7 @@ public class CheckoutController {
 		info_paiement.setSecurity_code(Integer.parseInt((String) parameters.getFirst("card_cvv")));
 		
 		//set the shipping info
-		info_livraison.setAdresse((String) parameters.getFirst("customer_name"));
+		info_livraison.setAdresse((String) parameters.getFirst("address"));
 		info_livraison.setCode_postal((String) parameters.getFirst("zip"));
 		info_livraison.setNom((String) parameters.getFirst("customer_name"));
 		info_livraison.setProvince((String) parameters.getFirst("state"));
@@ -96,12 +98,21 @@ public class CheckoutController {
 		}
 		/**
 		 * if code doesn't equal 0, the pre-authorisation succeed,
-		 * the tickets ar marked as "sold"
 		 * the bill is generated,
+		 * the tickets ar marked as "sold" and shopping cart is emptied
 		 * the user is presented a confirmation window
 		 */
 		else {
+			ArrayList<LignePanier> lignes_panier = panier.getLignesPanier();
+			Facture facture = new Facture(info_livraison, info_paiement, (ArrayList<LignePanier>) lignes_panier.clone(), panier.getSous_total(), panier.getTps(), panier.getTvq(), panier.getTotal());
+					
+			for(LignePanier ligne : lignes_panier) {
+				ligne.vendre_billets();
+			}
+			panier.vider_panier();
+			
 			model.addAttribute("section", "None");
+			model.addAttribute("facture", facture);
 			return "panier/confirmation_achat";
 		}
 			
