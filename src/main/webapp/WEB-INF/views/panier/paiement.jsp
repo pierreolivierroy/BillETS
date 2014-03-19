@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+String paiement_success = (String)request.getAttribute("success");
+%>
 
 <jsp:include page="../layout/header.jsp" />
 
@@ -69,15 +72,23 @@
 					<div class="col-lg-8">
 						<div class="panel panel-default">
 							<div class="panel-heading"><h4>Informations de paiement</h4></div>
-							<div class="panel-body">
+							<div id="container_msd" class="panel-body">
+							<%
+								if(paiement_success.equals("fail")) {
+									out.print("<div class=\"alert alert-danger\">Échec de préauthorisation du paiement, vérifiez vos informations de crédit!</div>");
+								}
+							%>
+							
 								
 								  <div class="form-group">
+								    <label  for="card_name">Prénom sur la carte</label>
+								    <input data-parsley-type="alphanum"  class="form-control" name="card_firstname" required />
 								    <label  for="card_name">Nom sur la carte</label>
-								    <input data-parsley-type="alphanum"  class="form-control" name="card_name" required />
+								    <input data-parsley-type="alphanum"  class="form-control" name="card_lastname" required />
 								  </div>
 								  <div class="form-group">
 								    <label  for="card_number">Numéro de la carte</label>
-								    <input data-parsley-type="integer" class="form-control" name="card_number" required />
+								    <input data-parsley-type="integer" data-parsley-minlength="16" data-parsley-maxlength="16" class="form-control" name="card_number" required />
 								  </div>
 								   <!-- Expiry-->
 						          <div class="form-group">
@@ -98,23 +109,23 @@
 						                <option value="12">Dec (12)</option>
 						              </select>
 						              <select name="expiry_year" required>
-						                <option value="14">2014</option>
-						                <option value="15">2015</option>
-						                <option value="16">2016</option>
-						                <option value="17">2017</option>
-						                <option value="18">2018</option>
-						                <option value="19">2019</option>
-						                <option value="20">2020</option>
-						                <option value="21">2021</option>
-						                <option value="22">2022</option>
-						                <option value="23">2023</option>
-						                <option value="23">2024</option>
+						                <option value="2014">2014</option>
+						                <option value="2015">2015</option>
+						                <option value="2016">2016</option>
+						                <option value="2017">2017</option>
+						                <option value="2018">2018</option>
+						                <option value="2019">2019</option>
+						                <option value="2020">2020</option>
+						                <option value="2021">2021</option>
+						                <option value="2022">2022</option>
+						                <option value="2023">2023</option>
+						                <option value="2023">2024</option>
 						              </select>
 						            </div>
 						          </div>
 									<div class="form-group">
 								    	<label  for="card_cvv">Code visuel de la carte</label>
-								    	<input data-parsley-type="integer" type="text" class="form-control" name="card_cvv" required />
+								    	<input data-parsley-type="integer" data-parsley-minlength="3" data-parsley-type="integer" class="form-control" name="card_cvv" required />
 								  	</div>
 								
 
@@ -141,12 +152,28 @@
 								 	
 								 	<div class="form-group">
 								    	<label for="state">Province</label>
-								    	<input type="text" class="form-control" name="state" required>
+								    	<div>
+								    	<select name="state" required>
+							                <option value="AB">Alberta</option>
+							                <option value="BC">Colombie-Britanique</option>
+							                <option value="PE">Île-du-Prince-Édouard</option>
+							                <option value="MB">Manitoba</option>
+							                <option value="NB">Nouveau-Brunswick</option>
+							                <option value="NS">Nouvelle-Écosse</option>
+							                <option value="NU">Nunavut</option>
+							                <option value="ON">Ontario</option>
+							                <option value="QC">Québec</option>
+							                <option value="SK">Saskatchewan</option>
+							                <option value="NL">Terre-Neuve-et-Labrador</option>
+							                <option value="NT">Territoires-du-Nord-Ouest</option>
+							                <option value="YT">Yukon</option>
+							              </select>
+							            </div>
 								  	</div>
 								  	
 								  	<div class="form-group">
-								    	<label for="zip">Code postal/ZIP</label>
-								    	<input type="text" class="form-control" name="zip" required>
+								    	<label for="zip">Code postal</label>
+								    	<input type="text" data-parsley-minlength="6" class="form-control" name="zip" required>
 								  	</div>						  
 							
 							</div>
@@ -160,7 +187,7 @@
 						  	<button  type="submit" class="btn btn-warning btn-block spacer-bottom">Soumettre votre achat</button>
 						  	<p><strong>Résumé de l'achat</strong></p>
 						  	<c:forEach items="${panier.lignesPanier}" var="ligne">
-						  		<p>(${ligne.quantite}) ${ligne.titre}:	<span class="pull-right">${ligne.getPrix()} $</span></p>
+						  		<p>(${ligne.quantite}) ${ligne.titre}	<span class="pull-right">${ligne.getPrix()} $</span></p>
 						  	</c:forEach>
 						  	
 						  	<hr>
