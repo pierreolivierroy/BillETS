@@ -8,6 +8,7 @@
 <%
 InformationsPaiementTO info_paiement = (InformationsPaiementTO) request.getAttribute("info_paiement");
 InformationsLivraisonBean info_livraison = (InformationsLivraisonBean) request.getAttribute("info_livraison");
+String card_number = String.valueOf(info_paiement.getCard_number());
 %>
 
 <!-- page content -->
@@ -16,18 +17,17 @@ InformationsLivraisonBean info_livraison = (InformationsLivraisonBean) request.g
 		<h4>Addresse de livraison</h4>
        	<ul>
 	       	<li>${info_livraison.getNom()}</li>
-			<li>549, rue Réjean</li>
-			<li>Saint-Michel, Quebec J0L 2J0</li>
+			<li>${info_livraison.getAdresse()}</li>
+			<li>${info_livraison.getVille()}, ${info_livraison.getProvince()}, ${info_livraison.getCode_postal()}</li>
 			<li>Canada</li>
-			<li>Phone: 5147176383</li>
        	</ul>
        <hr>
        <h4>Informations de crédit</h4>
-       <ul><li>VISA se terminant par 4321</li></ul>
+       <ul><li>VISA se terminant par <% out.print(card_number.substring(card_number.length() - 4, card_number.length())); %></li></ul>
 
        <hr>
        <h4>Grand total:</h4>
-       <ul><li>CDN$ 91,96</li></ul>
+       <ul><li>CAD$ 91,96</li></ul>
 	</div>
        
 	<div>

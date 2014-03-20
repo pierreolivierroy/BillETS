@@ -86,7 +86,7 @@ public class CheckoutController {
 		PreAutorisationPaiement pre_autorisation = new PreAutorisationPaiement();
 		InformationsPaiementTO info_paiement = new InformationsPaiementTO();
 		InformationsLivraisonBean info_livraison = new InformationsLivraisonBean();
-
+		
 		//set the credit information
 		info_paiement.setAmount(panier.getTotal());
 		info_paiement.setApi_key("billets");
