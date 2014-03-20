@@ -33,8 +33,19 @@ InformationsLivraisonBean info_livraison = (InformationsLivraisonBean) request.g
 	<div>
 		<a href="${pageContext.request.contextPath}/panier" class="btn btn-success" role="button">Annuler</a>
     	<form method="post" action="${pageContext.request.contextPath}/panier/confirmation_achat">
-    		<input type="hidden" value="${info_livraison}" name="info_livraison">  
-    		<input type="hidden" value="${info_paiement}" name="info_paiement">				
+    	    	
+    		<input type="hidden" value="${info_paiement.getCard_number()}" name="card_number">
+    		<input type="hidden" value="${info_paiement.getFirst_name()}" name="card_firstname">
+    		<input type="hidden" value="${info_paiement.getLast_name()}" name="card_lastname">
+    		<input type="hidden" value="${info_paiement.getMonth()}" name="expiry_month">
+    		<input type="hidden" value="${info_paiement.getYear()}" name="expiry_year">
+    		<input type="hidden" value="${info_paiement.getSecurity_code()}" name="card_cvv">
+    		<input type="hidden" value="${info_livraison.getAdresse()}" name="address">
+    		<input type="hidden" value="${info_livraison.getCode_postal()}" name="zip">
+    		<input type="hidden" value="${info_livraison.getNom()}" name="customer_name">
+    		<input type="hidden" value="${info_livraison.getProvince()}" name="state">
+			<input type="hidden" value="${info_livraison.getVille()}" name="city"> 		
+				
     		<button  type="submit" class="btn btn-warning btn-block spacer-bottom">Payer</button>
 		</form>
 	</div>

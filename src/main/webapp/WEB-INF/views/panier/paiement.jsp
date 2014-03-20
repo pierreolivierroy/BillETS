@@ -2,9 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page import="gti525.paiement.InformationsPaiementTO" %>
+<%@ page import="ets.gti525.tp2.InformationsLivraisonBean" %>
 <%
 String paiement_success = (String)request.getAttribute("success");
 InformationsPaiementTO info_paiement = (InformationsPaiementTO) request.getAttribute("info_paiement");
+InformationsLivraisonBean info_livraison = (InformationsLivraisonBean) request.getAttribute("info_livraison");
 %>
 
 <jsp:include page="../layout/header.jsp" />
