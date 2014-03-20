@@ -99,6 +99,7 @@ public class LignePanier {
 		while(it.hasNext()) {
 			Billet billet  = it.next().getValue();
 			billet.setVendu(true);	
+			billet.setDateVendu(new Date());
 		}
 		
 	}
