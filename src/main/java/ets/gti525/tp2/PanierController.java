@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class PanierController {
 
+	private static final Logger logger = Logger.getLogger(PanierController.class);
 	/**
 	 * Simply selects the panier view to render by returning its name.
 	 */
@@ -45,6 +47,7 @@ public class PanierController {
 			
 			for (int i = 0 ; i < quantite ; i++)
 			{
+				logger.info("BILLET RÉSERVÉ");
 				ligne.ajouterReferenceBillet(representation.reserverBillet());
 			}
 			

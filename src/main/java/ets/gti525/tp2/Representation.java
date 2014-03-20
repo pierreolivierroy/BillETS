@@ -40,7 +40,7 @@ public class Representation {
 	public Billet reserverBillet()
 	{
 		for (Billet billet : billets.values()) {
-			if (!billet.isReserve())
+			if (!billet.isReserve() && !billet.isVendu())
 			{
 				billet.setDateReserve(new Date());
 				return billet;

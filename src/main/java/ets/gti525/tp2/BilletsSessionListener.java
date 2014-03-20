@@ -3,14 +3,23 @@ package ets.gti525.tp2;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+import org.apache.log4j.Logger;
+
 public class BilletsSessionListener implements HttpSessionListener {
+	
+	private static final Logger logger = Logger.getLogger(BilletsSessionListener.class);
 
 	@Override
 	public void sessionCreated(HttpSessionEvent se) {
 
+		StringBuffer log = new StringBuffer();
+		
 		// Créer un panier vide lors de la création d'une session
 		se.getSession().setAttribute("panier", new Panier());
-		System.out.println("Nouvelle session créée: # " + se.getSession().getId());
+		
+		log.append("Nouvelle session créée : # ");
+		log.append(se.getSession().getId());
+		logger.info(log.toString());
 	}
 
 	@Override
@@ -35,8 +44,12 @@ public class BilletsSessionListener implements HttpSessionListener {
 			}
 		}
 		
-		System.out.println("Session #" + se.getSession().getId() + " a été supprimée et les billets ont été libérés.");
+		StringBuffer log = new StringBuffer();
 		
+		log.append("Session #");
+		log.append(se.getSession().getId());
+		log.append(" a été supprimée et les billets ont été libérés.");
+		logger.info(log.toString());		
 	}
 
 }

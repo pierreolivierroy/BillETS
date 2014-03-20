@@ -28,21 +28,6 @@ public class CheckoutController {
 		if(panier.get_line_count() <= 0) {
 			return "redirect:/panier";
 		}
-		else {
-			logger.info("CONFIRMATION ACHAT **********************************");
-			for(LignePanier ligne : panier.getLignesPanier()) {
-				StringBuffer print = new StringBuffer();
-				print.append(ligne.getTitre());
-				print.append(" X ");
-				print.append(ligne.getQuantite());
-				print.append(" X ");
-				print.append(ligne.getPrixUnitaire());
-				print.append(" = ");
-				print.append(ligne.getPrix());
-				logger.info(print.toString());
-			}
-			logger.info("*****************************************************");
-		}
 
 		model.addAttribute("section", "None");
 		model.addAttribute("success", "None");
@@ -92,6 +77,8 @@ public class CheckoutController {
 		 */
 		if(reponse.getCode() == 0) {
 			//add attribute error "échec de préauthorisation du paiement"
+			logger.info("ÉCHEC DE PRÉAUTORISATION DU PAIEMENT.");
+			
 			model.addAttribute("section", "None");
 			model.addAttribute("success", "fail");
 			model.addAttribute("info_paiement", info_paiement);
@@ -108,12 +95,26 @@ public class CheckoutController {
 			ArrayList<LignePanier> lignes_panier = panier.getLignesPanier();
 			Facture facture = new Facture(info_livraison, info_paiement, (ArrayList<LignePanier>) lignes_panier.clone(), panier.getSous_total(), panier.getTps(), panier.getTvq(), panier.getTotal());
 					
+			logger.info("SUCCÈS DE LA PRÉAUTORISATION DE PAIEMENT.");
+			logger.info("CONFIRMATION ACHAT ***************************************************");
 			for(LignePanier ligne : lignes_panier) {
+				StringBuffer log = new StringBuffer();
+				log.append("Billet vendu : ");
+				log.append(ligne.getTitre());
+				log.append(" X ");
+				log.append(ligne.getQuantite());
+				log.append(" X ");
+				log.append(ligne.getPrixUnitaire());
+				log.append(" = ");
+				log.append(ligne.getPrix());
+				logger.info(log.toString());
 				ligne.vendre_billets();
 			}
 			panier.vider_panier();
+			logger.info("**********************************************************************");
 			
 			model.addAttribute("section", "None");
+			model.addAttribute("success", "success");
 			model.addAttribute("facture", facture);
 			return "panier/confirmation_achat";
 		}
