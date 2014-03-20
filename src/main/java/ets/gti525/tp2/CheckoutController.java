@@ -94,6 +94,8 @@ public class CheckoutController {
 			//add attribute error "échec de préauthorisation du paiement"
 			model.addAttribute("section", "None");
 			model.addAttribute("success", "fail");
+			model.addAttribute("info_paiement", info_paiement);
+			model.addAttribute("info_livraison", info_livraison);
 			return "panier/paiement";
 		}
 		/**
