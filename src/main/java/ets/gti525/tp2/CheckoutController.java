@@ -35,8 +35,32 @@ public class CheckoutController {
 	}
 	
 	@RequestMapping(value = "/panier/confirmation_achat", method = RequestMethod.POST)
-	public String confirmation_achat(Model model) {
+	public String confirmation_achat(Model model, InformationsLivraisonBean info_livraison, InformationsPaiementTO info_paiement, HttpSession session) {
+		
+		Panier panier = (Panier) session.getAttribute("panier");
+		ArrayList<LignePanier> lignes_panier = panier.getLignesPanier();
+		Facture facture = new Facture(info_livraison, info_paiement, (ArrayList<LignePanier>) lignes_panier.clone(), panier.getSous_total(), panier.getTps(), panier.getTvq(), panier.getTotal());
+		System.out.println(facture.getInfo_livraison().getNom());
+		
+		logger.info("CONFIRMATION ACHAT ***************************************************");
+		for(LignePanier ligne : lignes_panier) {
+			StringBuffer log = new StringBuffer();
+			log.append("Billet vendu : ");
+			log.append(ligne.getTitre());
+			log.append(" X ");
+			log.append(ligne.getQuantite());
+			log.append(" X ");
+			log.append(ligne.getPrixUnitaire());
+			log.append(" = ");
+			log.append(ligne.getPrix());
+			logger.info(log.toString());
+			ligne.vendre_billets();
+		}
+		panier.vider_panier();
+		logger.info("**********************************************************************");
+				
 		model.addAttribute("section", "None");
+		model.addAttribute("facture", facture);
 		return "panier/confirmation_achat";
 	}
 	
@@ -92,31 +116,12 @@ public class CheckoutController {
 		 * the user is presented a confirmation window
 		 */
 		else {
-			ArrayList<LignePanier> lignes_panier = panier.getLignesPanier();
-			Facture facture = new Facture(info_livraison, info_paiement, (ArrayList<LignePanier>) lignes_panier.clone(), panier.getSous_total(), panier.getTps(), panier.getTvq(), panier.getTotal());
-					
-			logger.info("SUCCÈS DE LA PRÉAUTORISATION DE PAIEMENT.");
-			logger.info("CONFIRMATION ACHAT ***************************************************");
-			for(LignePanier ligne : lignes_panier) {
-				StringBuffer log = new StringBuffer();
-				log.append("Billet vendu : ");
-				log.append(ligne.getTitre());
-				log.append(" X ");
-				log.append(ligne.getQuantite());
-				log.append(" X ");
-				log.append(ligne.getPrixUnitaire());
-				log.append(" = ");
-				log.append(ligne.getPrix());
-				logger.info(log.toString());
-				ligne.vendre_billets();
-			}
-			panier.vider_panier();
-			logger.info("**********************************************************************");
 			
 			model.addAttribute("section", "None");
 			model.addAttribute("success", "success");
-			model.addAttribute("facture", facture);
-			return "panier/confirmation_achat";
+			model.addAttribute("info_livraison", info_livraison);
+			model.addAttribute("info_paiement", info_paiement);
+			return "panier/validation";
 		}
 			
 	}
