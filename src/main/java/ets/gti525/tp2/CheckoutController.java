@@ -1,7 +1,5 @@
 package ets.gti525.tp2;
 
-import java.math.BigInteger;
-import java.security.SecureRandom;
 import java.util.ArrayList;
 
 import gti525.paiement.InformationsPaiementTO;
