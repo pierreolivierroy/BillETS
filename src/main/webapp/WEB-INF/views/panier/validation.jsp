@@ -8,7 +8,6 @@
 <%
 InformationsPaiementTO info_paiement = (InformationsPaiementTO) request.getAttribute("info_paiement");
 InformationsLivraisonBean info_livraison = (InformationsLivraisonBean) request.getAttribute("info_livraison");
-String card_number = String.valueOf(info_paiement.getCard_number());
 %>
 
 <!-- page content -->
@@ -41,7 +40,7 @@ String card_number = String.valueOf(info_paiement.getCard_number());
 	       	</ul>
 	       <hr>
 	       <h5>Informations de crédit</h5>
-	       <ul><li>VISA se terminant par <% out.print(card_number.substring(card_number.length() - 4, card_number.length())); %></li></ul>
+	       <ul><li>VISA se terminant par <% out.print(String.valueOf(info_paiement.getCard_number()).substring(String.valueOf(info_paiement.getCard_number()).length() - 4, String.valueOf(info_paiement.getCard_number()).length())); %></li></ul>
 	
 	       <hr>
 	       <h5>Grand total:</h5>

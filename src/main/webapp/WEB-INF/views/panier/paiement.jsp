@@ -72,7 +72,7 @@ InformationsLivraisonBean info_livraison = (InformationsLivraisonBean) request.g
 				<!-- javascript validation -->
 				<script src="${pageContext.request.contextPath}/resources/js/parsley.min.js"></script>
 				
-				<form data-parsley-validate id="user_input_form" method="post" action="${pageContext.request.contextPath}/panier/pre_autorisation">
+				<form data-parsley-validate accept-charset="UTF-8" id="user_input_form" method="post" action="${pageContext.request.contextPath}/panier/pre_autorisation">
 					<div class="col-lg-8">
 						<div class="panel panel-default">
 							<div class="panel-heading"><h4>Informations de paiement</h4></div>

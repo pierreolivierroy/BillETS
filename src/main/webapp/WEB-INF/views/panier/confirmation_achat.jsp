@@ -5,7 +5,6 @@
 <jsp:include page="../layout/header.jsp" />
 <%
 Facture facture = (Facture)request.getAttribute("facture");
-String card_number = String.valueOf(facture.getInfo_paiement().getCard_number());
 %>
 
 <!-- page content -->
@@ -39,7 +38,7 @@ String card_number = String.valueOf(facture.getInfo_paiement().getCard_number())
 	        	  	</a>
 					<a href="#" class="list-group-item">
 				  		<h4>Informations de crédit</h4>
-		        		<p>VISA se terminant par <% out.print(card_number.substring(card_number.length() - 4, card_number.length())); %></p>
+		        		<p>VISA se terminant par ${facture.getCarteDeCredit()}</p>
 				  	</a>
 				  	<a href="#" class="list-group-item">
 					  	<h4>Billets</h4>

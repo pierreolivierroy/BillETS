@@ -57,8 +57,12 @@ public class CheckoutController {
 		info_livraison.setProvince((String) parameters.getFirst("state"));
 		info_livraison.setVille((String) parameters.getFirst("city"));
 			
-		Facture facture = new Facture(info_livraison, info_paiement, (ArrayList<LignePanier>) lignes_panier.clone(), panier.getSous_total(), panier.getTps(), panier.getTvq(), panier.getTotal());		
-		logger.info("CONFIRMATION ACHAT ***************************************************");
+		String cc = String.valueOf(info_paiement.getCard_number());
+		Facture facture = new Facture(info_livraison, info_paiement, (ArrayList<LignePanier>) lignes_panier.clone(),
+				panier.getSous_total(), panier.getTps(), panier.getTvq(), panier.getTotal(), 
+				cc.substring(cc.length() - 4, cc.length()));		
+		
+		logger.info("CONFIRMATION ACHAT ***************************************************");		
 		for(LignePanier ligne : lignes_panier) {
 			StringBuffer log = new StringBuffer();
 			log.append("Billet vendu : ");
@@ -130,6 +134,7 @@ public class CheckoutController {
 		 */
 		else {
 			logger.info("GRAND SUCCÈS : PRÉAUTORISATION DU PAIEMENT.");
+			System.out.println(info_livraison.getVille());
 			model.addAttribute("section", "None");
 			model.addAttribute("success", "success");
 			model.addAttribute("info_livraison", info_livraison);

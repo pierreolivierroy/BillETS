@@ -19,8 +19,9 @@ public class Facture {
 	private BigDecimal tvq;
 	private BigDecimal total;
 	private String numeroFacture;
+	private String carteDeCredit;
 	
-	public Facture(InformationsLivraisonBean info_livraison, InformationsPaiementTO info_paiement, ArrayList<LignePanier> lignesPanier, BigDecimal sous_total, BigDecimal tps, BigDecimal tvq, BigDecimal total) {
+	public Facture(InformationsLivraisonBean info_livraison, InformationsPaiementTO info_paiement, ArrayList<LignePanier> lignesPanier, BigDecimal sous_total, BigDecimal tps, BigDecimal tvq, BigDecimal total, String carteDeCredit) {
 		super();
 		this.info_livraison = info_livraison;
 		this.info_paiement = info_paiement;
@@ -31,6 +32,15 @@ public class Facture {
 		this.total = total;
 		this.date = new Date();
 		this.numeroFacture = genererNumeroFacture(16);
+		this.carteDeCredit = carteDeCredit;
+	}
+
+	public String getCarteDeCredit() {
+		return carteDeCredit;
+	}
+
+	public void setCarteDeCredit(String carteDeCredit) {
+		this.carteDeCredit = carteDeCredit;
 	}
 
 	public String getNumeroFacture() {
