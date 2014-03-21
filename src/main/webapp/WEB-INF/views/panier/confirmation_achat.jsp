@@ -6,7 +6,6 @@
 <%
 Facture facture = (Facture)request.getAttribute("facture");
 String card_number = String.valueOf(facture.getInfo_paiement().getCard_number());
-String no_facture = String.valueOf(request.getAttribute("no_facture"));
 %>
 
 <!-- page content -->
@@ -27,7 +26,7 @@ String no_facture = String.valueOf(request.getAttribute("no_facture"));
 		       <h2>Détails de la vente</h2>
 		       
 				<div class="list-group">
-				  	<a href="#" class="list-group-item"><h4>Numéro de facture</h4>${no_facture}</a>
+				  	<a href="#" class="list-group-item"><h4>Numéro de facture</h4>${facture.getNumeroFacture()}</a>
 				  	<a href="#" class="list-group-item"><h4>Date</h4>${facture.getDate()}</a>
 				  	<a href="#" class="list-group-item">
 				  		<h4>Addresse de livraison</h4>

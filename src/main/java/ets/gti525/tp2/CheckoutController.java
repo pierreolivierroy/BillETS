@@ -74,16 +74,7 @@ public class CheckoutController {
 		}
 		panier.vider_panier();
 		logger.info("**********************************************************************");
-				
-		//Numéro de facture aléatoire
-		StringBuffer buffer = new StringBuffer();
-		String c = "0123456789";
-		for (int i = 0; i < 16; i++) {
-			double index = Math.random() * c.length();
-			buffer.append(c.charAt((int) index));
-		}	
-		
-		model.addAttribute("no_facture", buffer.toString());		
+						
 		model.addAttribute("section", "None");
 		model.addAttribute("facture", facture);
 		return "panier/confirmation_achat";

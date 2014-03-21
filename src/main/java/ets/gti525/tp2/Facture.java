@@ -18,6 +18,7 @@ public class Facture {
 	private BigDecimal tps;
 	private BigDecimal tvq;
 	private BigDecimal total;
+	private String numeroFacture;
 	
 	public Facture(InformationsLivraisonBean info_livraison, InformationsPaiementTO info_paiement, ArrayList<LignePanier> lignesPanier, BigDecimal sous_total, BigDecimal tps, BigDecimal tvq, BigDecimal total) {
 		super();
@@ -29,8 +30,29 @@ public class Facture {
 		this.tvq = tvq;
 		this.total = total;
 		this.date = new Date();
+		this.numeroFacture = genererNumeroFacture(16);
 	}
 
+	public String getNumeroFacture() {
+		return numeroFacture;
+	}
+
+	public void setNumeroFacture(String numeroFacture) {
+		this.numeroFacture = numeroFacture;
+	}
+
+	private String genererNumeroFacture(int size) {
+		//Numéro de facture aléatoire
+		StringBuffer buffer = new StringBuffer();
+		String c = "0123456789";
+		for (int i = 0; i < size; i++) {
+			double index = Math.random() * c.length();
+			buffer.append(c.charAt((int) index));
+		}	
+		
+		return buffer.toString();
+	}
+	
 	public int getId() {
 		return id;
 	}
