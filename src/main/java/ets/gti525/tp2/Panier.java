@@ -3,6 +3,7 @@ package ets.gti525.tp2;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Panier {
 	private ArrayList<LignePanier> lignesPanier = new ArrayList<LignePanier>();
@@ -44,6 +45,7 @@ public class Panier {
 	public void enleverLigne(int id_ligne) {
 		for (int i = 0; i < lignesPanier.size(); i++) {
 			if(lignesPanier.get(i).getId() == id_ligne) {
+				lignesPanier.get(i).libererBillets();
 				lignesPanier.remove(i);
 			}
 	    }
@@ -68,6 +70,34 @@ public class Panier {
 	
 	public void vider_panier() {
 		lignesPanier.clear();
+	}
+	
+	/**
+	 * Libère les billets dont le temps restant est 0
+	 */
+	public void libererBillets() {
+		Iterator<LignePanier> it = this.lignesPanier.iterator();
+		while(it.hasNext()) {
+			LignePanier l = it.next();
+			if (l.tempsRestantAvantLiberation() <= 0) {
+				l.libererBillets();
+				it.remove();
+			} 
+		}
+	}
+
+	/**
+	 * Après une certaine période d'inactivité
+	 * on libère tous les billets réservés et on supprime
+	 * toutes les lignes du panier
+	 */
+	public void clear() {
+		Iterator<LignePanier> it = this.lignesPanier.iterator();
+		while(it.hasNext()) {
+			LignePanier l = it.next();
+			l.libererBillets();
+			it.remove();
+		}
 	}
 
 }

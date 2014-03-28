@@ -1,7 +1,6 @@
 package ets.gti525.tp2;
 
 import java.io.IOException;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -40,22 +39,10 @@ public class FiltreLibererBillets implements Filter {
 		HttpSession session = ((HttpServletRequest) request).getSession();
 		Panier panier = (Panier) session.getAttribute("panier");
 		
-		// Si le panier existe
-		if (panier != null)
+		// Si le panier existe et si il y a quelque chose dans le panier
+		if (panier != null && panier.getLignesPanier().size() > 0)
 		{
-			// Si il y a quelque chose dans le panier
-			if (panier.getLignesPanier().size() > 0)
-			{
-				// Pour chaque ligne du panier
-				for (LignePanier l : panier.getLignesPanier())
-				{
-					if (l.tempsRestantAvantLiberation() <= 0) {
-						l.libererBillets();
-						panier.enleverLigne(l.getId());
-					}
-					
-				}
-			}
+			panier.libererBillets();
 		}
 		
 		// pass the request along the filter chain

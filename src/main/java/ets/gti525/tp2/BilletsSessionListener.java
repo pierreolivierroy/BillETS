@@ -32,16 +32,8 @@ public class BilletsSessionListener implements HttpSessionListener {
 		// Si le panier existe
 		if (panier != null)
 		{
-			// Si il y a quelque chose dans le panier
-			if (panier.getLignesPanier().size() > 0)
-			{
-				// Pour chaque ligne du panier
-				for (LignePanier l : panier.getLignesPanier())
-				{
-					l.libererBillets();
-					panier.enleverLigne(l.getId());
-				}
-			}
+			// Si il reste des articles dans le panier, on libère tout
+			if (panier.getLignesPanier().size() > 0) panier.clear();
 		}
 		
 		StringBuffer log = new StringBuffer();

@@ -22,14 +22,14 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
     </init-param>
-    <load-on-startup>1</load-on-startup>
+    <load-on-startup>10</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>appServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
   <session-config>
-    <session-timeout>10</session-timeout>
+    <session-timeout>1</session-timeout>
   </session-config>
   <listener>
     <listener-class>ets.gti525.tp2.BilletsSessionListener</listener-class>

@@ -55,7 +55,6 @@ public class LignePanier {
 	{
 		// Nombre de minutes avant la libération d'un billet
 		Billet billet = (Billet) billets.values().iterator().next();
-		
 		// Conversion de milisecondes en minutes
 		return 20 - (new Date().getTime() - billet.getDateReserve().getTime()) / (60 * 1000) % 60;
 	}
