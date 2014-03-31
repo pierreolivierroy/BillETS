@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 
 import org.apache.http.HttpException;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -62,6 +63,14 @@ public final class HTTPHelper {
 
     	StringEntity userEntity = new StringEntity(payload);
     	request.setEntity(userEntity);
+    	
+    	return httpClient.execute(request);
+    }
+    public HttpResponse doGet(String hostname) throws HttpException, IOException, URISyntaxException
+    {
+    	DefaultHttpClient httpClient = new DefaultHttpClient();
+    	HttpGet request = new HttpGet(hostname);
+    	request.addHeader("content-type", "application/json");
     	
     	return httpClient.execute(request);
     }

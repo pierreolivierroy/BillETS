@@ -128,7 +128,7 @@ public class CheckoutController {
 		info_livraison.setNom((String) parameters.getFirst("customer_name"));
 		info_livraison.setProvince((String) parameters.getFirst("state"));
 		info_livraison.setVille((String) parameters.getFirst("city"));
-				
+
 		//check pre-autorisation
 		ReponseSystemePaiementTO reponse = pre_autorisation.effectuerPreauthorisation(info_paiement);
 		session.setAttribute("reponse_api", reponse);

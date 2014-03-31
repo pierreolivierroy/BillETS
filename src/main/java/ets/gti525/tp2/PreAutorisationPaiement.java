@@ -15,6 +15,7 @@ import org.apache.http.util.EntityUtils;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import gti525.paiement.IPaiementDAO;
 import gti525.paiement.InformationsPaiementTO;
@@ -49,7 +50,7 @@ public class PreAutorisationPaiement implements IPaiementDAO{
 		String api_response = null;
 		
 		try {
-			HttpResponse res = HTTPHelper.getInstance().doPost(url + "transactions.json", gson.toJson(info_authorisation));
+			HttpResponse res = HTTPHelper.getInstance().doGet(url + "transactions/" + info_authorisation.getTransaction_id() + ".json?api_key=" + info_authorisation.getApi_key() + "&store_id=" + info_authorisation.getStore_id() + "&transaction_id=" + info_authorisation.getTransaction_id());
 			api_response = EntityUtils.toString(res.getEntity());
 			System.out.println(api_response);
 		} catch (HttpException e) {
@@ -63,8 +64,11 @@ public class PreAutorisationPaiement implements IPaiementDAO{
 			e.printStackTrace();
 		}
 		
-		// TODO Auto-generated method stub
-		return gson.fromJson(api_response, ReponseSystemePaiementTO.class);
+		JsonParser parser = new JsonParser();
+		JsonObject jsobj = (JsonObject)parser.parse(api_response);
+		JsonElement order = (JsonElement) jsobj.get("order");
+
+		return gson.fromJson(order,ReponseSystemePaiementTO.class);
 	}
 
 	@Override
@@ -104,9 +108,20 @@ public class PreAutorisationPaiement implements IPaiementDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		// TODO: Supprimer le root element, parce que le parsing marche pas.
-		return gson.fromJson(api_response, ReponseSystemePaiementTO.class);
+		
+		JsonParser parser = new JsonParser();
+		JsonObject jsobj = (JsonObject)parser.parse(api_response);
+		JsonObject order = (JsonObject) jsobj.get("order");
+		
+		// Puisque l'API n'est pas consitent et qu'il utilise transactionId au lieu de transaction_id, nous devons créer la classe de nouveau.	
+		ReponseSystemePaiementTO returnValue = new ReponseSystemePaiementTO();
+		
+		returnValue.setCode(order.get("code").getAsInt());
+		returnValue.setMessage(order.get("messages").getAsString());
+		returnValue.setTransactionId(order.get("transaction_id").getAsInt());
+		returnValue.setStatus(order.get("status").getAsString());
+		
+		return returnValue;
 	}
 
 }
