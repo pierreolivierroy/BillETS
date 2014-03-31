@@ -5,7 +5,11 @@
 <%@ page session="true" %>
 
 <%
-String section = (String)request.getAttribute("section");
+	String section = "none";
+	if((String)request.getAttribute("section") != null) {
+		 section = (String)request.getAttribute("section");	
+	}
+	
 %>
     
 <!DOCTYPE html>
