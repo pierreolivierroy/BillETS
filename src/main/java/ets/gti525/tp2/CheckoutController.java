@@ -99,7 +99,9 @@ public class CheckoutController {
 			}
 			panier.vider_panier();
 			logger.info("**********************************************************************");
-							
+						
+			session.removeAttribute("reponse_api");
+			
 			model.addAttribute("section", "None");
 			model.addAttribute("facture", facture);
 			return "panier/confirmation_achat";
