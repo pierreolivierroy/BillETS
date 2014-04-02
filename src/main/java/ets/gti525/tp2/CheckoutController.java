@@ -133,7 +133,7 @@ public class CheckoutController {
 
 		//check pre-autorisation
 		ReponseSystemePaiementTO reponse = pre_autorisation.effectuerPreauthorisation(info_paiement);
-		session.setAttribute("reponse_api", reponse);
+		
 		
 		/**
 		 * if code equal 0, the pre-authorisation failled, 
@@ -163,6 +163,7 @@ public class CheckoutController {
 			model.addAttribute("success", "success");
 			model.addAttribute("info_livraison", info_livraison);
 			model.addAttribute("info_paiement", info_paiement);
+			session.setAttribute("reponse_api", reponse);
 			return "panier/validation";
 		}
 			

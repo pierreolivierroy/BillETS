@@ -118,7 +118,9 @@ public class PreAutorisationPaiement implements IPaiementDAO{
 		
 		returnValue.setCode(order.get("code").getAsInt());
 		returnValue.setMessage(order.get("messages").getAsString());
-		returnValue.setTransactionId(order.get("transaction_id").getAsInt());
+		if (order.get("transaction_id") != null) {
+			returnValue.setTransactionId(order.get("transaction_id").getAsInt());
+		}
 		returnValue.setStatus(order.get("status").getAsString());
 		
 		return returnValue;
