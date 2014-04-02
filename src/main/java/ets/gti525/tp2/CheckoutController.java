@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import gti525.paiement.InformationsPaiementTO;
 import gti525.paiement.ReponseSystemePaiementTO;
+
 import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,10 +34,17 @@ public class CheckoutController {
 		return "panier/paiement";
 	}
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/panier/confirmation_achat", method = RequestMethod.POST)
 	public String confirmation_achat(Model model, @RequestParam MultiValueMap<String, Object> parameters, HttpSession session) {
 		
 		Panier panier = (Panier) session.getAttribute("panier");
+		
+		//check if the shopping cart is empty before processing
+		if(panier.get_line_count() <= 0) {
+			return "redirect:/panier";
+		}
+		
 		ArrayList<LignePanier> lignes_panier = panier.getLignesPanier();	
 		InformationsPaiementTO info_paiement = new InformationsPaiementTO();
 		InformationsLivraisonBean info_livraison = new InformationsLivraisonBean();
@@ -85,6 +94,12 @@ public class CheckoutController {
 	@RequestMapping(value = "/panier/pre_autorisation", method = RequestMethod.POST)
 	public String pre_authorise_paiement(Model model, @RequestParam MultiValueMap<String, Object> parameters, HttpSession session) {
 		Panier panier = (Panier) session.getAttribute("panier");
+		
+		//check if the shopping cart is empty before processing pre authentication
+		if(panier.get_line_count() <= 0) {
+			return "redirect:/panier";
+		}
+		
 		PreAutorisationPaiement pre_autorisation = new PreAutorisationPaiement();
 		InformationsPaiementTO info_paiement = new InformationsPaiementTO();
 		InformationsLivraisonBean info_livraison = new InformationsLivraisonBean();

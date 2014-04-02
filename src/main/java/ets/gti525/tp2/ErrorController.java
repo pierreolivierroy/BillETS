@@ -15,5 +15,10 @@ public class ErrorController {
 	public String handle500() {
 		return "error_pages/general";
 	}
+	
+	@RequestMapping(value="/errors/405.html")
+	public String handle405() {
+		return "error_pages/general";
+	}
 
 }
