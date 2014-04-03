@@ -11,6 +11,7 @@ public class Salle {
 		this.nom = nom;
 		this.adresse = adresse;
 	}
+	public Salle(){}
 	public int getId() {
 		return id;
 	}

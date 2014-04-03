@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28 mars 2014 18:11:58 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ets.gti525.tp2.Billet" table="BILLET">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="id_spectacle" type="int">
+            <column name="ID_SPECTACLE" />
+        </property>
+        <property name="id_representation" type="int">
+            <column name="ID_REPRESENTATION" />
+        </property>
+        <property name="dateReserve" type="java.util.Date">
+            <column name="DATERESERVE" />
+        </property>
+        <property name="dateVendu" type="java.util.Date">
+            <column name="DATEVENDU" />
+        </property>
+        <property name="vendu" type="boolean">
+            <column name="VENDU" />
+        </property>
+    </class>
+</hibernate-mapping>

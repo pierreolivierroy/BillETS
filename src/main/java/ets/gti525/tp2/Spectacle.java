@@ -7,7 +7,7 @@ public class Spectacle {
 	private int id;
 	private String nom;
 	private String artistes;
-	private HashMap<Integer, Representation> representations;
+	private HashMap<Integer, Representation> representations = new HashMap<Integer, Representation>();
 	private String description;
 	private String thumbnailPath;
 	private String bannerPath;
@@ -23,6 +23,12 @@ public class Spectacle {
 		this.description = description;
 		this.thumbnailPath = thumbnailPath;
 		this.bannerPath = bannerPath;
+	}
+	
+	public Spectacle(){}
+	
+	public void ajouterRepresentation(int idRepresentation, Representation representation){
+		this.representations.put(idRepresentation, representation);
 	}
 
 	public int getId() {

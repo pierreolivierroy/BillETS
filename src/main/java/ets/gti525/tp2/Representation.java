@@ -7,10 +7,12 @@ import java.util.HashMap;
 public class Representation {
 	private int id;
 	private int idSpectacle;
+	private int idSalle;
 	private Salle salle;
 	private String date;
+	private Date date2;
 	private BigDecimal prix;
-	private HashMap<Integer, Billet> billets;
+	private HashMap<Integer, Billet> billets = new HashMap<Integer, Billet>();
 	
 	public Representation(int id, int idSpectacle, Salle salle, String date, BigDecimal prix) {
 		super();
@@ -21,7 +23,29 @@ public class Representation {
 		this.prix = prix;
 		this.billets = new HashMap<Integer, Billet>();
 	}
+	public Representation(){}
 	
+	public Date getDate2() {
+		return date2;
+	}
+
+
+	public void setDate2(Date date2) {
+		this.date2 = date2;
+		this.date = date2.toString();
+	}
+
+
+	public int getIdSalle() {
+		return idSalle;
+	}
+
+
+	public void setIdSalle(int idSalle) {
+		this.idSalle = idSalle;
+	}
+
+
 	public void ajouterBillet(Billet billet)
 	{
 		billets.put(billet.getId(), billet);

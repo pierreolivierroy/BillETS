@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28 mars 2014 18:11:58 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ets.gti525.tp2.Spectacle" table="SPECTACLE">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="nom" type="java.lang.String">
+            <column name="nom" />
+        </property>
+        <property name="artistes" type="java.lang.String">
+            <column name="artistes" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description" />
+        </property>
+        <property name="thumbnailPath" type="java.lang.String">
+            <column name="thumbnailpath" />
+        </property>
+        <property name="bannerPath" type="java.lang.String">
+            <column name="bannerpath" />
+        </property>
+    </class>
+</hibernate-mapping>

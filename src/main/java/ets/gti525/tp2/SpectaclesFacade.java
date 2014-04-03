@@ -12,7 +12,9 @@ public class SpectaclesFacade {
     // mais pas encore "réellement" instancié.
     // De Java version 1.2 à 1.4, il est possible d'utiliser la classe ThreadLocal.
 	private static volatile SpectaclesFacade instance = null;
+	
     private SpectacleDAOXML spectacleDAO = new SpectacleDAOXML();
+//    private SpectacleDAOPostgre spectacleDAO = new SpectacleDAOPostgre();
     
     private SpectaclesFacade() {
         // La présence d'un constructeur privé supprime le constructeur public par défaut.

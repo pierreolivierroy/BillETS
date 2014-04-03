@@ -1,0 +1,21 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 
+<bean 
+class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<property name="location">
+		<value>properties/database.properties</value>
+	</property>
+</bean>
+ 
+<bean id="dataSource" 
+         class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="org.postgresql.Driver" />
+	<property name="url" value="jdbc:postgresql://ec2-107-20-191-205.compute-1.amazonaws.com:5432/d114utpnmcs7r3?sslfactory=org.postgresql.ssl.NonValidatingFactory&amp;ssl=true" />
+	<property name="username" value="clyxkexqphiyun" />
+	<property name="password" value="uBt83wM1TRWqBXcIyFVVmY53AL" />
+</bean>
+ 
+</beans>
