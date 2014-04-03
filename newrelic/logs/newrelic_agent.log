@@ -1,0 +1,19 @@
+avr. 2, 2014 22:42:57 -0400 [84791 1] com.newrelic INFO: Writing to New Relic log file: /Users/bourgeois/workspace/gti525-tp2/newrelic/logs/newrelic_agent.log
+avr. 2, 2014 22:42:57 -0400 [84791 1] com.newrelic INFO: Agent Host: mba.local IP: 10.44.1.60
+avr. 2, 2014 22:43:03 -0400 [84791 1] com.newrelic.agent.RPMServiceManagerImpl INFO: Configured to connect to New Relic at collector.newrelic.com:443
+avr. 2, 2014 22:43:03 -0400 [84791 1] com.newrelic INFO: Setting audit_mode to false
+avr. 2, 2014 22:43:03 -0400 [84791 1] com.newrelic INFO: Setting protocol to "https"
+avr. 2, 2014 22:43:03 -0400 [84791 1] com.newrelic.agent.config.ConfigServiceImpl INFO: Configuration file is /Users/bourgeois/workspace/gti525-tp2/newrelic/./newrelic.yml
+avr. 2, 2014 22:43:04 -0400 [84791 1] com.newrelic INFO: New Relic Agent v3.5.1 has started
+avr. 2, 2014 22:43:04 -0400 [84791 1] com.newrelic INFO: Java version: 1.6.0_65
+avr. 2, 2014 22:43:04 -0400 [84791 1] com.newrelic INFO: Agent class loader: sun.misc.Launcher$AppClassLoader@43be2d65
+avr. 2, 2014 22:43:05 -0400 [84791 1] com.newrelic INFO: Server Info: Apache Tomcat/7.0.34
+avr. 2, 2014 22:43:19 -0400 [84791 16] com.newrelic INFO: Collector redirection to collector-135.newrelic.com:443
+avr. 2, 2014 22:43:20 -0400 [84791 16] com.newrelic INFO: Agent run id: 466644890
+avr. 2, 2014 22:43:20 -0400 [84791 16] com.newrelic INFO: Agent 84791@mba.local/My Application connected to collector.newrelic.com:443
+avr. 2, 2014 22:43:20 -0400 [84791 16] com.newrelic INFO: Reporting to: https://rpm.newrelic.com/accounts/645722/applications/3801968
+avr. 2, 2014 22:43:20 -0400 [84791 16] com.newrelic INFO: Using RUM version 372 for application "My Application"
+avr. 2, 2014 22:43:20 -0400 [84791 16] com.newrelic INFO: Real user monitoring is enabled with auto instrumentation for application "My Application"
+avr. 2, 2014 22:44:50 -0400 [84791 40] com.newrelic INFO: Re-reading New Relic configuration file
+avr. 2, 2014 22:45:23 -0400 [84791 7] com.newrelic.agent.Agent INFO: JVM is shutting down
+avr. 2, 2014 22:45:24 -0400 [84791 7] com.newrelic.agent.Agent INFO: New Relic Agent has shutdown
