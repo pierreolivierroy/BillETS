@@ -5,6 +5,10 @@
     <param-value>/WEB-INF/spring/root-context.xml</param-value>
   </context-param>
   <context-param>
+	<param-name>log4jExposeWebAppRoot</param-name>
+	<param-value>/</param-value>
+  </context-param>
+  <context-param>
     <param-name>log4jConfigLocation</param-name>
     <param-value>/WEB-INF/resources/log4j.properties</param-value>
   </context-param>
