@@ -182,10 +182,6 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/GTI525-paiement.jar</systemPath>
 		</dependency>
-<<<<<<< HEAD
-		
-        
-=======
 		<!-- GSON pour le parser de JSON -->
         <dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -198,8 +194,7 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.0-alpha4</version>
 		</dependency>
-            
->>>>>>> api_paiement
+
 	</dependencies>
     <build>
         <plugins>
