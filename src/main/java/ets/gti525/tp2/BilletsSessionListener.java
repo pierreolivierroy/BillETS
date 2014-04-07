@@ -20,6 +20,7 @@ public class BilletsSessionListener implements HttpSessionListener {
 		log.append("Nouvelle session créée : # ");
 		log.append(se.getSession().getId());
 		logger.info(log.toString());
+		
 	}
 
 	@Override

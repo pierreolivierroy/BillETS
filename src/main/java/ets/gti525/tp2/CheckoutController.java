@@ -1,9 +1,13 @@
 package ets.gti525.tp2;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import gti525.paiement.InformationsPaiementTO;
 import gti525.paiement.ReponseSystemePaiementTO;
+import gti525.paiement.RequeteAuthorisationTO;
 
 import javax.servlet.http.HttpSession;
 
@@ -82,13 +86,73 @@ public class CheckoutController {
 			log.append(ligne.getPrix());
 			logger.info(log.toString());
 			ligne.vendre_billets();
+
+		if (session.getAttribute("reponse_api") == null)
+		{
+			return "redirect:/";
+
 		}
-		panier.vider_panier();
-		logger.info("**********************************************************************");
+		else
+		{
+			Panier panier = (Panier) session.getAttribute("panier");
+			ArrayList<LignePanier> lignes_panier = panier.getLignesPanier();	
+			InformationsPaiementTO info_paiement = new InformationsPaiementTO();
+			InformationsLivraisonBean info_livraison = new InformationsLivraisonBean();
+			
+			
+			
+			info_paiement.setAmount(panier.getTotal());
+			info_paiement.setCard_number(Long.valueOf((String) parameters.getFirst("card_number")));
+			info_paiement.setFirst_name( (String) parameters.getFirst("card_firstname"));
+			info_paiement.setLast_name((String) parameters.getFirst("card_lastname"));
+			info_paiement.setMonth(Integer.parseInt((String) parameters.getFirst("expiry_month")));
+			info_paiement.setYear(Integer.parseInt((String) parameters.getFirst("expiry_year")));
+			info_paiement.setSecurity_code(Integer.parseInt((String) parameters.getFirst("card_cvv")));
+			
+			info_livraison.setAdresse((String) parameters.getFirst("address"));
+			info_livraison.setCode_postal((String) parameters.getFirst("zip"));
+			info_livraison.setNom((String) parameters.getFirst("customer_name"));
+			info_livraison.setProvince((String) parameters.getFirst("state"));
+			info_livraison.setVille((String) parameters.getFirst("city"));
+				
+			String cc = String.valueOf(info_paiement.getCard_number());
+			Facture facture = new Facture(info_livraison, info_paiement, (ArrayList<LignePanier>) lignes_panier.clone(),
+					panier.getSous_total(), panier.getTps(), panier.getTvq(), panier.getTotal(), 
+					cc.substring(cc.length() - 4, cc.length()));	
+			
+			
+			// Web service pour la confirmation de l'achat
+			ReponseSystemePaiementTO reponse = (ReponseSystemePaiementTO)session.getAttribute("reponse_api");
+			RequeteAuthorisationTO requete_to = new RequeteAuthorisationTO();
+			PreAutorisationPaiement pre_autorisation = new PreAutorisationPaiement();
+
+			requete_to.setTransaction_id(reponse.getTransactionId());
+			pre_autorisation.approuverTransaction(requete_to);
+			
+			
+			logger.info("CONFIRMATION ACHAT ***************************************************");		
+			for(LignePanier ligne : lignes_panier) {
+				StringBuffer log = new StringBuffer();
+				log.append("Billet vendu : ");
+				log.append(ligne.getTitre());
+				log.append(" X ");
+				log.append(ligne.getQuantite());
+				log.append(" X ");
+				log.append(ligne.getPrixUnitaire());
+				log.append(" = ");
+				log.append(ligne.getPrix());
+				logger.info(log.toString());
+				ligne.vendre_billets();
+			}
+			panier.vider_panier();
+			logger.info("**********************************************************************");
 						
-		model.addAttribute("section", "None");
-		model.addAttribute("facture", facture);
-		return "panier/confirmation_achat";
+			session.removeAttribute("reponse_api");
+			
+			model.addAttribute("section", "None");
+			model.addAttribute("facture", facture);
+			return "panier/confirmation_achat";
+		}
 	}
 	
 	@RequestMapping(value = "/panier/pre_autorisation", method = RequestMethod.POST)
@@ -106,7 +170,6 @@ public class CheckoutController {
 		
 		//set the credit information
 		info_paiement.setAmount(panier.getTotal());
-		info_paiement.setApi_key("billets");
 		info_paiement.setCard_number(Long.valueOf((String) parameters.getFirst("card_number")));
 		info_paiement.setFirst_name( (String) parameters.getFirst("card_firstname"));
 		info_paiement.setLast_name((String) parameters.getFirst("card_lastname"));
@@ -120,16 +183,17 @@ public class CheckoutController {
 		info_livraison.setNom((String) parameters.getFirst("customer_name"));
 		info_livraison.setProvince((String) parameters.getFirst("state"));
 		info_livraison.setVille((String) parameters.getFirst("city"));
-				
+
 		//check pre-autorisation
 		ReponseSystemePaiementTO reponse = pre_autorisation.effectuerPreauthorisation(info_paiement);
-			
+		
+		
 		/**
 		 * if code equal 0, the pre-authorisation failled, 
 		 * the user is redirected to the payment input form
 		 * to make some changes
 		 */
-		if(reponse.getCode() == 0) {
+		if(reponse.getCode() != 10200) {
 			//add attribute error "échec de préauthorisation du paiement"
 			logger.info("ÉCHEC DE PRÉAUTORISATION DU PAIEMENT.");
 			
@@ -152,6 +216,7 @@ public class CheckoutController {
 			model.addAttribute("success", "success");
 			model.addAttribute("info_livraison", info_livraison);
 			model.addAttribute("info_paiement", info_paiement);
+			session.setAttribute("reponse_api", reponse);
 			return "panier/validation";
 		}
 			
