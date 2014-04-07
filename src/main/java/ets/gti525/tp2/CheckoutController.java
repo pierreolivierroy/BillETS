@@ -42,51 +42,6 @@ public class CheckoutController {
 	@RequestMapping(value = "/panier/confirmation_achat", method = RequestMethod.POST)
 	public String confirmation_achat(Model model, @RequestParam MultiValueMap<String, Object> parameters, HttpSession session) {
 		
-		Panier panier = (Panier) session.getAttribute("panier");
-		
-		//check if the shopping cart is empty before processing
-		if(panier.get_line_count() <= 0) {
-			return "redirect:/panier";
-		}
-		
-		ArrayList<LignePanier> lignes_panier = panier.getLignesPanier();	
-		InformationsPaiementTO info_paiement = new InformationsPaiementTO();
-		InformationsLivraisonBean info_livraison = new InformationsLivraisonBean();
-		
-		info_paiement.setAmount(panier.getTotal());
-		info_paiement.setApi_key("billets");
-		info_paiement.setCard_number(Long.valueOf((String) parameters.getFirst("card_number")));
-		info_paiement.setFirst_name( (String) parameters.getFirst("card_firstname"));
-		info_paiement.setLast_name((String) parameters.getFirst("card_lastname"));
-		info_paiement.setMonth(Integer.parseInt((String) parameters.getFirst("expiry_month")));
-		info_paiement.setYear(Integer.parseInt((String) parameters.getFirst("expiry_year")));
-		info_paiement.setSecurity_code(Integer.parseInt((String) parameters.getFirst("card_cvv")));
-		
-		info_livraison.setAdresse((String) parameters.getFirst("address"));
-		info_livraison.setCode_postal((String) parameters.getFirst("zip"));
-		info_livraison.setNom((String) parameters.getFirst("customer_name"));
-		info_livraison.setProvince((String) parameters.getFirst("state"));
-		info_livraison.setVille((String) parameters.getFirst("city"));
-			
-		String cc = String.valueOf(info_paiement.getCard_number());
-		Facture facture = new Facture(info_livraison, info_paiement, (ArrayList<LignePanier>) lignes_panier.clone(),
-				panier.getSous_total(), panier.getTps(), panier.getTvq(), panier.getTotal(), 
-				cc.substring(cc.length() - 4, cc.length()));		
-		
-		logger.info("CONFIRMATION ACHAT ***************************************************");		
-		for(LignePanier ligne : lignes_panier) {
-			StringBuffer log = new StringBuffer();
-			log.append("Billet vendu : ");
-			log.append(ligne.getTitre());
-			log.append(" X ");
-			log.append(ligne.getQuantite());
-			log.append(" X ");
-			log.append(ligne.getPrixUnitaire());
-			log.append(" = ");
-			log.append(ligne.getPrix());
-			logger.info(log.toString());
-			ligne.vendre_billets();
-
 		if (session.getAttribute("reponse_api") == null)
 		{
 			return "redirect:/";
